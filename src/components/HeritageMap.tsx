@@ -3,6 +3,7 @@ import { MapPin, Compass, Clock, AlertTriangle } from 'lucide-react';
 import { useStore } from '../store/store';
 import { heritageService } from '../services/heritageService';
 import { mapService } from '../services/mapService';
+import { routingService } from '../services/routingService';
 import { Monument } from '../types';
 
 interface HeritageMapProps {
@@ -35,6 +36,7 @@ export const HeritageMap: React.FC<HeritageMapProps> = ({
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasMapError, setHasMapError] = useState(false);
   const [activeMonument, setActiveMonument] = useState<Monument | null>(null);
+  const [internalRoute, setInternalRoute] = useState<any>(null);
 
   const allMonuments = Object.values(heritageService.getMonuments());
 
@@ -252,6 +254,39 @@ export const HeritageMap: React.FC<HeritageMapProps> = ({
     }
   }, [selectedMonumentId, isLoaded]);
 
+  // 3c. Calculate route internally when selectedMonumentId changes on Discovery Map
+  useEffect(() => {
+    if (routeGeometry) {
+      setInternalRoute(routeGeometry);
+      return;
+    }
+
+    if (!selectedMonumentId || !userLocation) {
+      setInternalRoute(null);
+      return;
+    }
+
+    const mon = heritageService.getMonumentById(selectedMonumentId);
+    if (!mon) {
+      setInternalRoute(null);
+      return;
+    }
+
+    const fetchRoute = async () => {
+      try {
+        const origin = { lat: userLocation.latitude, lng: userLocation.longitude };
+        const dest = { lat: mon.location.lat, lng: mon.location.lng };
+        const routeData = await routingService.getWalkingRoute(origin, dest, 'foot-walking');
+        setInternalRoute(routeData.geometry);
+      } catch (err) {
+        console.warn('Failed to calculate route on discovery map:', err);
+        setInternalRoute(null);
+      }
+    };
+
+    fetchRoute();
+  }, [selectedMonumentId, userLocation, routeGeometry]);
+
   // 4. Drawing Directions Polyline
   useEffect(() => {
     const map = mapRef.current;
@@ -262,8 +297,8 @@ export const HeritageMap: React.FC<HeritageMapProps> = ({
       polylineRef.current = null;
     }
 
-    if (routeGeometry && routeGeometry.coordinates) {
-      const path = routeGeometry.coordinates.map((coord: [number, number]) => ({
+    if (internalRoute && internalRoute.coordinates) {
+      const path = internalRoute.coordinates.map((coord: [number, number]) => ({
         lat: coord[1],
         lng: coord[0]
       }));
@@ -287,7 +322,7 @@ export const HeritageMap: React.FC<HeritageMapProps> = ({
       }
       map.fitBounds(routeBounds, { top: 60, bottom: 60, left: 60, right: 60 });
     }
-  }, [routeGeometry, isLoaded, userLocation]);
+  }, [internalRoute, isLoaded, userLocation]);
 
   // Distance / Time Helper
   const getDistanceAndDuration = (mon: Monument) => {

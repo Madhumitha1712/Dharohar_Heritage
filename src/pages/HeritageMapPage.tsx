@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { heritageService } from '../services/heritageService';
 import { Language } from '../types';
 import { HeritageMap } from '../components/HeritageMap';
+import { useStore } from '../store/store';
 import { 
   MapPin, 
   Compass, 
@@ -24,6 +25,26 @@ export const HeritageMapPage: React.FC<HeritageMapPageProps> = ({
   const [activeRegion, setActiveRegion] = useState<string>('tamil-nadu');
   const [activePin, setActivePin] = useState<string>('shore-temple');
   const [searchQuery, setSearchQuery] = useState('');
+
+  const userLocation = useStore((state) => state.userLocation);
+  const setUserLocation = useStore((state) => state.setUserLocation);
+
+  // Request user location on page mount to enable real-time routing on Heritage Map
+  useEffect(() => {
+    if (!userLocation && navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          });
+        },
+        (error) => {
+          console.warn('Geolocation permission not granted or failed:', error);
+        }
+      );
+    }
+  }, [userLocation, setUserLocation]);
 
   const monuments = heritageService.getMonuments();
   const selectedMonument = monuments[activePin] || monuments['shore-temple'];
