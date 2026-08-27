@@ -75,7 +75,7 @@ export const TravellerNavigationPage: React.FC<TravellerNavigationPageProps> = (
     }
   };
 
-  // geocoding search for starting location
+  // Autocomplete search for starting location using Google Places API
   const handleSearchStartingLocation = async () => {
     if (!searchLocationQuery.trim()) return;
     setIsLoading(true);
@@ -83,32 +83,49 @@ export const TravellerNavigationPage: React.FC<TravellerNavigationPageProps> = (
 
     try {
       await mapService.loadGoogleMaps();
-      const geocoder = new window.google.maps.Geocoder();
+      const autocompleteService = new window.google.maps.places.AutocompleteService();
       
-      geocoder.geocode({ address: searchLocationQuery }, (results, status) => {
+      autocompleteService.getPlacePredictions({ input: searchLocationQuery }, (predictions, status) => {
         setIsLoading(false);
-        if (status === 'OK' && results && results.length > 0) {
-          setSearchResults(results);
+        if (status === 'OK' && predictions) {
+          setSearchResults(predictions);
         } else {
-          setErrorMsg(`Geocoding search failed: ${status}. Please ensure a valid VITE_GOOGLE_MAPS_API_KEY is configured in your .env file.`);
+          setErrorMsg(`Places Autocomplete failed: ${status}. Please ensure the Places API is enabled and your VITE_GOOGLE_MAPS_API_KEY is configured.`);
         }
       });
     } catch (err: any) {
       console.error(err);
       setIsLoading(false);
-      setErrorMsg(`Failed to load search service: ${err.message || err}. Please ensure a valid VITE_GOOGLE_MAPS_API_KEY is configured.`);
+      setErrorMsg(`Failed to load Places Autocomplete: ${err.message || err}.`);
     }
   };
 
-  const handleSelectSearchResult = (result: any) => {
-    const loc = result.geometry.location;
-    setConfirmedOrigin({
-      latitude: loc.lat(),
-      longitude: loc.lng(),
-      name: result.formatted_address
-    });
-    setSearchResults([]);
-    setIsOriginConfirmed(true);
+  const handleSelectSearchResult = async (prediction: any) => {
+    setIsLoading(true);
+    setErrorMsg(null);
+    try {
+      await mapService.loadGoogleMaps();
+      const geocoder = new window.google.maps.Geocoder();
+      geocoder.geocode({ placeId: prediction.place_id }, (results, status) => {
+        setIsLoading(false);
+        if (status === 'OK' && results && results[0]) {
+          const loc = results[0].geometry.location;
+          setConfirmedOrigin({
+            latitude: loc.lat(),
+            longitude: loc.lng(),
+            name: prediction.description
+          });
+          setSearchResults([]);
+          setIsOriginConfirmed(true);
+        } else {
+          setErrorMsg(`Geocoding place failed: ${status}.`);
+        }
+      });
+    } catch (err: any) {
+      console.error(err);
+      setIsLoading(false);
+      setErrorMsg(`Failed to geocode selected place: ${err.message || err}.`);
+    }
   };
 
   // Trigger routing calculations
@@ -273,7 +290,7 @@ export const TravellerNavigationPage: React.FC<TravellerNavigationPageProps> = (
                       onClick={() => handleSelectSearchResult(res)}
                       className="w-full px-3 py-2.5 text-left text-[#F3EBDD]/90 hover:bg-[#2B2118] transition-colors"
                     >
-                      {res.formatted_address}
+                      {res.description}
                     </button>
                   ))}
                 </div>
