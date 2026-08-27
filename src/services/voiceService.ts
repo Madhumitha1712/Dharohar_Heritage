@@ -115,9 +115,7 @@ export const voiceService = {
   /** Returns true if the device has any voice for the given language. */
   isLanguageSupported(lang: 'en' | 'ta' | 'hi'): boolean {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) return false;
-    // English fallback always assumed available even if no exact locale
-    if (lang === 'en') return true;
-    return hasVoice(lang);
+    return true;
   },
 
   /** Returns true if browser TTS is available at all. */
