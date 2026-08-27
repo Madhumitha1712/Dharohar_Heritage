@@ -34,6 +34,7 @@ export interface Monument {
   };
   heroImage: string;
   galleryImages: string[];
+  imageGallery?: GalleryImage[];
   culturalSignificance: string;
   history: string;
   stories: {
@@ -54,7 +55,32 @@ export interface Monument {
     transcript: string;
   };
   has3DModel?: boolean;
-  hotspots?: Hotspot[];
+  threeDModelUrl?: string;
+  threeDStatus?: 'available' | 'pending';
+  hotspots?: (Hotspot | MonumentHotspot)[];
+  constructionMaterial?: string;
+  constructionTechnique?: string;
+  historicalTimeline?: HistoricalTimelineEvent[];
+  unescoDetails?: string;
+  researchReferences?: string[];
+}
+
+export interface MonumentHotspot {
+  id: string;
+  name: string;
+  shortDescription: string;
+  historicalSignificance: string;
+  architecturalSignificance: string;
+  story: string;
+  position?: [number, number, number];
+}
+
+export interface GalleryImage {
+  url: string;
+  source: string;
+  sourcePage?: string;
+  photographer?: string;
+  license?: string;
 }
 
 export interface Destination {
@@ -69,6 +95,7 @@ export interface Destination {
   bestTimeToVisit: string;
   monumentIds: string[];
   geographicHighlight: string;
+  imageGallery?: GalleryImage[];
 }
 
 export interface StateData {
@@ -116,4 +143,38 @@ export interface TrailPreferences {
   interests: ('Architecture' | 'History' | 'Culture' | 'Photography')[];
   pace: 'relaxed' | 'moderate' | 'brisk';
   accessibility: boolean;
+}
+
+export interface TravellerPreferences {
+  timeAvailable: '30min' | '1hour' | '2hours' | 'halfday' | 'fullday';
+  interests: ('Architecture' | 'History' | 'Culture' | 'Photography' | 'Spiritual Heritage')[];
+  mobilityPreference?: 'walking' | 'lowwalking' | 'accessible';
+}
+
+export interface NearbyHeritageResult {
+  monument: Monument;
+  destination: Destination;
+  state: StateData;
+  distanceKm: number;
+  estimatedMinutes: number;
+  matchingInterests: string[];
+  recommendationReason: string;
+  recommendationScore: number;
+}
+
+export interface HistoricalTimelineEvent {
+  year: string;
+  title: string;
+  description: string;
+  period: string;
+}
+
+export interface SavedResearchItem {
+  id: string;
+  monumentId: string;
+  monumentName: string;
+  sectionName?: string;
+  featureName?: string;
+  note?: string;
+  timestamp: number;
 }

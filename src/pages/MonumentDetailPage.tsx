@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
-import { MONUMENTS, STATES_DATA } from '../data/heritageData';
+import React, { useState, useMemo, useEffect } from 'react';
+import { heritageService } from '../services/heritageService';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
+import { HeritageImage } from '../components/HeritageImage';
+import { SutradharChat } from '../components/SutradharChat';
+import { VoiceNarrationButton } from '../components/VoiceNarrationButton';
+import { aiService } from '../services/aiService';
+import { voiceService } from '../services/voiceService';
 import { 
   ArrowLeft, 
   Sparkles, 
@@ -11,18 +16,16 @@ import {
   Landmark, 
   ShieldCheck, 
   Volume2, 
-  VolumeX, 
   Eye, 
   Flame, 
   BookOpen, 
   AlertTriangle,
-  Play,
-  Pause,
   Compass,
   Layers,
-  ChevronRight,
   Share2,
-  CheckCircle2
+  CheckCircle2,
+  Navigation,
+  X
 } from 'lucide-react';
 
 interface MonumentDetailPageProps {
@@ -36,14 +39,30 @@ export const MonumentDetailPage: React.FC<MonumentDetailPageProps> = ({
   onNavigate,
   language
 }) => {
-  const monument = MONUMENTS[monumentId] || MONUMENTS['shore-temple'];
-  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
+  const monument = heritageService.getMonumentById(monumentId) || heritageService.getMonumentById('shore-temple')!;
   const [copiedLink, setCopiedLink] = useState(false);
+  const [showSutradhar, setShowSutradhar] = useState(false);
   const t = TRANSLATIONS[language].monument;
 
-  const handleToggleAudio = () => {
-    setIsPlayingAudio(!isPlayingAudio);
-  };
+  const sutradharContext = useMemo(() => aiService.buildContext(monument as any, {
+    researchMode: 'traveller'
+  }), [monument]);
+
+  // Build narration text from monument data for voice guide
+  const narrationText = useMemo(() => [
+    `Welcome to ${monument.name}.`,
+    `Located in ${monument.location.city}, ${monument.location.state}.`,
+    `Historical period: ${monument.period}.`,
+    monument.dynasty ? `Built under the ${monument.dynasty} dynasty, patronised by ${monument.ruler}.` : '',
+    monument.culturalSignificance,
+    monument.history.slice(0, 600),
+    monument.stories[0] ? `${monument.stories[0].title}: ${monument.stories[0].narrative.slice(0, 300)}` : ''
+  ].filter(Boolean).join(' '), [monument]);
+
+  // Stop narration when language changes
+  useEffect(() => {
+    voiceService.stop();
+  }, [language]);
 
   const handleShare = () => {
     navigator.clipboard?.writeText(window.location.href);
@@ -80,9 +99,10 @@ export const MonumentDetailPage: React.FC<MonumentDetailPageProps> = ({
         {/* Hero Showcase with Prominent "Explore in 3D" Button */}
         <div className="relative rounded-3xl overflow-hidden border border-[#D4A85A]/50 bg-[#2B2118] shadow-2xl">
           <div className="relative h-96 sm:h-[480px] w-full">
-            <img
+            <HeritageImage
               src={monument.heroImage}
               alt={monument.name}
+              fallbackName={monument.name}
               className="w-full h-full object-cover filter brightness-75"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#17130F] via-[#17130F]/60 to-transparent" />
@@ -113,27 +133,46 @@ export const MonumentDetailPage: React.FC<MonumentDetailPageProps> = ({
                 </p>
               </div>
 
-              {/* Prominent Explore in 3D Button */}
-              {monument.has3DModel && (
-                <div className="pt-2 flex flex-wrap items-center gap-4">
+              {/* Action Triggers */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <button
+                  id="monument-start-journey-btn"
+                  onClick={() => onNavigate(`traveller/navigation/${monument.id}`)}
+                  className="px-8 py-4 rounded-full bg-[#D4A85A] text-[#17130F] font-bold text-sm uppercase tracking-wider hover:bg-[#F3EBDD] transition-all flex items-center gap-2.5 shadow-2xl shadow-[#D4A85A]/40 group cursor-pointer"
+                >
+                  <Navigation className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+                  <span>START JOURNEY TO {monument.name.toUpperCase()}</span>
+                </button>
+
+                {monument.has3DModel && (
                   <button
                     id="monument-hero-explore-3d-btn"
-                    onClick={() => onNavigate('3d-explorer')}
-                    className="px-8 py-4 rounded-full bg-[#D4A85A] text-[#17130F] font-bold text-sm uppercase tracking-wider hover:bg-[#F3EBDD] transition-all flex items-center gap-2.5 shadow-2xl shadow-[#D4A85A]/40 group cursor-pointer"
+                    onClick={() => onNavigate(`monument/${monument.id}/3d`)}
+                    className="px-6 py-4 rounded-full bg-[#2B2118] border border-[#D4A85A]/40 text-[#D4A85A] font-semibold text-xs uppercase tracking-wider hover:bg-[#D4A85A] hover:text-[#17130F] transition-all flex items-center gap-2 cursor-pointer"
                   >
-                    <Eye className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    <Eye className="w-4 h-4" />
                     <span>{t.explore3DBtn}</span>
                   </button>
+                )}
 
-                  <button
-                    onClick={() => onNavigate('ai-guide')}
-                    className="px-6 py-4 rounded-full bg-[#17130F]/90 backdrop-blur-md border border-[#D4A85A]/60 text-[#D4A85A] font-semibold text-xs uppercase tracking-wider hover:bg-[#2B2118] transition-all flex items-center gap-2 cursor-pointer"
-                  >
-                    <Sparkles className="w-4 h-4" />
-                    <span>Consult Sutradhar AI</span>
-                  </button>
-                </div>
-              )}
+                <button
+                  id="monument-open-research-btn"
+                  onClick={() => onNavigate(`research/monument/${monument.id}`)}
+                  className="px-6 py-4 rounded-full bg-[#17130F]/90 backdrop-blur-md border border-[#D4A85A]/60 text-[#D4A85A] font-semibold text-xs uppercase tracking-wider hover:bg-[#2B2118] transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <BookOpen className="w-4 h-4 text-[#D4A85A]" />
+                  <span>OPEN RESEARCH VIEW</span>
+                </button>
+
+                <button
+                  id="monument-ask-sutradhar-btn"
+                  onClick={() => setShowSutradhar(true)}
+                  className="px-6 py-4 rounded-full bg-gradient-to-r from-[#D4A85A] to-amber-600 text-[#17130F] font-bold text-xs uppercase tracking-wider hover:from-[#F3EBDD] hover:to-[#D4A85A] transition-all flex items-center gap-2 cursor-pointer shadow-lg shadow-[#D4A85A]/20"
+                >
+                  <Sparkles className="w-4 h-4" />
+                  <span>Ask Sutradhar</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -173,16 +212,12 @@ export const MonumentDetailPage: React.FC<MonumentDetailPageProps> = ({
           </div>
         </div>
 
-        {/* Audio Guide Player Bar */}
+        {/* Audio Guide Player Bar — Real Voice Narration */}
         <div className="p-6 rounded-2xl bg-[#2B2118] border border-[#D4A85A]/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl">
           <div className="flex items-center gap-4">
-            <button
-              id="audio-guide-play-btn"
-              onClick={handleToggleAudio}
-              className="w-12 h-12 rounded-full bg-[#D4A85A] text-[#17130F] flex items-center justify-center hover:bg-[#F3EBDD] transition-colors shrink-0 shadow-lg shadow-[#D4A85A]/20"
-            >
-              {isPlayingAudio ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 ml-0.5" />}
-            </button>
+            <div className="w-12 h-12 rounded-full bg-[#D4A85A]/20 border border-[#D4A85A]/50 flex items-center justify-center shrink-0">
+              <Volume2 className="w-5 h-5 text-[#D4A85A]" />
+            </div>
             <div>
               <div className="text-xs font-bold text-[#D4A85A] uppercase tracking-wider">
                 {t.audioGuideTitle} ({monument.audioGuide.duration})
@@ -193,8 +228,16 @@ export const MonumentDetailPage: React.FC<MonumentDetailPageProps> = ({
             </div>
           </div>
 
-          <div className="text-xs text-[#F3EBDD]/80 bg-[#17130F] px-4 py-2.5 rounded-xl border border-[#D4A85A]/20 max-w-lg italic font-subheading">
-            "{monument.audioGuide.transcript}"
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="text-xs text-[#F3EBDD]/80 bg-[#17130F] px-4 py-2.5 rounded-xl border border-[#D4A85A]/20 max-w-sm italic font-subheading">
+              "{monument.audioGuide.transcript.slice(0, 120)}..."
+            </div>
+            <VoiceNarrationButton
+              text={narrationText}
+              language={language}
+              ariaLabel={`Listen to the heritage story of ${monument.name}`}
+              variant="full"
+            />
           </div>
         </div>
 
@@ -248,6 +291,40 @@ export const MonumentDetailPage: React.FC<MonumentDetailPageProps> = ({
                 ))}
               </div>
             </div>
+
+            {/* Monument Image Gallery */}
+            {monument.imageGallery && monument.imageGallery.length > 0 && (
+              <div className="p-8 rounded-3xl bg-[#2B2118]/70 border border-[#D4A85A]/30 space-y-6">
+                <h2 className="font-display text-2xl font-bold text-[#F3EBDD] flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-[#D4A85A]" />
+                  Resilient Image Gallery & Attributions
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {monument.imageGallery.map((img, i) => (
+                    <div key={i} className="group relative rounded-2xl overflow-hidden border border-[#D4A85A]/20 bg-[#17130F] flex flex-col justify-between">
+                      <div className="relative h-44 overflow-hidden">
+                        <HeritageImage
+                          src={img.url}
+                          alt={monument.name}
+                          fallbackName={`${monument.name} Gallery ${i + 1}`}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                      <div className="p-3 bg-[#17130F] space-y-1 text-[10px] text-[#F3EBDD]/65">
+                        <div className="font-semibold text-[#D4A85A] truncate">Source: {img.source}</div>
+                        {img.photographer && <div className="truncate text-[#F3EBDD]/50">By: {img.photographer}</div>}
+                        {img.license && <div className="truncate text-[#F3EBDD]/50">License: {img.license}</div>}
+                        {img.sourcePage && (
+                          <a href={img.sourcePage} target="_blank" rel="noopener noreferrer" className="text-[#D4A85A] hover:underline block pt-1">
+                            View Original Page →
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Right Sidebar: Preservation Health Status & Guidelines */}
@@ -342,6 +419,23 @@ export const MonumentDetailPage: React.FC<MonumentDetailPageProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Inline Sutradhar Chat Overlay Panel */}
+      {showSutradhar && (
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          onClick={(e) => { if (e.target === e.currentTarget) setShowSutradhar(false); }}
+        >
+          <div className="w-full max-w-xl animate-in slide-in-from-bottom duration-300">
+            <SutradharChat
+              context={sutradharContext}
+              onClose={() => setShowSutradhar(false)}
+              embedded={true}
+              language={language}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

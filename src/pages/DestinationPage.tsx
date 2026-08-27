@@ -1,6 +1,6 @@
 import React from 'react';
-import { STATES_DATA, MONUMENTS } from '../data/heritageData';
-import { Destination, Language } from '../types';
+import { heritageService } from '../services/heritageService';
+import { Destination, Language, StateData } from '../types';
 import { 
   ArrowLeft, 
   MapPin, 
@@ -12,6 +12,7 @@ import {
   Landmark,
   Compass
 } from 'lucide-react';
+import { HeritageImage } from '../components/HeritageImage';
 
 interface DestinationPageProps {
   destinationId: string;
@@ -23,11 +24,14 @@ export const DestinationPage: React.FC<DestinationPageProps> = ({
   destinationId,
   onNavigate
 }) => {
+  const statesData = heritageService.getStates();
+  const monuments = heritageService.getMonuments();
+
   // Find destination across states
   let currentDest: Destination | undefined;
-  let currentState: (typeof STATES_DATA)[0] | undefined;
+  let currentState: StateData | undefined;
 
-  for (const s of STATES_DATA) {
+  for (const s of statesData) {
     const found = s.destinations.find((d) => d.id === destinationId);
     if (found) {
       currentDest = found;
@@ -38,12 +42,12 @@ export const DestinationPage: React.FC<DestinationPageProps> = ({
 
   // Fallback to Mahabalipuram if not found
   if (!currentDest || !currentState) {
-    currentDest = STATES_DATA[0].destinations[0];
-    currentState = STATES_DATA[0];
+    currentDest = statesData[0].destinations[0];
+    currentState = statesData[0];
   }
 
   const destinationMonuments = currentDest.monumentIds
-    .map((id) => MONUMENTS[id])
+    .map((id) => monuments[id])
     .filter(Boolean);
 
   return (
@@ -65,9 +69,10 @@ export const DestinationPage: React.FC<DestinationPageProps> = ({
         {/* Destination Header with Heading: "Where Stone Became Story" */}
         <div className="relative rounded-3xl overflow-hidden border border-[#D4A85A]/40 bg-[#2B2118] shadow-2xl">
           <div className="relative h-80 sm:h-[400px] w-full">
-            <img
+            <HeritageImage
               src={currentDest.heroImage}
               alt={currentDest.name}
+              fallbackName={currentDest.name}
               className="w-full h-full object-cover filter brightness-70"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#17130F] via-[#17130F]/60 to-transparent" />
@@ -129,6 +134,40 @@ export const DestinationPage: React.FC<DestinationPageProps> = ({
           </div>
         </div>
 
+        {/* Destination Image Gallery */}
+        {currentDest.imageGallery && currentDest.imageGallery.length > 0 && (
+          <div className="p-6 sm:p-10 rounded-3xl bg-[#2B2118] border border-[#D4A85A]/30 space-y-6">
+            <h3 className="font-display text-xl font-bold text-[#F3EBDD] flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-[#D4A85A]" />
+              Image Gallery & Attributions
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {currentDest.imageGallery.map((img, i) => (
+                <div key={i} className="group relative rounded-2xl overflow-hidden border border-[#D4A85A]/20 bg-[#17130F] flex flex-col justify-between">
+                  <div className="relative h-40 overflow-hidden">
+                    <HeritageImage
+                      src={img.url}
+                      alt={currentDest.name}
+                      fallbackName={`${currentDest.name} Gallery ${i + 1}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-3 bg-[#17130F] space-y-1 text-[10px] text-[#F3EBDD]/65">
+                    <div className="font-semibold text-[#D4A85A] truncate">Source: {img.source}</div>
+                    {img.photographer && <div className="truncate text-[#F3EBDD]/50">By: {img.photographer}</div>}
+                    {img.license && <div className="truncate text-[#F3EBDD]/50">License: {img.license}</div>}
+                    {img.sourcePage && (
+                      <a href={img.sourcePage} target="_blank" rel="noopener noreferrer" className="text-[#D4A85A] hover:underline block pt-1">
+                        View Original Page →
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Monuments Grid */}
         <div className="space-y-6">
           <div className="flex items-center justify-between pb-3 border-b border-[#D4A85A]/20">
@@ -151,9 +190,10 @@ export const DestinationPage: React.FC<DestinationPageProps> = ({
               >
                 <div>
                   <div className="relative h-64 overflow-hidden">
-                    <img
+                    <HeritageImage
                       src={monument.heroImage}
                       alt={monument.name}
+                      fallbackName={monument.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#2B2118] via-[#2B2118]/40 to-transparent" />

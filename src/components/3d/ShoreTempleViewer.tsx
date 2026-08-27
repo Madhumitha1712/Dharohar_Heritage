@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { Hotspot } from '../../types';
-import { SHORE_TEMPLE_HOTSPOTS } from '../../data/heritageData';
+import { heritageService } from '../../services/heritageService';
 import { 
   RotateCw, 
   ZoomIn, 
@@ -31,6 +31,7 @@ export const ShoreTempleViewer: React.FC<ShoreTempleViewerProps> = ({
   onSelectHotspot,
   activeHotspotId
 }) => {
+  const hotspots = heritageService.getShoreTempleHotspots();
   const mountRef = useRef<HTMLDivElement>(null);
   const [selectedHotspot, setSelectedHotspot] = useState<Hotspot | null>(null);
   const [lightingMode, setLightingMode] = useState<'dawn' | 'golden' | 'night' | 'wireframe'>('golden');
@@ -139,7 +140,8 @@ export const ShoreTempleViewer: React.FC<ShoreTempleViewerProps> = ({
 
   useEffect(() => {
     if (activeHotspotId) {
-      const found = SHORE_TEMPLE_HOTSPOTS.find(h => h.id === activeHotspotId);
+      const hotspots = heritageService.getShoreTempleHotspots();
+      const found = hotspots.find(h => h.id === activeHotspotId);
       if (found) {
         handleSelectHotspot(found);
       }
@@ -845,7 +847,7 @@ export const ShoreTempleViewer: React.FC<ShoreTempleViewerProps> = ({
           <div className="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-[#D4A85A]/20">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#D4A85A] flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
-              Archaeological Hotspots ({SHORE_TEMPLE_HOTSPOTS.length})
+              Archaeological Hotspots ({hotspots.length})
             </span>
             <button 
               id="btn-reset-3d-camera"
@@ -858,7 +860,7 @@ export const ShoreTempleViewer: React.FC<ShoreTempleViewerProps> = ({
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
-            {SHORE_TEMPLE_HOTSPOTS.map((hotspot) => {
+            {hotspots.map((hotspot) => {
               const isSelected = selectedHotspot?.id === hotspot.id;
               return (
                 <button

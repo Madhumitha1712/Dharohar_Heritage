@@ -1,8 +1,9 @@
 import React from 'react';
-import { STATES_DATA } from '../data/heritageData';
+import { heritageService } from '../services/heritageService';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
 import { Sparkles, MapPin, ArrowRight, Layers, Landmark, History, ChevronRight } from 'lucide-react';
+import { HeritageImage } from '../components/HeritageImage';
 
 interface ExplorePageProps {
   onNavigate: (route: string) => void;
@@ -11,6 +12,8 @@ interface ExplorePageProps {
 
 export const ExplorePage: React.FC<ExplorePageProps> = ({ onNavigate, language }) => {
   const t = TRANSLATIONS[language].explore;
+  const statesData = heritageService.getStates();
+
 
   return (
     <div className="min-h-screen bg-[#17130F] text-[#F3EBDD] pt-24 pb-20 px-4 sm:px-6 lg:px-8">
@@ -22,17 +25,17 @@ export const ExplorePage: React.FC<ExplorePageProps> = ({ onNavigate, language }
             Pan-Indian Architectural Regions
           </div>
           <h1 className="font-display text-3xl sm:text-5xl font-bold text-[#F3EBDD] tracking-tight">
-            {t.title}
+            India's Heritage Destinations
           </h1>
           <p className="text-sm sm:text-base text-[#F3EBDD]/80 leading-relaxed font-subheading italic text-lg">
             {t.subtitle}
           </p>
         </div>
 
-        {/* 5 Premium State Cards Grid */}
+        {/* 7 Premium State Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {STATES_DATA.map((state) => {
-            const destination = state.destinations[0];
+          {statesData.map((state) => {
+            const monumentCount = state.destinations.reduce((acc, dest) => acc + dest.monumentIds.length, 0);
             return (
               <div
                 key={state.id}
@@ -42,23 +45,24 @@ export const ExplorePage: React.FC<ExplorePageProps> = ({ onNavigate, language }
               >
                 {/* Image Showcase */}
                 <div className="relative h-60 overflow-hidden">
-                  <img
+                  <HeritageImage
                     src={state.heroImage}
                     alt={state.name}
+                    fallbackName={state.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90 group-hover:brightness-100"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#2B2118] via-[#2B2118]/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2B2118] via-[#2B2118]/44 to-transparent" />
                   
                   {/* Top Badges */}
                   <div className="absolute top-3 left-3 flex items-center gap-2">
                     <span className="px-3 py-1 rounded-full bg-[#17130F]/90 backdrop-blur-md border border-[#D4A85A]/40 text-xs font-bold text-[#D4A85A]">
-                      {destination ? destination.name.split('(')[0] : state.name}
+                      {state.capital}
                     </span>
                   </div>
 
                   <div className="absolute bottom-3 right-3 text-right">
                     <span className="text-xs text-[#F3EBDD]/90 bg-[#17130F]/80 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-[#D4A85A]/20">
-                      {destination ? `${destination.monumentIds.length} Core Monuments` : '2 Monuments'}
+                      {monumentCount} {monumentCount === 1 ? 'Monument' : 'Monuments'}
                     </span>
                   </div>
                 </div>

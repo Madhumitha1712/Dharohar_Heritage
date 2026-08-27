@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Search, X, MapPin, Compass, ArrowRight, Shield } from 'lucide-react';
-import { MONUMENTS, STATES_DATA, HERITAGE_TRAILS } from '../data/heritageData';
+import { heritageService } from '../services/heritageService';
+import { HeritageImage } from './HeritageImage';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -19,13 +20,20 @@ export const SearchModal: React.FC<SearchModalProps> = ({
     if (!query.trim()) return [];
     const q = query.toLowerCase();
 
-    const monumentHits = Object.values(MONUMENTS)
+    const monuments = heritageService.getMonuments();
+    const states = heritageService.getStates();
+    const trails = heritageService.getHeritageTrails();
+
+    const monumentHits = Object.values(monuments)
       .filter(m => 
         m.name.toLowerCase().includes(q) ||
         m.nativeName.toLowerCase().includes(q) ||
+        m.tagline.toLowerCase().includes(q) ||
         m.dynasty.toLowerCase().includes(q) ||
         m.architectureStyle.toLowerCase().includes(q) ||
-        m.location.city.toLowerCase().includes(q)
+        m.location.city.toLowerCase().includes(q) ||
+        m.location.state.toLowerCase().includes(q) ||
+        m.culturalSignificance.toLowerCase().includes(q)
       )
       .map(m => ({
         type: 'monument' as const,
@@ -36,7 +44,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         route: `monument/${m.id}`
       }));
 
-    const stateHits = STATES_DATA
+    const stateHits = states
       .filter(s => 
         s.name.toLowerCase().includes(q) ||
         s.nativeName.toLowerCase().includes(q) ||
@@ -51,7 +59,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         route: `state/${s.id}`
       }));
 
-    const trailHits = HERITAGE_TRAILS
+    const trailHits = trails
       .filter(t => 
         t.title.toLowerCase().includes(q) ||
         t.region.toLowerCase().includes(q) ||
@@ -63,11 +71,12 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         title: t.title,
         subtitle: `Thematic Trail • ${t.duration} • ${t.region}`,
         image: t.heroImage,
-        route: `trails/${t.id}`
+        route: `trails` // Map to trails list or dynamic route later
       }));
 
     return [...monumentHits, ...stateHits, ...trailHits];
   }, [query]);
+
 
   if (!isOpen) return null;
 
@@ -134,7 +143,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                 className="w-full flex items-center gap-3.5 p-3 rounded-xl bg-[#17130F]/60 border border-[#D4A85A]/20 hover:border-[#D4A85A] hover:bg-[#17130F] transition-all text-left group"
               >
                 <div className="w-12 h-12 rounded-lg overflow-hidden shrink-0 border border-[#D4A85A]/30">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                  <HeritageImage src={item.image} alt={item.title} fallbackName={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">

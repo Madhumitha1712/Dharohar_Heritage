@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HERITAGE_TRAILS } from '../data/heritageData';
+import { heritageService } from '../services/heritageService';
 import { HeritageTrail, Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
 import { 
@@ -26,7 +26,8 @@ export const HeritageTrailsPage: React.FC<HeritageTrailsPageProps> = ({
   onNavigate,
   language
 }) => {
-  const [selectedTrail, setSelectedTrail] = useState<HeritageTrail>(HERITAGE_TRAILS[0]);
+  const heritageTrails = heritageService.getHeritageTrails();
+  const [selectedTrail, setSelectedTrail] = useState<HeritageTrail>(heritageTrails[0]);
   const t = TRANSLATIONS[language].trails;
 
   return (
@@ -58,7 +59,7 @@ export const HeritageTrailsPage: React.FC<HeritageTrailsPageProps> = ({
 
         {/* Trail Selector Tabs */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {HERITAGE_TRAILS.map((trail) => {
+          {heritageTrails.map((trail) => {
             const isSelected = selectedTrail.id === trail.id;
             return (
               <button

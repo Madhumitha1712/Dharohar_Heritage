@@ -15,7 +15,8 @@ import {
   Flame,
   Globe2
 } from 'lucide-react';
-import { STATES_DATA, MONUMENTS, HERITAGE_TRAILS } from '../data/heritageData';
+import { heritageService } from '../services/heritageService';
+import { useStore } from '../store/store';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
 
@@ -26,7 +27,25 @@ interface LandingPageProps {
 
 export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }) => {
   const t = TRANSLATIONS[language].hero;
-  const shoreTemple = MONUMENTS['shore-temple'];
+  const setSelectedUserRole = useStore((state) => state.setSelectedUserRole);
+  const monuments = heritageService.getMonuments();
+  const statesData = heritageService.getStates();
+  const shoreTemple = monuments['shore-temple'];
+
+  const handleBeginExploration = () => {
+    document.getElementById('role-selection-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleRoleSelect = (role: 'traveller' | 'researcher' | 'admin') => {
+    setSelectedUserRole(role);
+    if (role === 'traveller') {
+      onNavigate('traveller');
+    } else if (role === 'researcher') {
+      onNavigate('research');
+    } else {
+      onNavigate('admin/login');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#17130F] text-[#F3EBDD] overflow-hidden">
@@ -73,7 +92,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <button
               id="hero-btn-begin-exploration"
-              onClick={() => onNavigate('explore')}
+              onClick={handleBeginExploration}
               className="px-8 py-4 rounded-full bg-[#D4A85A] text-[#17130F] font-bold text-sm tracking-wider uppercase hover:bg-[#F3EBDD] hover:shadow-xl hover:shadow-[#D4A85A]/30 transition-all flex items-center gap-2 group cursor-pointer"
             >
               <span>{t.btnExplore}</span>
@@ -110,6 +129,91 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }
                 “DHAROHAR tells you what to experience, what it means, and why it matters.”
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ROLE SELECTION SECTION */}
+      <section id="role-selection-section" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10 scroll-mt-24">
+        <div className="text-center space-y-3 max-w-3xl mx-auto animate-in fade-in duration-500">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2B2118] border border-[#D4A85A]/50 text-xs text-[#D4A85A] font-semibold uppercase tracking-widest shadow-lg">
+            <Compass className="w-4 h-4" />
+            <span>Select Your Pathway</span>
+          </div>
+          <h2 className="font-display text-3xl sm:text-5xl font-bold text-[#F3EBDD]">
+            How would you like to explore?
+          </h2>
+          <p className="font-subheading text-lg sm:text-xl text-[#D4A85A] italic">
+            Select a dedicated sanctuary configured to your specific journey needs.
+          </p>
+        </div>
+
+        {/* The 3 Themed Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+          {/* 1. Traveller */}
+          <div className="p-6 rounded-3xl bg-[#2B2118]/80 border border-[#D4A85A]/30 flex flex-col justify-between space-y-6 shadow-2xl relative overflow-hidden group hover:border-[#D4A85A] transition-all duration-300">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-[#D4A85A]/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="space-y-4">
+              <div className="w-10 h-10 rounded-xl bg-[#17130F] border border-[#D4A85A]/40 text-[#D4A85A] flex items-center justify-center font-bold">
+                01
+              </div>
+              <h3 className="font-display text-xl font-bold text-[#F3EBDD]">
+                Traveller / Tourist
+              </h3>
+              <p className="text-xs text-[#F3EBDD]/70 leading-relaxed">
+                Discover heritage around you, navigate to historic places and experience them through stories, audio and immersive exploration.
+              </p>
+            </div>
+            <button
+              onClick={() => handleRoleSelect('traveller')}
+              className="w-full py-3 rounded-xl bg-[#D4A85A] text-[#17130F] font-bold text-xs uppercase tracking-wider hover:bg-[#F3EBDD] transition-colors cursor-pointer text-center shadow-md shadow-[#D4A85A]/10"
+            >
+              Begin Journey
+            </button>
+          </div>
+
+          {/* 2. Researcher */}
+          <div className="p-6 rounded-3xl bg-[#2B2118]/80 border border-[#D4A85A]/30 flex flex-col justify-between space-y-6 shadow-2xl relative overflow-hidden group hover:border-[#D4A85A] transition-all duration-300">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-[#D4A85A]/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="space-y-4">
+              <div className="w-10 h-10 rounded-xl bg-[#17130F] border border-[#D4A85A]/40 text-[#D4A85A] flex items-center justify-center font-bold">
+                02
+              </div>
+              <h3 className="font-display text-xl font-bold text-[#F3EBDD]">
+                Student / Researcher
+              </h3>
+              <p className="text-xs text-[#F3EBDD]/70 leading-relaxed">
+                Explore monuments virtually, investigate their architecture and history, compare heritage sites and build your own research collection.
+              </p>
+            </div>
+            <button
+              onClick={() => handleRoleSelect('researcher')}
+              className="w-full py-3 rounded-xl bg-[#D4A85A] text-[#17130F] font-bold text-xs uppercase tracking-wider hover:bg-[#F3EBDD] transition-colors cursor-pointer text-center shadow-md shadow-[#D4A85A]/10"
+            >
+              Begin Research
+            </button>
+          </div>
+
+          {/* 3. Admin */}
+          <div className="p-6 rounded-3xl bg-[#2B2118]/80 border border-[#D4A85A]/30 flex flex-col justify-between space-y-6 shadow-2xl relative overflow-hidden group hover:border-[#D4A85A] transition-all duration-300">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-[#D4A85A]/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="space-y-4">
+              <div className="w-10 h-10 rounded-xl bg-[#17130F] border border-[#D4A85A]/40 text-[#D4A85A] flex items-center justify-center font-bold">
+                03
+              </div>
+              <h3 className="font-display text-xl font-bold text-[#F3EBDD]">
+                Administrator
+              </h3>
+              <p className="text-xs text-[#F3EBDD]/70 leading-relaxed">
+                Manage, verify and publish the digital heritage information that powers DHAROHAR.
+              </p>
+            </div>
+            <button
+              onClick={() => handleRoleSelect('admin')}
+              className="w-full py-3 rounded-xl bg-[#2B2118] border border-[#D4A85A]/40 text-[#D4A85A] hover:bg-[#17130F] text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer text-center"
+            >
+              Manage Portal
+            </button>
           </div>
         </div>
       </section>
@@ -229,7 +333,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {STATES_DATA.map((state) => (
+          {statesData.map((state) => (
             <div
               key={state.id}
               onClick={() => onNavigate(`state/${state.id}`)}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Compass, ShieldCheck, Sparkles, Navigation, Heart, ArrowUp } from 'lucide-react';
-import { STATES_DATA } from '../data/heritageData';
+import { heritageService } from '../services/heritageService';
 
 interface FooterProps {
   onNavigate: (route: string) => void;
@@ -10,6 +10,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const statesData = heritageService.getStates();
+
 
   return (
     <footer className="bg-[#17130F] border-t border-[#D4A85A]/30 text-[#F3EBDD] relative overflow-hidden">
@@ -61,7 +64,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Regional Heritage
             </h4>
             <ul className="space-y-2 text-xs">
-              {STATES_DATA.map((state) => (
+              {statesData.map((state) => (
                 <li key={state.id}>
                   <button
                     onClick={() => onNavigate(`state/${state.id}`)}

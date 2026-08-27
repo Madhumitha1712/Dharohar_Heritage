@@ -74,7 +74,25 @@ export const TRANSLATIONS = {
       subheading: 'Ancient monuments survived millennia of monsoons, wars, and sun. Their survival today depends on our stewardship.',
       takePledge: 'Sign the Digital Heritage Pledge',
       pledgeSuccess: 'You are now an Official DHAROHAR Heritage Guardian!'
-    }
+    },
+    voice: {
+      listen: 'Listen',
+      pause: 'Pause',
+      resume: 'Resume',
+      stop: 'Stop',
+      playing: 'Playing',
+      paused: 'Paused',
+      notAvailable: 'Voice narration is not available on this device.',
+      listenSection: 'Listen to this section',
+      listenResponse: 'Listen to response'
+    },
+    sutradharQuestions: [
+      'Tell me the story of this monument.',
+      'What should I see first?',
+      'Why is this architecturally important?',
+      'Explain this simply.',
+      'What dynasty built this and why?'
+    ]
   },
   ta: {
     nav: {
@@ -151,7 +169,25 @@ export const TRANSLATIONS = {
       subheading: 'நூற்றாண்டுகளாக நிலைத்திருக்கும் நம் முன்னோர்களின் கைவண்ணத்தைப் போற்றிப் பாதுகாப்போம்.',
       takePledge: 'மரபுப் பாதுகாப்பு உறுதிமொழி எடுக்க',
       pledgeSuccess: 'நீங்கள் தரோஹரின் அதிகாரப்பூர்வ மரபுக் காவலர்!'
-    }
+    },
+    voice: {
+      listen: 'கேட்கவும்',
+      pause: 'இடைநிறுத்தவும்',
+      resume: 'தொடரவும்',
+      stop: 'நிறுத்தவும்',
+      playing: 'இயங்குகிறது',
+      paused: 'இடைநிறுத்தப்பட்டது',
+      notAvailable: 'இந்த சாதனத்தில் குரல் விவரிப்பு கிடைக்கவில்லை.',
+      listenSection: 'இந்தப் பகுதியைக் கேட்கவும்',
+      listenResponse: 'பதிலைக் கேட்கவும்'
+    },
+    sutradharQuestions: [
+      'இந்த நினைவுச்சின்னத்தின் வரலாற்றை சொல்லுங்கள்.',
+      'முதலில் என்ன பார்க்க வேண்டும்?',
+      'இந்தக் கட்டிடக்கலை ஏன் முக்கியமானது?',
+      'எளிமையாக விளக்கவும்.',
+      'இதை எந்த அரசர் கட்டினார்?'
+    ]
   },
   hi: {
     nav: {
@@ -228,6 +264,24 @@ export const TRANSLATIONS = {
       subheading: 'हजारों वर्षों से अडिग स्मारकों की सुरक्षा अब हमारे हाथों में है।',
       takePledge: 'डिजिटल धरोहर शपथ लें',
       pledgeSuccess: 'आप अब आधिकारिक धरोहर संरक्षक हैं!'
-    }
+    },
+    voice: {
+      listen: 'सुनें',
+      pause: 'रोकें',
+      resume: 'जारी रखें',
+      stop: 'बंद करें',
+      playing: 'चल रहा है',
+      paused: 'रुका हुआ',
+      notAvailable: 'इस डिवाइस पर वॉइस नैरेशन उपलब्ध नहीं है।',
+      listenSection: 'इस अनुभाग को सुनें',
+      listenResponse: 'उत्तर सुनें'
+    },
+    sutradharQuestions: [
+      'इस स्मारक का इतिहास बताइए।',
+      'यहाँ पहले क्या देखें?',
+      'यह स्थापत्य शैली क्यों महत्वपूर्ण है?',
+      'सरल भाषा में समझाइए।',
+      'इसे किस राजवंश ने बनवाया?'
+    ]
   }
 };

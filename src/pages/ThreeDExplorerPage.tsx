@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ShoreTempleViewer } from '../components/3d/ShoreTempleViewer';
-import { SHORE_TEMPLE_HOTSPOTS } from '../data/heritageData';
+import { heritageService } from '../services/heritageService';
 import { Hotspot, Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
 import { 
@@ -26,7 +26,8 @@ export const ThreeDExplorerPage: React.FC<ThreeDExplorerPageProps> = ({
   onNavigate,
   language
 }) => {
-  const [activeHotspot, setActiveHotspot] = useState<Hotspot | null>(SHORE_TEMPLE_HOTSPOTS[0]);
+  const hotspots = heritageService.getShoreTempleHotspots();
+  const [activeHotspot, setActiveHotspot] = useState<Hotspot | null>(hotspots[0]);
   const t = TRANSLATIONS[language].threeD;
 
   return (
@@ -85,7 +86,7 @@ export const ThreeDExplorerPage: React.FC<ThreeDExplorerPageProps> = ({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {SHORE_TEMPLE_HOTSPOTS.map((hotspot) => {
+            {hotspots.map((hotspot) => {
               const isSelected = activeHotspot?.id === hotspot.id;
               return (
                 <div

@@ -1,5 +1,5 @@
 import React from 'react';
-import { STATES_DATA } from '../data/heritageData';
+import { heritageService } from '../services/heritageService';
 import { Language } from '../types';
 import { 
   MapPin, 
@@ -12,6 +12,7 @@ import {
   ChevronRight,
   Sparkles
 } from 'lucide-react';
+import { HeritageImage } from '../components/HeritageImage';
 
 interface StatePageProps {
   stateId: string;
@@ -20,7 +21,7 @@ interface StatePageProps {
 }
 
 export const StatePage: React.FC<StatePageProps> = ({ stateId, onNavigate }) => {
-  const state = STATES_DATA.find((s) => s.id === stateId) || STATES_DATA[0];
+  const state = heritageService.getStateById(stateId) || heritageService.getStates()[0];
 
   return (
     <div className="min-h-screen bg-[#17130F] text-[#F3EBDD] pt-24 pb-20 px-4 sm:px-6 lg:px-8">
@@ -41,9 +42,10 @@ export const StatePage: React.FC<StatePageProps> = ({ stateId, onNavigate }) => 
         {/* State Hero Banner */}
         <div className="relative rounded-3xl overflow-hidden border border-[#D4A85A]/40 bg-[#2B2118] shadow-2xl">
           <div className="relative h-72 sm:h-96 w-full">
-            <img
+            <HeritageImage
               src={state.heroImage}
               alt={state.name}
+              fallbackName={state.name}
               className="w-full h-full object-cover filter brightness-75"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#17130F] via-[#17130F]/60 to-transparent" />
@@ -129,9 +131,10 @@ export const StatePage: React.FC<StatePageProps> = ({ stateId, onNavigate }) => 
                 className="group rounded-2xl bg-[#2B2118] border border-[#D4A85A]/30 overflow-hidden cursor-pointer hover:border-[#D4A85A] transition-all hover:shadow-2xl hover:shadow-[#D4A85A]/20"
               >
                 <div className="relative h-56 overflow-hidden">
-                  <img
+                  <HeritageImage
                     src={dest.heroImage}
                     alt={dest.name}
+                    fallbackName={dest.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#2B2118] via-transparent to-transparent opacity-90" />
