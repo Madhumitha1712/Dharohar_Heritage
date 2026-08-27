@@ -19,6 +19,7 @@ import { heritageService } from '../services/heritageService';
 import { useStore } from '../store/store';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
+import { HeritageImage } from '../components/HeritageImage';
 
 interface LandingPageProps {
   onNavigate: (route: string) => void;
@@ -26,11 +27,9 @@ interface LandingPageProps {
 }
 
 export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }) => {
-  const t = TRANSLATIONS[language].hero;
+  const t = TRANSLATIONS[language].landing;
   const setSelectedUserRole = useStore((state) => state.setSelectedUserRole);
-  const monuments = heritageService.getMonuments();
   const statesData = heritageService.getStates();
-  const shoreTemple = monuments['shore-temple'];
 
   const handleBeginExploration = () => {
     document.getElementById('role-selection-section')?.scrollIntoView({ behavior: 'smooth' });
@@ -68,24 +67,24 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }
           {/* Architectural Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2B2118]/90 border border-[#D4A85A]/50 text-xs text-[#D4A85A] font-semibold tracking-widest uppercase shadow-lg">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Futuristic Digital Heritage Sanctuary</span>
+            <span>{t.heroBadgeTag}</span>
             <span className="w-1 h-1 rounded-full bg-[#D4A85A]" />
-            <span className="text-[#F3EBDD]/70 font-normal">India 3D Archive</span>
+            <span className="text-[#F3EBDD]/70 font-normal">{t.heroBadgeSub}</span>
           </div>
 
           {/* Main Display Headline */}
           <div className="space-y-4">
             <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#F3EBDD] leading-[1.1]">
-              DHAROHAR
+              {t.heroTitle}
             </h1>
             <p className="font-subheading text-2xl sm:text-3xl lg:text-4xl text-[#D4A85A] italic max-w-3xl mx-auto leading-snug">
-              “Explore the past. Experience it in 3D. Preserve it for the future.”
+              {t.heroQuote}
             </p>
           </div>
 
           {/* Subtitle */}
           <p className="text-sm sm:text-base lg:text-lg text-[#F3EBDD]/80 max-w-2xl mx-auto font-normal leading-relaxed">
-            {t.subtitle}
+            {t.heroSubtitle}
           </p>
 
           {/* Call to Action Buttons */}
@@ -114,7 +113,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }
               className="px-8 py-4 rounded-full bg-gradient-to-r from-[#B58A52]/30 to-[#D4A85A]/30 border border-[#D4A85A] text-[#D4A85A] font-semibold text-sm tracking-wider uppercase hover:bg-[#D4A85A] hover:text-[#17130F] transition-all flex items-center gap-2 cursor-pointer"
             >
               <Sparkles className="w-4 h-4" />
-              <span>Launch 3D Shore Temple</span>
+              <span>{t.btn3D}</span>
             </button>
           </div>
 
@@ -126,7 +125,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }
                 {t.uspLead}
               </p>
               <p className="font-subheading text-lg sm:text-xl font-bold text-[#F3EBDD] leading-relaxed">
-                “DHAROHAR tells you what to experience, what it means, and why it matters.”
+                {t.uspPunch}
               </p>
             </div>
           </div>
@@ -138,13 +137,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }
         <div className="text-center space-y-3 max-w-3xl mx-auto animate-in fade-in duration-500">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2B2118] border border-[#D4A85A]/50 text-xs text-[#D4A85A] font-semibold uppercase tracking-widest shadow-lg">
             <Compass className="w-4 h-4" />
-            <span>Select Your Pathway</span>
+            <span>{t.selectPathwayBadge}</span>
           </div>
           <h2 className="font-display text-3xl sm:text-5xl font-bold text-[#F3EBDD]">
-            How would you like to explore?
+            {t.pathwayTitle}
           </h2>
           <p className="font-subheading text-lg sm:text-xl text-[#D4A85A] italic">
-            Select a dedicated sanctuary configured to your specific journey needs.
+            {t.pathwaySubtitle}
           </p>
         </div>
 
@@ -158,17 +157,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }
                 01
               </div>
               <h3 className="font-display text-xl font-bold text-[#F3EBDD]">
-                Traveller / Tourist
+                {t.roleTravellerTitle}
               </h3>
               <p className="text-xs text-[#F3EBDD]/70 leading-relaxed">
-                Discover heritage around you, navigate to historic places and experience them through stories, audio and immersive exploration.
+                {t.roleTravellerDesc}
               </p>
             </div>
             <button
               onClick={() => handleRoleSelect('traveller')}
               className="w-full py-3 rounded-xl bg-[#D4A85A] text-[#17130F] font-bold text-xs uppercase tracking-wider hover:bg-[#F3EBDD] transition-colors cursor-pointer text-center shadow-md shadow-[#D4A85A]/10"
             >
-              Begin Journey
+              {t.roleTravellerBtn}
             </button>
           </div>
 
@@ -180,17 +179,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }
                 02
               </div>
               <h3 className="font-display text-xl font-bold text-[#F3EBDD]">
-                Student / Researcher
+                {t.roleResearcherTitle}
               </h3>
               <p className="text-xs text-[#F3EBDD]/70 leading-relaxed">
-                Explore monuments virtually, investigate their architecture and history, compare heritage sites and build your own research collection.
+                {t.roleResearcherDesc}
               </p>
             </div>
             <button
               onClick={() => handleRoleSelect('researcher')}
               className="w-full py-3 rounded-xl bg-[#D4A85A] text-[#17130F] font-bold text-xs uppercase tracking-wider hover:bg-[#F3EBDD] transition-colors cursor-pointer text-center shadow-md shadow-[#D4A85A]/10"
             >
-              Begin Research
+              {t.roleResearcherBtn}
             </button>
           </div>
 
@@ -202,132 +201,40 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }
                 03
               </div>
               <h3 className="font-display text-xl font-bold text-[#F3EBDD]">
-                Administrator
+                {t.roleAdminTitle}
               </h3>
               <p className="text-xs text-[#F3EBDD]/70 leading-relaxed">
-                Manage, verify and publish the digital heritage information that powers DHAROHAR.
+                {t.roleAdminDesc}
               </p>
             </div>
             <button
               onClick={() => handleRoleSelect('admin')}
               className="w-full py-3 rounded-xl bg-[#2B2118] border border-[#D4A85A]/40 text-[#D4A85A] hover:bg-[#17130F] text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer text-center"
             >
-              Manage Portal
+              {t.roleAdminBtn}
             </button>
           </div>
         </div>
       </section>
 
-      {/* 3. FEATURED INTERACTIVE 3D PREVIEW CARD */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="relative rounded-3xl bg-gradient-to-br from-[#2B2118] via-[#17130F] to-[#2B2118] border border-[#D4A85A]/50 p-6 sm:p-10 lg:p-12 overflow-hidden shadow-2xl">
-          {/* Subtle gold grid pattern */}
-          <div className="absolute inset-0 stone-pattern opacity-40 pointer-events-none" />
-          
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left Info Column */}
-            <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#D4A85A]/20 text-[#D4A85A] text-xs font-bold uppercase tracking-wider">
-                <Flame className="w-3.5 h-3.5" />
-                Featured 3D Architectural Monument
-              </div>
 
-              <div>
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#F3EBDD]">
-                  Shore Temple, Mahabalipuram
-                </h2>
-                <p className="text-sm font-subheading italic text-[#D4A85A] mt-1 text-lg">
-                  {shoreTemple.nativeName} • Pallava Dynasty (700–728 CE)
-                </p>
-              </div>
-
-              <p className="text-xs sm:text-sm text-[#F3EBDD]/80 leading-relaxed">
-                Standing sentinel on the Bay of Bengal for over thirteen centuries, this structural stone masterpiece transition from cave excavations to skyward granite vimanas. Reconstructed in sub-millimeter 3D with interactive architectural hotspots.
-              </p>
-
-              {/* Quick Spec Matrix */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-                <div className="p-3 rounded-xl bg-[#17130F]/80 border border-[#D4A85A]/20">
-                  <div className="text-[10px] uppercase text-[#D4A85A] font-semibold">Patron King</div>
-                  <div className="text-xs font-bold text-[#F3EBDD] mt-0.5">Rajasimha II</div>
-                </div>
-                <div className="p-3 rounded-xl bg-[#17130F]/80 border border-[#D4A85A]/20">
-                  <div className="text-[10px] uppercase text-[#D4A85A] font-semibold">Architecture</div>
-                  <div className="text-xs font-bold text-[#F3EBDD] mt-0.5">Early Dravidian</div>
-                </div>
-                <div className="p-3 rounded-xl bg-[#17130F]/80 border border-[#D4A85A]/20">
-                  <div className="text-[10px] uppercase text-[#D4A85A] font-semibold">3D Hotspots</div>
-                  <div className="text-xs font-bold text-[#F3EBDD] mt-0.5">4 Spatial Nodes</div>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <button
-                  id="featured-monument-3d-btn"
-                  onClick={() => onNavigate('3d-explorer')}
-                  className="px-6 py-3 rounded-full bg-[#D4A85A] text-[#17130F] font-bold text-xs uppercase tracking-wider hover:bg-[#F3EBDD] transition-all flex items-center gap-2 cursor-pointer shadow-lg shadow-[#D4A85A]/20"
-                >
-                  <Eye className="w-4 h-4" />
-                  <span>Enter 3D Spatial Sanctuary</span>
-                </button>
-
-                <button
-                  id="featured-monument-detail-btn"
-                  onClick={() => onNavigate('monument/shore-temple')}
-                  className="px-6 py-3 rounded-full bg-[#17130F] border border-[#D4A85A]/40 text-[#F3EBDD] text-xs font-semibold hover:border-[#D4A85A] transition-all flex items-center gap-1.5 cursor-pointer"
-                >
-                  <span>View Chronicle & History</span>
-                  <ChevronRight className="w-4 h-4 text-[#D4A85A]" />
-                </button>
-              </div>
-            </div>
-
-            {/* Right Visual Image Card */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative rounded-2xl overflow-hidden border-2 border-[#D4A85A]/40 shadow-2xl group">
-                <img
-                  src={shoreTemple.heroImage}
-                  alt="Shore Temple Mahabalipuram 3D"
-                  className="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#17130F] via-transparent to-transparent opacity-80" />
-                
-                {/* 3D Floating Badge */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between bg-[#17130F]/90 backdrop-blur-md p-3 rounded-xl border border-[#D4A85A]/40">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-emerald-400 animate-ping" />
-                    <span className="text-xs font-bold text-[#F3EBDD]">Interactive WebGL Active</span>
-                  </div>
-                  <button
-                    onClick={() => onNavigate('3d-explorer')}
-                    className="text-xs text-[#D4A85A] font-semibold hover:underline flex items-center gap-1"
-                  >
-                    Launch <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* 4. THE 5 STATES REGIONAL HERITAGE GATEWAY */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 pb-4 border-b border-[#D4A85A]/20">
           <div>
             <div className="text-xs font-bold uppercase tracking-widest text-[#D4A85A] mb-1">
-              Architectural Atlas
+              {t.atlasBadge}
             </div>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#F3EBDD]">
-              Explore India by Heritage Region
+              {t.atlasTitle}
             </h2>
           </div>
           <button
             onClick={() => onNavigate('explore')}
             className="text-xs font-bold uppercase tracking-wider text-[#D4A85A] hover:text-[#F3EBDD] flex items-center gap-1.5 transition-colors self-start sm:self-auto"
           >
-            <span>View All 5 States</span>
+            <span>{t.atlasViewAll}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
@@ -340,9 +247,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }
               className="group relative rounded-2xl bg-[#2B2118] border border-[#D4A85A]/30 overflow-hidden cursor-pointer hover:border-[#D4A85A] transition-all hover:shadow-2xl hover:shadow-[#D4A85A]/10 flex flex-col"
             >
               <div className="relative h-48 overflow-hidden">
-                <img
+                <HeritageImage
                   src={state.heroImage}
                   alt={state.name}
+                  fallbackName={state.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2B2118] via-[#2B2118]/40 to-transparent" />
@@ -367,7 +275,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }
                 <div className="pt-3 border-t border-[#D4A85A]/20 flex items-center justify-between text-xs text-[#D4A85A]">
                   <span className="font-medium text-[#F3EBDD]/80">{state.dynasties[0]}</span>
                   <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform font-bold">
-                    Explore <ChevronRight className="w-3.5 h-3.5" />
+                    {t.exploreStateBtn} <ChevronRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
               </div>
@@ -382,16 +290,16 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4A85A]/20 text-[#D4A85A] text-xs font-bold uppercase tracking-wider">
               <Navigation className="w-3.5 h-3.5" />
-              Thematic Journeys
+              {t.trailsBadge}
             </div>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#F3EBDD]">
-              The Pallava Architecture Trail
+              {t.trailsTitle}
             </h2>
             <p className="text-sm text-[#F3EBDD]/80 leading-relaxed font-subheading italic text-lg text-[#D4A85A]">
-              Shore Temple → Arjuna's Penance → Pancha Rathas
+              {t.trailsSubtitle}
             </p>
             <p className="text-xs sm:text-sm text-[#F3EBDD]/70 leading-relaxed">
-              Trace 150 years of rapid architectural evolution in Mahabalipuram as Pallava stonemasons transformed monolithic boulders into structural oceanfront pyramids.
+              {t.trailsDesc}
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-4">
@@ -399,14 +307,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }
                 onClick={() => onNavigate('trails')}
                 className="px-6 py-3 rounded-full bg-[#D4A85A] text-[#17130F] font-bold text-xs uppercase tracking-wider hover:bg-[#F3EBDD] transition-all flex items-center gap-2 cursor-pointer shadow-lg"
               >
-                <span>Walk the Trail Route</span>
+                <span>{t.btnWalkTrail}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
               <button
                 onClick={() => onNavigate('personalized-trail')}
                 className="px-6 py-3 rounded-full bg-[#17130F] border border-[#D4A85A]/40 text-[#D4A85A] font-semibold text-xs uppercase tracking-wider hover:bg-[#2B2118] transition-all cursor-pointer"
               >
-                <span>Build Custom 15m / 1hr Itinerary</span>
+                <span>{t.btnCustomItinerary}</span>
               </button>
             </div>
           </div>
@@ -418,19 +326,20 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, language }
         <div className="max-w-2xl mx-auto space-y-3">
           <ShieldCheck className="w-10 h-10 text-[#D4A85A] mx-auto" />
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#F3EBDD]">
-            “PRESERVE WHAT WE INHERIT”
+            {t.preserveTitle}
           </h2>
           <p className="text-xs sm:text-sm text-[#F3EBDD]/70 leading-relaxed">
-            From sacrificial clay salt-extraction packs to LiDAR digital archiving, discover how modern technology safeguards ancient monuments for the next thousand years.
+            {t.preserveDesc}
           </p>
           <button
             onClick={() => onNavigate('preservation')}
             className="px-6 py-2.5 rounded-full bg-[#2B2118] border border-[#D4A85A] text-[#D4A85A] text-xs font-bold uppercase tracking-wider hover:bg-[#D4A85A] hover:text-[#17130F] transition-all cursor-pointer"
           >
-            Read Preservation Guidelines & Sign Pledge
+            {t.btnPreserveGuidelines}
           </button>
         </div>
       </section>
     </div>
   );
 };
+

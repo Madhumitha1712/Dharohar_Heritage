@@ -56,6 +56,8 @@ export interface Monument {
   };
   has3DModel?: boolean;
   threeDModelUrl?: string;
+  sketchfabId?: string;
+  sketchfabUrl?: string;
   threeDStatus?: 'available' | 'pending';
   hotspots?: (Hotspot | MonumentHotspot)[];
   constructionMaterial?: string;

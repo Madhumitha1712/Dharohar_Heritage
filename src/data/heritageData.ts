@@ -44,10 +44,100 @@ export const SHORE_TEMPLE_HOTSPOTS: Hotspot[] = [
 ];
 
 export const MONUMENTS: Record<string, Monument> = {
-  // === TAMIL NADU (5 monuments) ===
+  'taj-mahal': {
+    id: 'taj-mahal',
+    name: 'Taj Mahal',
+    nativeName: 'ताज महल',
+    tagline: 'The Immortal White Marble Symbol of Eternal Devotion & Symmetry',
+    stateId: 'uttar-pradesh',
+    destinationId: 'agra',
+    period: '1631–1653 CE',
+    dynasty: 'Mughal Empire',
+    ruler: 'Emperor Shah Jahan',
+    architectureStyle: 'Indo-Islamic Symmetrical White Marble Architecture',
+    material: 'Makrana White Marble & Semi-Precious Pietra Dura Inlays',
+    unescoYear: 1983,
+    location: {
+      city: 'Agra',
+      state: 'Uttar Pradesh',
+      coordinates: '27.1751° N, 78.0421° E',
+      lat: 27.1751,
+      lng: 78.0421
+    },
+    heroImage: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1600&q=85',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80'
+    ],
+    culturalSignificance: 'Universally admired masterpiece of world heritage, housing the tombs of Mumtaz Mahal and Shah Jahan with perfect bilateral symmetry.',
+    history: 'Commissioned in 1631 by Mughal Emperor Shah Jahan to honor his favorite wife Mumtaz Mahal. Built over 22 years by over 20,000 artisans across Asia.',
+    stories: [
+      {
+        title: 'Optical Symmetry and Shadow Alignment',
+        narrative: 'The mausoleum displays perfect four-fold charbagh garden geometry, engineered so its dome appears identical from all main cardinal vistas.',
+        type: 'architectural_feat'
+      }
+    ],
+    preservationStatus: {
+      healthScore: 94,
+      threats: ['Industrial air pollution', 'Insect discoloration'],
+      digitalScanStatus: 'Complete Sub-millimeter 3D LiDAR & Drone Photogrammetry',
+      currentInitiatives: 'Mud-pack mud-bath therapy to gently extract yellow air pollutant deposits from marble pores.',
+      visitorGuidelines: ['Shoe covers required on marble plinth', 'No tripod photography inside inner chamber']
+    },
+    audioGuide: {
+      duration: '4 min 50 sec',
+      narrator: 'Dr. Radhika Srinivasan',
+      transcript: 'Welcome to the Taj Mahal, standing serene on the banks of the Yamuna River...'
+    },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: '1eb09052f6cd421caeaa6cb3204cb15d',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/taj-mahal-3d-model-1eb09052f6cd421caeaa6cb3204cb15d'
+  },
+
+  'brihadeeswarar-temple': {
+    id: 'brihadeeswarar-temple',
+    name: 'Brihadeeswarar Temple',
+    nativeName: 'பெருவுடையார் கோவில்',
+    tagline: 'The Great Living Chola Granite Temple of Thanjavur',
+    stateId: 'tamil-nadu',
+    destinationId: 'thanjavur',
+    period: '1003–1010 CE',
+    dynasty: 'Chola Dynasty',
+    ruler: 'Emperor Raja Raja Chola I',
+    architectureStyle: 'High Dravidian Granite Architecture',
+    material: 'Interlocking Granite Blocks',
+    unescoYear: 1987,
+    location: {
+      city: 'Thanjavur',
+      state: 'Tamil Nadu',
+      coordinates: '10.7828° N, 79.1318° E',
+      lat: 10.7828,
+      lng: 79.1318
+    },
+    heroImage: 'https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1600&q=85',
+    galleryImages: ['https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80'],
+    culturalSignificance: 'Features a 216-foot vimana tower capped by an 80-ton single-block granite Kumbam dome, built without mortar.',
+    history: 'Consecrated in 1010 CE by Raja Raja Chola I to celebrate imperial naval victories and devotion to Lord Shiva (Peruvudaiyar).',
+    stories: [],
+    preservationStatus: {
+      healthScore: 96,
+      threats: ['Monsoon rain runoff'],
+      digitalScanStatus: 'Complete 3D Mesh Scanned',
+      currentInitiatives: 'Structural granite joint inspection & UNESCO conservation monitor.',
+      visitorGuidelines: ['Remove footwear before entering outer prakara']
+    },
+    audioGuide: { duration: '4 min 10 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'Look up at the majestic 216-foot vimana...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: 'bcd05c0ac54a460883af7b8d9f4686c7',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/brihadeeshwara-mandir-thanjavur-bcd05c0ac54a460883af7b8d9f4686c7'
+  },
+
   'shore-temple': {
     id: 'shore-temple',
-    name: 'Shore Temple',
+    name: 'Shore Temple, Mahabalipuram',
     nativeName: 'கடற்கரைக் கோயில்',
     tagline: 'The 1300-Year Sentinel of the Coromandel Coast',
     stateId: 'tamil-nadu',
@@ -65,41 +155,52 @@ export const MONUMENTS: Record<string, Monument> = {
       lat: 12.6163,
       lng: 80.1994
     },
-    heroImage: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1600&q=85',
+    heroImage: '/images/mahabalipuram-hero.jpg',
     galleryImages: [
-      'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600100397608-f010e4210d63?auto=format&fit=crop&w=1200&q=80'
+      '/images/mahabalipuram-hero.jpg',
+      '/images/gallery/shore-temple-1.png',
+      '/images/gallery/shore-temple-2.png',
+      '/images/gallery/shore-temple-3.jpg',
+      '/images/gallery/shore-temple-4.png'
     ],
     imageGallery: [
       {
-        url: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Shore_Temple_at_Mamallapuram.jpg',
-        photographer: 'A.R. Srinivasan',
-        license: 'CC BY-SA 4.0'
+        url: '/images/mahabalipuram-hero.jpg',
+        source: 'DHAROHAR Cultural Archive',
+        photographer: 'User Collection',
+        license: 'Heritage Archive'
       },
       {
-        url: 'https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Nandi_statues_at_Shore_Temple.jpg',
-        photographer: 'J. M. Garg',
-        license: 'CC BY-SA 3.0'
+        url: '/images/gallery/shore-temple-1.png',
+        source: 'DHAROHAR Cultural Archive',
+        photographer: 'User Collection',
+        license: 'Heritage Archive'
       },
       {
-        url: 'https://images.unsplash.com/photo-1600100397608-f010e4210d63?auto=format&fit=crop&w=1200&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Somaskanda_relief_Shore_Temple.jpg',
-        photographer: 'P. Ravikumar',
-        license: 'CC BY-SA 4.0'
+        url: '/images/gallery/shore-temple-2.png',
+        source: 'DHAROHAR Cultural Archive',
+        photographer: 'User Collection',
+        license: 'Heritage Archive'
+      },
+      {
+        url: '/images/gallery/shore-temple-3.jpg',
+        source: 'DHAROHAR Cultural Archive',
+        photographer: 'User Collection',
+        license: 'Heritage Archive'
+      },
+      {
+        url: '/images/gallery/shore-temple-4.png',
+        source: 'DHAROHAR Cultural Archive',
+        photographer: 'User Collection',
+        license: 'Heritage Archive'
       }
     ],
-    culturalSignificance: 'The Shore Temple represents the pinnacle architectural transition from rock-cut cave excavations to complex masonry towers overlooking ocean trade lanes.',
-    history: 'Built during the reign of Narasimhavarman II Rajasimha of the Pallava dynasty between 700 and 728 CE, the Shore Temple stands as one of the oldest structural stone temples of Southern India.',
+    culturalSignificance: 'Marks the transition from rock-cut cave temples to structural granite towers facing maritime trade routes.',
+    history: 'Built during the reign of Rajasimha of the Pallava dynasty between 700 and 728 CE as a coastal shrine and lighthouse.',
     stories: [
       {
         title: 'The Legend of the Seven Pagodas',
-        narrative: 'According to centuries-old accounts by Venetian merchant Marco Polo, the Shore Temple was only one of seven magnificent temples that lined this shore. The gods, jealous of its beauty, sent a deluge that submerged the other six.',
+        narrative: 'Centuries-old accounts described seven magnificent towers along this coast. The 2004 tsunami briefly exposed submerged ruins.',
         type: 'mythology'
       }
     ],
@@ -108,1003 +209,28 @@ export const MONUMENTS: Record<string, Monument> = {
       threats: ['Sea salt efflorescence', 'Coastal wind erosion'],
       digitalScanStatus: 'Complete Sub-millimeter LiDAR Scan (2024)',
       currentInitiatives: 'Sacrificial clay packs to extract marine salts from structural granite.',
-      visitorGuidelines: ['Do not touch weathered Nandi statues', 'No flash inside sanctums']
+      visitorGuidelines: ['Do not touch weathered Nandi statues']
     },
-    audioGuide: {
-      duration: '4 min 20 sec',
-      narrator: 'Dr. Radhika Srinivasan',
-      transcript: 'Welcome to the Shore Temple...'
-    },
+    audioGuide: { duration: '4 min 20 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'Welcome to the Shore Temple...' },
     has3DModel: true,
-    threeDStatus: 'pending',
-    hotspots: SHORE_TEMPLE_HOTSPOTS,
-    constructionMaterial: 'Dressed Granitic Gneiss stone blocks',
-    constructionTechnique: 'Structural dry masonry block fitting without mortar binding',
-    unescoDetails: 'Inscribed in 1984 as a core constituent of the Group of Monuments at Mahabalipuram World Heritage site.',
-    researchReferences: [
-      'Archaeological Survey of India Memoir No. 33 (1998)',
-      'Srinivasan, K. R., "Temples of South India", National Book Trust (1972)',
-      'LiDAR Scan Architectural Survey Report, IIT Madras & ASI (2024)'
-    ],
-    historicalTimeline: [
-      {
-        year: '700 CE',
-        title: 'Pallava Reign Commencement',
-        description: 'King Narasimhavarman II (Rajasimha) commissions structural granite experiments shifting away from rock-cut monoliths.',
-        period: 'Pallava Dynasty'
-      },
-      {
-        year: '728 CE',
-        title: 'Consecration & Conjunction Shrines',
-        description: 'Dual Shiva garbhagrihas and the reclining Vishnu shrine are completed and consecrated as a unified maritime sentinel.',
-        period: 'Pallava Dynasty'
-      },
-      {
-        year: '1300 CE',
-        title: 'Secondary Dravidian Inscriptions',
-        description: 'Chola Dynasty kings and Vijayanagara patrons add minor structural pavilions and record epigraphical grants on plinth slabs.',
-        period: 'Chola/Vijayanagara Era'
-      },
-      {
-        year: '1984 CE',
-        title: 'UNESCO World Heritage Status',
-        description: 'Inscribed under UNESCO criteria for outstanding universal artistic and architectural value.',
-        period: 'Modern Era'
-      },
-      {
-        year: 'Present',
-        title: 'Desalination Preservation',
-        description: 'Archaeological Survey of India runs active paper-pulp clay packs to extract ocean salts from granite pores.',
-        period: 'Conservation Era'
-      }
-    ]
-  },
-  'pancha-rathas': {
-    id: 'pancha-rathas',
-    name: 'Pancha Rathas',
-    nativeName: 'பஞ்ச பாண்டவர் இரதங்கள்',
-    tagline: 'Five Monolithic Architectural Experiments Carved from Living Granite',
-    stateId: 'tamil-nadu',
-    destinationId: 'mahabalipuram',
-    period: '7th Century CE',
-    dynasty: 'Pallava Dynasty',
-    ruler: 'King Narasimhavarman I (Mamalla)',
-    architectureStyle: 'Rock-Cut Monolithic Dravidian Architecture',
-    material: 'Monolithic Granite Outcrop',
-    unescoYear: 1984,
-    location: {
-      city: 'Mahabalipuram',
-      state: 'Tamil Nadu',
-      coordinates: '12.6083° N, 80.1914° E',
-      lat: 12.6083,
-      lng: 80.1914
-    },
-    heroImage: 'https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Five_Rathas,_Mamallapuram.jpg',
-        photographer: 'Bernard Gagnon',
-        license: 'CC BY-SA 3.0'
-      }
-    ],
-    culturalSignificance: 'A series of five monolithic model temples representing experimental roof structures carved from a single sloping granite ridge.',
-    history: 'Carved under King Narasimhavarman I (Mamalla) of the Pallavas, these structures are named after the Pandavas and Draupadi from Mahabharata, though they were never active shrines.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 95,
-      threats: ['Wind abrasion', 'Water logging'],
-      digitalScanStatus: 'Complete 3D Mesh Scanned',
-      currentInitiatives: 'Micro-vegetation cleaning and soil drainage correction.',
-      visitorGuidelines: ['Keep distance from delicate reliefs']
-    },
-    audioGuide: { duration: '3 min 45 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'Observe the five distinct roof configurations...' },
-    has3DModel: false
-  },
-  'arjunas-penance': {
-    id: 'arjunas-penance',
-    name: "Arjuna's Penance",
-    nativeName: 'அர்ச்சுனன் தபசு',
-    tagline: 'The World’s Grandest Open-Air Rock Bas-Relief',
-    stateId: 'tamil-nadu',
-    destinationId: 'mahabalipuram',
-    period: 'Mid 7th Century CE',
-    dynasty: 'Pallava Dynasty',
-    ruler: 'King Mahendravarman I / Narasimhavarman I',
-    architectureStyle: 'Monolithic Bas-Relief Engraving',
-    material: 'Granite boulders',
-    unescoYear: 1984,
-    location: {
-      city: 'Mahabalipuram',
-      state: 'Tamil Nadu',
-      coordinates: '12.6186° N, 80.1932° E',
-      lat: 12.6186,
-      lng: 80.1932
-    },
-    heroImage: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=1200&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Arjuna%27s_Penance,_Mamallapuram.jpg',
-        photographer: 'L. Vidyasagar',
-        license: 'CC BY-SA 4.0'
-      }
-    ],
-    culturalSignificance: 'A colossal open-air rock relief depicting mythical cycles of the cosmos, featuring life-size elephants and celestial beings.',
-    history: 'Carved across two massive granite boulders, it stands as the central artistic landmark of Mamallapuram, reflecting the high epigraphical mastery of Pallava guild craftsmen.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 90,
-      threats: ['Acid rain discoloration', 'Wind friction'],
-      digitalScanStatus: 'Complete 3D Photogrammetry Scan',
-      currentInitiatives: 'Installing wind shelters and seasonal chemical wash.',
-      visitorGuidelines: ['No scaling of the rock reliefs']
-    },
-    audioGuide: { duration: '5 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Gaze at the central cleft...' },
-    has3DModel: false
-  },
-  'krishnas-butter-ball': {
-    id: 'krishnas-butter-ball',
-    name: "Krishna's Butter Ball",
-    nativeName: 'வான் இறை கல்',
-    tagline: 'The Gravity-Defying Sacred Boulder',
-    stateId: 'tamil-nadu',
-    destinationId: 'mahabalipuram',
-    period: '7th Century CE',
-    dynasty: 'Pallava Dynasty',
-    ruler: 'Pallava Kings',
-    architectureStyle: 'Natural Geomorphological Phenomenon',
-    material: 'Granitic Gneiss',
-    unescoYear: 1984,
-    location: {
-      city: 'Mahabalipuram',
-      state: 'Tamil Nadu',
-      coordinates: '12.6190° N, 80.1925° E',
-      lat: 12.6190,
-      lng: 80.1925
-    },
-    heroImage: 'https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=600&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=600&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Krishna%27s_Butterball_2017.jpg',
-        photographer: 'Richard Mortel',
-        license: 'CC BY-SA 2.0'
-      }
-    ],
-    culturalSignificance: 'A massive 250-ton granite boulder perched precariously on a smooth 45-degree slope, surviving multiple earthquake cycles.',
-    history: 'Known locally as Vaan Irai Kal (Stone of the Sky God), it represents a natural structural wonder that Pallava kings tried but failed to move using royal elephants.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 99,
-      threats: ['Vandalism'],
-      digitalScanStatus: 'Complete',
-      currentInitiatives: 'Perimeter fencing and local guardian watch.',
-      visitorGuidelines: ['Do not climb on the boulder']
-    },
-    audioGuide: { duration: '2 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Stand below this gravity defying rock...' },
-    has3DModel: false
-  },
-  'descent-of-the-ganges': {
-    id: 'descent-of-the-ganges',
-    name: 'Descent of the Ganges',
-    nativeName: 'கங்கை வம்சாவளி',
-    tagline: 'The Cosmic Flow Carved in Eternal Granite',
-    stateId: 'tamil-nadu',
-    destinationId: 'mahabalipuram',
-    period: '7th Century CE',
-    dynasty: 'Pallava Dynasty',
-    ruler: 'King Narasimhavarman I',
-    architectureStyle: 'High Relief Stone Carving',
-    material: 'Granite Outcrop',
-    unescoYear: 1984,
-    location: {
-      city: 'Mahabalipuram',
-      state: 'Tamil Nadu',
-      coordinates: '12.6188° N, 80.1930° E',
-      lat: 12.6188,
-      lng: 80.1930
-    },
-    heroImage: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Great_Bas_Relief_Mamallapuram.jpg',
-        photographer: 'J. M. Garg',
-        license: 'CC BY-SA 3.0'
-      }
-    ],
-    culturalSignificance: 'Illustrates the legendary descent of the celestial river Ganga to earth, flowing through a central vertical cleft in the bedrock.',
-    history: 'Built as a royal engineering feat, natural cisterns on top originally fed water down the cleft during festivals to simulate the sacred waterfall.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 91,
-      threats: ['Friction erosion', 'Salt deposits'],
-      digitalScanStatus: 'Complete Scan',
-      currentInitiatives: 'Gentle water clearing and paper pulp treatment.',
-      visitorGuidelines: ['Follow paved walk lines']
-    },
-    audioGuide: { duration: '4 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Water once flowed through this fissure...' },
-    has3DModel: false
+    threeDStatus: 'available',
+    sketchfabId: '4a6a5c0795034b7fa91bbbd384b5ab28',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/shore-temple-mamallapurammahabalipuram-4a6a5c0795034b7fa91bbbd384b5ab28',
+    hotspots: SHORE_TEMPLE_HOTSPOTS
   },
 
-  // === KERALA (5 monuments) ===
-  'mattancherry-palace': {
-    id: 'mattancherry-palace',
-    name: 'Mattancherry Palace',
-    nativeName: 'മട്ടാഞ്ചേരി കൊട്ടാരം',
-    tagline: 'The Dutch Palace and Kerala’s Mural Sanctuary',
-    stateId: 'kerala',
-    destinationId: 'kochi',
-    period: '1555 CE',
-    dynasty: 'Kingdom of Cochin / Portuguese built',
-    ruler: 'Raja Veera Kerala Verma',
-    architectureStyle: 'Nalukettu Traditional Kerala Palace Architecture',
-    material: 'Laterite, Lime mortar, Teak wood',
-    unescoYear: undefined,
-    location: {
-      city: 'Kochi',
-      state: 'Kerala',
-      coordinates: '9.9599° N, 76.2592° E',
-      lat: 9.9599,
-      lng: 76.2592
-    },
-    heroImage: 'https://images.unsplash.com/photo-1602216056096-3c40cc0c9944?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1602216056096-3c40cc0c9944?auto=format&fit=crop&w=1200&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Mattancherry_Palace_Kochi_2019.jpg',
-        photographer: 'Shaji A.',
-        license: 'CC BY-SA 4.0'
-      }
-    ],
-    culturalSignificance: 'Features some of the finest traditional Hindu temple murals and portraits of the Rajas of Cochin in India.',
-    history: 'Built by the Portuguese as a gift to the Cochin king, it was later renovated by the Dutch, hence the name Dutch Palace.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 89,
-      threats: ['Termites in wooden beams', 'Humidity staining murals'],
-      digitalScanStatus: 'Pending High Accuracy Scan',
-      currentInitiatives: 'Microclimate controls and wooden structural treatments.',
-      visitorGuidelines: ['Photography strictly prohibited in mural chambers']
-    },
-    audioGuide: { duration: '5 min', narrator: 'Anjana Menon', transcript: 'Step into the wooden chambers...' },
-    has3DModel: false
-  },
-  'paradesi-synagogue': {
-    id: 'paradesi-synagogue',
-    name: 'Paradesi Synagogue',
-    nativeName: 'പരദേശി സിനഗോഗ്',
-    tagline: 'The Jewel of Jew Town and Cochin Jewish Heritage',
-    stateId: 'kerala',
-    destinationId: 'kochi',
-    period: '1568 CE',
-    dynasty: 'Malabar Yehudan Community',
-    ruler: 'Raja Keshavarman of Cochin (Land donor)',
-    architectureStyle: 'Anglo-Indian Jewish Synagogue Architecture',
-    material: 'Hand-painted Chinese tiles, Belgian chandeliers, Laterite',
-    unescoYear: undefined,
-    location: {
-      city: 'Kochi',
-      state: 'Kerala',
-      coordinates: '9.9575° N, 76.2594° E',
-      lat: 9.9575,
-      lng: 76.2594
-    },
-    heroImage: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=600&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=600&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Paradesi_Synagogue_Kochi.jpg',
-        photographer: 'Wouter Hagens',
-        license: 'Public Domain'
-      }
-    ],
-    culturalSignificance: 'The oldest active synagogue in the Commonwealth, famous for its hand-painted blue willow porcelain floor tiles from Canton.',
-    history: 'Constructed by Spanish and Portuguese Sephardic Jews who fled inquisitions and settled in the hospitable Kingdom of Cochin.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 93,
-      threats: ['Tile loosening', 'Saline sea air'],
-      digitalScanStatus: 'Complete interior scan',
-      currentInitiatives: 'Tile stabilization and moisture extraction.',
-      visitorGuidelines: ['Observe dress code', 'Silent visits only']
-    },
-    audioGuide: { duration: '3 min 20 sec', narrator: 'Anjana Menon', transcript: 'Look down at the Chinese porcelain tiles...' },
-    has3DModel: false
-  },
-  'st-francis-church': {
-    id: 'st-francis-church',
-    name: 'St. Francis Church',
-    nativeName: 'സെന്റ് ഫ്രാൻസിസ് പള്ളി',
-    tagline: 'The First European Church in India and Vasco da Gama’s Tomb',
-    stateId: 'kerala',
-    destinationId: 'kochi',
-    period: '1503 CE',
-    dynasty: 'Portuguese Colony / Franciscan Friars',
-    ruler: 'Portuguese Viceroy Francisco de Almeida',
-    architectureStyle: 'Portuguese Colonial Church Style',
-    material: 'Laterite, Wood, Lime plaster',
-    unescoYear: undefined,
-    location: {
-      city: 'Kochi',
-      state: 'Kerala',
-      coordinates: '9.9660° N, 76.2411° E',
-      lat: 9.9660,
-      lng: 76.2411
-    },
-    heroImage: 'https://images.unsplash.com/photo-1602216056096-3c40cc0c9944?auto=format&fit=crop&w=600&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1602216056096-3c40cc0c9944?auto=format&fit=crop&w=600&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:St_Francis_Church_Cochin.jpg',
-        photographer: 'Anoop S.',
-        license: 'CC BY-SA 3.0'
-      }
-    ],
-    culturalSignificance: 'Stands as a historical witness to the European colonial struggle for the Indian spice trade.',
-    history: 'Portuguese explorer Vasco da Gama, who died in Kochi in 1524, was originally buried in this church before his remains were moved to Lisbon.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 90,
-      threats: ['Timber decay', 'Roof leaks'],
-      digitalScanStatus: 'Complete Scan',
-      currentInitiatives: 'Roof timber replacement and weather sealing.',
-      visitorGuidelines: ['Maintain silence inside the sanctuary']
-    },
-    audioGuide: { duration: '4 min', narrator: 'Anjana Menon', transcript: 'You are standing before India\'s first European church...' },
-    has3DModel: false
-  },
-  'bekal-fort': {
-    id: 'bekal-fort',
-    name: 'Bekal Fort',
-    nativeName: 'ബേക്കൽ കോട്ട',
-    tagline: 'The Keyhole Ocean Fortress of Malabar Coast',
-    stateId: 'kerala',
-    destinationId: 'kasaragod',
-    period: '1650 CE',
-    dynasty: 'Keladi Nayaka Dynasty',
-    ruler: 'Shivappa Nayaka',
-    architectureStyle: 'Coastal Defensive Military Fortification',
-    material: 'Laterite stone blocks',
-    unescoYear: undefined,
-    location: {
-      city: 'Kasaragod',
-      state: 'Kerala',
-      coordinates: '12.3831° N, 75.0319° E',
-      lat: 12.3831,
-      lng: 12.3831
-    },
-    heroImage: 'https://images.unsplash.com/photo-1602216056096-3c40cc0c9944?auto=format&fit=crop&w=800&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1602216056096-3c40cc0c9944?auto=format&fit=crop&w=800&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Bekal_Fort_Kasaragod.jpg',
-        photographer: 'Prof. T. R. Rao',
-        license: 'CC BY-SA 4.0'
-      }
-    ],
-    culturalSignificance: 'The largest and best-preserved coastal fortress in Kerala, featuring observation towers facing the Arabian Sea.',
-    history: 'Built as a defense against maritime invaders, it later fell to Haider Ali, Tipu Sultan, and eventually the British East India Company.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 94,
-      threats: ['Sea wave erosion', 'Laterite peeling'],
-      digitalScanStatus: 'Complete LiDAR Scan',
-      currentInitiatives: 'Rampart reinforcement and coastal buffer planting.',
-      visitorGuidelines: ['Follow marked pathways near cliffs']
-    },
-    audioGuide: { duration: '4 min 10 sec', narrator: 'Anjana Menon', transcript: 'Observe the sea observation port...' },
-    has3DModel: false
-  },
-  'padmanabhaswamy-temple': {
-    id: 'padmanabhaswamy-temple',
-    name: 'Sree Padmanabhaswamy Temple',
-    nativeName: 'ശ്രീ പത്മനാഭസ്വാമി ക്ഷേത്രം',
-    tagline: 'The Vaulted Temple of Infinite Recesses and Travancore Wealth',
-    stateId: 'kerala',
-    destinationId: 'thiruvananthapuram',
-    period: '8th Century CE (Substantial expansion 1731 CE)',
-    dynasty: 'Travancore Royal House',
-    ruler: 'Maharaja Marthanda Varma',
-    architectureStyle: 'Kerala-Dravidian Architectural Synthesis',
-    material: 'Granite stone, Teak wood, Gold cladding',
-    unescoYear: undefined,
-    location: {
-      city: 'Thiruvananthapuram',
-      state: 'Kerala',
-      coordinates: '8.4830° N, 76.9436° E',
-      lat: 8.4830,
-      lng: 76.9436
-    },
-    heroImage: 'https://images.unsplash.com/photo-1602216056096-3c40cc0c9944?auto=format&fit=crop&w=700&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1602216056096-3c40cc0c9944?auto=format&fit=crop&w=700&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Sri_Padmanabhaswamy_Temple.jpg',
-        photographer: 'V. S. Acharya',
-        license: 'CC BY-SA 4.0'
-      }
-    ],
-    culturalSignificance: 'Houses Lord Vishnu reclining on Anantha, and is renowned for its secret underground vaults containing gold treasures.',
-    history: 'Renovated by Maharaja Marthanda Varma, who dedicated the Travancore Kingdom to the deity Padmanabha, ruling as Padmanabhadasas.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 96,
-      threats: ['Saline decay', 'High visitor flow'],
-      digitalScanStatus: 'Restricted security scan',
-      currentInitiatives: 'Gopuram restoration and structural inspection.',
-      visitorGuidelines: ['Strict traditional dress code required', 'Non-Hindus require permission']
-    },
-    audioGuide: { duration: '5 min', narrator: 'Anjana Menon', transcript: 'Look up at the gopuram...' },
-    has3DModel: false
-  },
-
-  // === KARNATAKA (4 monuments) ===
-  'virupaksha-temple': {
-    id: 'virupaksha-temple',
-    name: 'Virupaksha Temple',
-    nativeName: 'ವಿರೂಪಾಕ್ಷ ದೇವಾಲಯ',
-    tagline: 'The Sacred Pulse of the Vijayanagara Empire',
-    stateId: 'karnataka',
-    destinationId: 'hampi',
-    period: '7th Century CE (Expanded 1510 CE)',
-    dynasty: 'Vijayanagara Empire',
-    ruler: 'King Krishnadevaraya',
-    architectureStyle: 'Late Chalukyan / Vijayanagara Temple Style',
-    material: 'Granite and brick gopuram, stone pillars',
-    unescoYear: 1986,
-    location: {
-      city: 'Hampi',
-      state: 'Karnataka',
-      coordinates: '15.3350° N, 76.4600° E',
-      lat: 15.3350,
-      lng: 76.4600
-    },
-    heroImage: 'https://images.unsplash.com/photo-1600100397608-f010e4210d63?auto=format&fit=crop&w=1600&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1600100397608-f010e4210d63?auto=format&fit=crop&w=1600&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Virupaksha_Temple_Hampi.jpg',
-        photographer: 'Marc Shandro',
-        license: 'CC BY-SA 2.0'
-      }
-    ],
-    culturalSignificance: 'The oldest active Shiva temple in India, functioning continuously since the 7th century.',
-    history: 'Expanded by King Krishnadevaraya to celebrate his coronation, featuring a grand 160-foot entrance gopuram.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 93,
-      threats: ['Saline wind weathering', 'Foundation settlement'],
-      digitalScanStatus: 'Complete scan',
-      currentInitiatives: 'Restoration of gopuram plaster and seismic monitoring.',
-      visitorGuidelines: ['Deposit shoes outside']
-    },
-    audioGuide: { duration: '4 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Welcome to Hampi...' },
-    has3DModel: false
-  },
-  'vittala-temple': {
-    id: 'vittala-temple',
-    name: 'Vittala Temple',
-    nativeName: 'ವಿಜಯ ವಿಠ್ಠಲ ದೇವಾಲಯ',
-    tagline: 'The Symphony of Musical Pillars & Sacred Stone Chariots',
-    stateId: 'karnataka',
-    destinationId: 'hampi',
-    period: '15th Century CE',
-    dynasty: 'Vijayanagara Empire',
-    ruler: 'King Devaraya II / Krishnadevaraya',
-    architectureStyle: 'Classic Vijayanagara Granite Temple Architecture',
-    material: 'Monolithic Granite',
-    unescoYear: 1986,
-    location: {
-      city: 'Hampi',
-      state: 'Karnataka',
-      coordinates: '15.3374° N, 76.4680° E',
-      lat: 15.3374,
-      lng: 76.4680
-    },
-    heroImage: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=1200&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Stone_Chariot_at_Vittala_Temple_Hampi.jpg',
-        photographer: 'A. S. Murthy',
-        license: 'CC BY-SA 4.0'
-      }
-    ],
-    culturalSignificance: 'Houses the iconic Stone Chariot (Garuda shrine) and the 56 hollow musical pillars that produce ragas.',
-    history: 'Constructed as the primary shrine of Hampi Vijayanagara, reflecting the golden period of high southern stone carving.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 91,
-      threats: ['Vibration damage from tapping pillars', 'Stone flaking'],
-      digitalScanStatus: 'Complete Scan',
-      currentInitiatives: 'Barriers around musical columns to prevent tapping.',
-      visitorGuidelines: ['Do not touch the musical pillars']
-    },
-    audioGuide: { duration: '5 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Behold the Stone Chariot...' },
-    has3DModel: false
-  },
-  'lotus-mahal': {
-    id: 'lotus-mahal',
-    name: 'Lotus Mahal',
-    nativeName: 'ಕಮಲ ಮಹಲ್',
-    tagline: 'The Indo-Islamic Zenana Palace of Vijayanagara Queens',
-    stateId: 'karnataka',
-    destinationId: 'hampi',
-    period: '16th Century CE',
-    dynasty: 'Vijayanagara Empire',
-    ruler: 'Vijayanagara Kings',
-    architectureStyle: 'Secular Indo-Saracenic Palace Architecture',
-    material: 'Granite foundation, Lime mortar, brick arches',
-    unescoYear: 1986,
-    location: {
-      city: 'Hampi',
-      state: 'Karnataka',
-      coordinates: '15.3197° N, 76.4674° E',
-      lat: 15.3197,
-      lng: 76.4674
-    },
-    heroImage: 'https://images.unsplash.com/photo-1600100397608-f010e4210d63?auto=format&fit=crop&w=800&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1600100397608-f010e4210d63?auto=format&fit=crop&w=800&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Lotus_Mahal_Hampi_2018.jpg',
-        photographer: 'Jean-Pierre Dalbéra',
-        license: 'CC BY 2.0'
-      }
-    ],
-    culturalSignificance: 'An archway pavilion resembling a lotus bud, designed with hollow water channels in the pillars for air cooling.',
-    history: 'Served as a royal social club and council hall for the queens within the Zenana Enclosure.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 94,
-      threats: ['Plaster cracking', 'Staining'],
-      digitalScanStatus: 'Complete 3D Mesh',
-      currentInitiatives: 'Lime plaster stabilization and waterproofing.',
-      visitorGuidelines: ['Stay behind the lawn barrier']
-    },
-    audioGuide: { duration: '3 min 15 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'Look at the multi-lobed arches...' },
-    has3DModel: false
-  },
-  'hazara-rama-temple': {
-    id: 'hazara-rama-temple',
-    name: 'Hazara Rama Temple',
-    nativeName: 'ಹಜಾರ ರಾಮ ದೇವಾಲಯ',
-    tagline: 'The Thousand Ramayana Bas-Reliefs in Polished Basalt',
-    stateId: 'karnataka',
-    destinationId: 'hampi',
-    period: 'Early 15th Century CE',
-    dynasty: 'Vijayanagara Empire',
-    ruler: 'King Devaraya I',
-    architectureStyle: 'Royal Court Dravidian Style',
-    material: 'Polished Black Basalt and Granite',
-    unescoYear: 1986,
-    location: {
-      city: 'Hampi',
-      state: 'Karnataka',
-      coordinates: '15.3218° N, 76.4631° E',
-      lat: 15.3218,
-      lng: 76.4631
-    },
-    heroImage: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=600&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=600&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Hazara_Rama_Temple_Reliefs.jpg',
-        photographer: 'A. S. Rao',
-        license: 'CC BY-SA 3.0'
-      }
-    ],
-    culturalSignificance: 'Renowned for its meticulously detailed stone carvings depicting the Ramayana epic like a comic strip.',
-    history: 'Built as the private temple of the Vijayanagara royal household, positioned at the center of the Royal Enclosure.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 92,
-      threats: ['Basalt erosion', 'Water intrusion'],
-      digitalScanStatus: 'Complete Photogrammetry',
-      currentInitiatives: 'Chemical coating and rain shields.',
-      visitorGuidelines: ['Follow tour directions to read reliefs in sequence']
-    },
-    audioGuide: { duration: '4 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Read the stone panels panel-by-panel...' },
-    has3DModel: false
-  },
-
-  // === RAJASTHAN (4 monuments) ===
-  'hawa-mahal': {
-    id: 'hawa-mahal',
-    name: 'Hawa Mahal',
-    nativeName: 'हवा महल',
-    tagline: 'The Crown of 953 Breezy Jharokhas',
-    stateId: 'rajasthan',
-    destinationId: 'jaipur',
-    period: '1799 CE',
-    dynasty: 'Kachwaha Rajput Dynasty',
-    ruler: 'Maharaja Sawai Pratap Singh',
-    architectureStyle: 'Rajput-Mughal Thermodynamic Architecture',
-    material: 'Red and Pink Sandstone, Lime plaster',
-    unescoYear: undefined,
-    location: {
-      city: 'Jaipur',
-      state: 'Rajasthan',
-      coordinates: '26.9239° N, 75.8267° E',
-      lat: 26.9239,
-      lng: 75.8267
-    },
-    heroImage: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1200&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Hawa_Mahal_Jaipur.jpg',
-        photographer: 'Firoze Edassery',
-        license: 'CC BY-SA 3.0'
-      }
-    ],
-    culturalSignificance: 'A 5-story facade shaped like Krishna\'s crown with 953 windows designed for passive air cooling via Venturi effect.',
-    history: 'Designed by Lal Chand Ustad to allow royal ladies to watch street festivals unseen, maintaining custom purdah traditions.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 90,
-      threats: ['Saline moisture peeling sandstone', 'Vibration from street traffic'],
-      digitalScanStatus: 'Complete Scan (2023)',
-      currentInitiatives: 'Lime plaster reinforcement and traffic diversion plans.',
-      visitorGuidelines: ['Mind your footing on narrow top staircases']
-    },
-    audioGuide: { duration: '3 min 30 sec', narrator: 'Vikram Singh', transcript: 'Stand behind the screen...' },
-    has3DModel: false
-  },
-  'amber-fort': {
-    id: 'amber-fort',
-    name: 'Amber Fort',
-    nativeName: 'आमेर किला',
-    tagline: 'The Golden Citadel of Mirror Palaces and Hilltop Ramparts',
-    stateId: 'rajasthan',
-    destinationId: 'jaipur',
-    period: '1592 CE (Expanded 17th Century)',
-    dynasty: 'Kachwaha Rajput Dynasty',
-    ruler: 'Raja Man Singh I / Sawai Jai Singh',
-    architectureStyle: 'Mughal-Rajput Hill Fort Architecture',
-    material: 'Yellow and Pink Sandstone, White Marble, Mirror glass',
-    unescoYear: 2013,
-    location: {
-      city: 'Jaipur',
-      state: 'Rajasthan',
-      coordinates: '26.9855° N, 75.8513° E',
-      lat: 26.9855,
-      lng: 75.8513
-    },
-    heroImage: 'https://images.unsplash.com/photo-1585121516538-4e12e1ec73f7?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1585121516538-4e12e1ec73f7?auto=format&fit=crop&w=1200&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Amber_Fort_Jaipur.jpg',
-        photographer: 'V. S. Choudhary',
-        license: 'CC BY-SA 4.0'
-      }
-    ],
-    culturalSignificance: 'Renowned for its massive defensive gates, Maota Lake vistas, and the Sheesh Mahal (Hall of Mirrors).',
-    history: 'Constructed as the primary palace fortress of Amber before the founding of Jaipur, reflecting high Mughal military alliance styles.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 92,
-      threats: ['Cracking in hilltop structures', 'Saline wind weathering'],
-      digitalScanStatus: 'Complete',
-      currentInitiatives: 'Mirror panel restoration and drainage sealing.',
-      visitorGuidelines: ['Follow guide signs', 'Do not touch mirror panels']
-    },
-    audioGuide: { duration: '5 min', narrator: 'Vikram Singh', transcript: 'Welcome to Amber...' },
-    has3DModel: false
-  },
-  'city-palace-jaipur': {
-    id: 'city-palace-jaipur',
-    name: 'City Palace',
-    nativeName: 'चन्द्र महल',
-    tagline: 'The Living Seat of Jaipur Kings and Royal Courtyards',
-    stateId: 'rajasthan',
-    destinationId: 'jaipur',
-    period: '1727 CE',
-    dynasty: 'Kachwaha Rajput Dynasty',
-    ruler: 'Maharaja Sawai Jai Singh II',
-    architectureStyle: 'Mughal, Rajput and European Synthesis',
-    material: 'Pink Sandstone, Marble, Brass',
-    unescoYear: undefined,
-    location: {
-      city: 'Jaipur',
-      state: 'Rajasthan',
-      coordinates: '26.9258° N, 75.8236° E',
-      lat: 26.9258,
-      lng: 75.8236
-    },
-    heroImage: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:City_Palace_Jaipur_2021.jpg',
-        photographer: 'Pratap R.',
-        license: 'CC BY-SA 4.0'
-      }
-    ],
-    culturalSignificance: 'Houses Chandra Mahal, Pritam Niwas Chowk (four seasons gates), and huge silver water vessels.',
-    history: 'Established when the capital shifted from Amber to the planned grid city of Jaipur, designed by Vidyadhar Bhattacharya.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 95,
-      threats: ['Wear in active tourist courtyards'],
-      digitalScanStatus: 'Partial Scan',
-      currentInitiatives: 'Gate paint conservation and museum curation.',
-      visitorGuidelines: ['Strictly no photography in royal chambers']
-    },
-    audioGuide: { duration: '4 min', narrator: 'Vikram Singh', transcript: 'Observe the peacock gate...' },
-    has3DModel: false
-  },
-  'jantar-mantar-jaipur': {
-    id: 'jantar-mantar-jaipur',
-    name: 'Jantar Mantar',
-    nativeName: 'जन्तर मन्तर',
-    tagline: 'The Stone Cosmic Calculator of Rajput Astronomers',
-    stateId: 'rajasthan',
-    destinationId: 'jaipur',
-    period: '1734 CE',
-    dynasty: 'Kachwaha Rajput Dynasty',
-    ruler: 'Maharaja Sawai Jai Singh II',
-    architectureStyle: 'Rajput Astronomical stone instruments',
-    material: 'Local Stone and Marble, Brass plates',
-    unescoYear: 2010,
-    location: {
-      city: 'Jaipur',
-      state: 'Rajasthan',
-      coordinates: '26.9248° N, 75.8245° E',
-      lat: 26.9248,
-      lng: 75.8245
-    },
-    heroImage: 'https://images.unsplash.com/photo-1585121516538-4e12e1ec73f7?auto=format&fit=crop&w=600&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1585121516538-4e12e1ec73f7?auto=format&fit=crop&w=600&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Jantar_Mantar_Jaipur_2019.jpg',
-        photographer: 'A. K. Sharma',
-        license: 'CC BY-SA 4.0'
-      }
-    ],
-    culturalSignificance: 'The world\'s largest stone sundial (Vrihat Samrat Yantra) capable of tracking local time with 2-second accuracy.',
-    history: 'Sawai Jai Singh built five such observatories, combining Vedic astronomy concepts with Islamic observatory structures.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 96,
-      threats: ['Thermal cracking in white marble scales'],
-      digitalScanStatus: 'Complete LiDAR Scan',
-      currentInitiatives: 'Marble coordinate markings repair and calibration checking.',
-      visitorGuidelines: ['Do not climb on astronomical instruments']
-    },
-    audioGuide: { duration: '4 min 30 sec', narrator: 'Vikram Singh', transcript: 'Observe the massive sundial shadow...' },
-    has3DModel: false
-  },
-
-  // === DELHI (4 monuments) ===
-  'qutub-minar': {
-    id: 'qutub-minar',
-    name: 'Qutub Minar',
-    nativeName: 'क़ुतुब मीनार',
-    tagline: 'The 73-Meter Tower of Victory and the Rustless Iron Pillar',
-    stateId: 'delhi',
-    destinationId: 'delhi',
-    period: '1192 CE',
-    dynasty: 'Delhi Sultanate / Mamluk Dynasty',
-    ruler: 'Qutb-ud-din Aibak / Iltutmish',
-    architectureStyle: 'Early Indo-Islamic Victory Tower Architecture',
-    material: 'Red Sandstone, Grey Quartzite, White Marble',
-    unescoYear: 1993,
-    location: {
-      city: 'Delhi',
-      state: 'Delhi',
-      coordinates: '28.5244° N, 77.1855° E',
-      lat: 28.5244,
-      lng: 77.1855
-    },
-    heroImage: 'https://images.unsplash.com/photo-1595304675549-3665bc75bd02?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1595304675549-3665bc75bd02?auto=format&fit=crop&w=1200&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Qutb_Minar_Delhi_2020.jpg',
-        photographer: 'V. K. Singh',
-        license: 'CC BY-SA 4.0'
-      }
-    ],
-    culturalSignificance: 'A 5-story victory tower carved with Arabic inscriptions alongside the Gupta-period rustless iron pillar.',
-    history: 'Initiated by Qutb-ud-din Aibak to mark the start of Delhi Sultanate rule, rebuilt after lightning strikes by Firoz Shah Tughlaq.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 92,
-      threats: ['Foundation shifting', 'Air pollution staining'],
-      digitalScanStatus: 'Complete Sub-millimeter Scan (2024)',
-      currentInitiatives: 'Tilt monitoring sensors and chemical clean.',
-      visitorGuidelines: ['Follow outer pathway boundary line']
-    },
-    audioGuide: { duration: '4 min', narrator: 'Rahul Dev', transcript: 'Look up at the balcony bands...' },
-    has3DModel: false
-  },
-  'humayuns-tomb': {
-    id: 'humayuns-tomb',
-    name: "Humayun's Tomb",
-    nativeName: 'हुमायूँ का मक़बरा',
-    tagline: 'The Geometry of Paradise: Prototype of the Taj Mahal',
-    stateId: 'delhi',
-    destinationId: 'delhi',
-    period: '1570 CE',
-    dynasty: 'Mughal Empire',
-    ruler: 'Empress Bega Begum (Consort of Humayun)',
-    architectureStyle: 'Mughal Charbagh Garden Tomb Style',
-    material: 'Red Sandstone, White Marble inlay',
-    unescoYear: 1993,
-    location: {
-      city: 'Delhi',
-      state: 'Delhi',
-      coordinates: '28.5933° N, 77.2507° E',
-      lat: 28.5933,
-      lng: 77.2507
-    },
-    heroImage: 'https://images.unsplash.com/photo-1628548174540-1011f0a202d7?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1628548174540-1011f0a202d7?auto=format&fit=crop&w=1200&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Humayun%27s_Tomb_Delhi_2022.jpg',
-        photographer: 'A. R. Gupta',
-        license: 'CC BY-SA 4.0'
-      }
-    ],
-    culturalSignificance: 'The first grand garden-tomb on the Indian subcontinent, introducing the iconic double dome structure.',
-    history: 'Designed by Persian architect Mirak Mirza Ghiyath, serving as a family mausoleum for hundreds of subsequent Mughal princes.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 94,
-      threats: ['Water canal calcification', 'Traffic pollution'],
-      digitalScanStatus: 'Complete Scan',
-      currentInitiatives: 'Water channel restoration and lime washing.',
-      visitorGuidelines: ['Do not walk inside dry water channels']
-    },
-    audioGuide: { duration: '4 min 40 sec', narrator: 'Rahul Dev', transcript: 'Welcome to the Charbagh garden...' },
-    has3DModel: false
-  },
-  'red-fort': {
-    id: 'red-fort',
-    name: 'Red Fort',
-    nativeName: 'लाल क़िला',
-    tagline: 'The Imperial Seat of Mughal Splendor and Independence',
-    stateId: 'delhi',
-    destinationId: 'delhi',
-    period: '1648 CE',
-    dynasty: 'Mughal Empire',
-    ruler: 'Emperor Shah Jahan',
-    architectureStyle: 'Mughal Palace Fortification Style',
-    material: 'Red Sandstone, White Marble, Plaster',
-    unescoYear: 2007,
-    location: {
-      city: 'Delhi',
-      state: 'Delhi',
-      coordinates: '28.6562° N, 77.2410° E',
-      lat: 28.6562,
-      lng: 77.2410
-    },
-    heroImage: 'https://images.unsplash.com/photo-1595304675549-3665bc75bd02?auto=format&fit=crop&w=600&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1595304675549-3665bc75bd02?auto=format&fit=crop&w=600&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Red_Fort_Delhi.jpg',
-        photographer: 'A. K. Sharma',
-        license: 'CC BY-SA 3.0'
-      }
-    ],
-    culturalSignificance: 'Renowned for Diwan-i-Aam, Diwan-i-Khas, and serves as the flag hoisting site for India\'s Independence Day.',
-    history: 'Constructed when Shah Jahan shifted his Mughal imperial capital from Agra to Shahjahanabad in Delhi.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 91,
-      threats: ['Sandstone scaling', 'Moisture in cellars'],
-      digitalScanStatus: 'Complete',
-      currentInitiatives: 'Facade paint removal and stone carving restoration.',
-      visitorGuidelines: ['Follow security guidelines at Lahori Gate']
-    },
-    audioGuide: { duration: '5 min', narrator: 'Rahul Dev', transcript: 'Enter through Lahori Gate...' },
-    has3DModel: false
-  },
-  'india-gate': {
-    id: 'india-gate',
-    name: 'India Gate',
-    nativeName: 'अखिल भारतीय युद्ध स्मारक',
-    tagline: 'The Triumphal Archway and Eternal Flame of Remembrance',
-    stateId: 'delhi',
-    destinationId: 'delhi',
-    period: '1931 CE',
-    dynasty: 'British Raj era',
-    ruler: 'Imperial War Graves Commission / Sir Edwin Lutyens',
-    architectureStyle: 'European Triumphal Arch Architecture',
-    material: 'Red and Pale Sandstone, Granite',
-    unescoYear: undefined,
-    location: {
-      city: 'Delhi',
-      state: 'Delhi',
-      coordinates: '28.6129° N, 77.2295° E',
-      lat: 28.6129,
-      lng: 77.2295
-    },
-    heroImage: 'https://images.unsplash.com/photo-1628548174540-1011f0a202d7?auto=format&fit=crop&w=600&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1628548174540-1011f0a202d7?auto=format&fit=crop&w=600&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:India_Gate_Delhi.jpg',
-        photographer: 'Edwin Lutyens design',
-        license: 'Public Domain'
-      }
-    ],
-    culturalSignificance: 'A memorial arch listing over 13,000 soldiers’ names, housing the Amar Jawan Jyoti eternal flame.',
-    history: 'Designed by Edwin Lutyens as a war memorial for British Indian Army soldiers who died in World War I.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 97,
-      threats: ['Urban pollution grime'],
-      digitalScanStatus: 'Complete Scan',
-      currentInitiatives: 'Chemical facade cleaning and public plaza policing.',
-      visitorGuidelines: ['Maintain solemn reverence near the flame enclosure']
-    },
-    audioGuide: { duration: '3 min', narrator: 'Rahul Dev', transcript: 'You are standing before the triumphal arch...' },
-    has3DModel: false
-  },
-
-  // === ODISHA (4 monuments) ===
   'konark-sun-temple': {
     id: 'konark-sun-temple',
-    name: 'Sun Temple, Konark',
+    name: 'Konark Sun Temple',
     nativeName: 'କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର',
-    tagline: 'The Colossal Cosmic Chariot of the Sun God Surya',
+    tagline: 'The Celestial Stone Chariot of Surya',
     stateId: 'odisha',
     destinationId: 'konark',
     period: '1250 CE',
     dynasty: 'Eastern Ganga Dynasty',
     ruler: 'King Narasimhadeva I',
-    architectureStyle: 'Kalinga Temple Deula Architecture',
-    material: 'Khondalite rock, Chlorite sculptures',
+    architectureStyle: 'Kalinga Stone Architecture',
+    material: 'Khondalite & Chlorite Stone',
     unescoYear: 1984,
     location: {
       city: 'Konark',
@@ -1113,352 +239,992 @@ export const MONUMENTS: Record<string, Monument> = {
       lat: 19.8876,
       lng: 86.0945
     },
-    heroImage: 'https://images.unsplash.com/photo-1604999333679-b86d54738315?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1604999333679-b86d54738315?auto=format&fit=crop&w=1200&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Sun_Temple_Konark_2020.jpg',
-        photographer: 'A. K. Sen',
-        license: 'CC BY-SA 4.0'
-      }
+    heroImage: '/images/konark-hero.jpg',
+    galleryImages: [
+      '/images/konark-hero.jpg',
+      '/images/gallery/konark-1.png',
+      '/images/gallery/konark-2.jpg',
+      '/images/gallery/konark-4.jpg',
+      '/images/gallery/konark-5.png'
     ],
-    culturalSignificance: 'Renowned for 24 giant stone wheels serving as astronomical sundials, pulled by 7 stone horses.',
-    history: 'Constructed at the delta mouth of Chandrabhaga River, once referred to as the "Black Pagoda" by European sailors.',
+    imageGallery: [
+      { url: '/images/konark-hero.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/konark-1.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/konark-2.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/konark-4.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/konark-5.png', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'Conceived as a giant 24-wheeled stone chariot drawn by 7 horses, calculating precise solar time.',
+    history: 'Built by King Narasimhadeva I in the 13th century on the Bay of Bengal shore as a sanctuary of light.',
     stories: [],
     preservationStatus: {
       healthScore: 88,
-      threats: ['Saline sea wind corrosion', 'Sand core load shifts inside sanctum'],
-      digitalScanStatus: 'Complete LiDAR Scan (2024)',
-      currentInitiatives: 'Sand removal from closed Jagamohana hall and chemical stone washes.',
-      visitorGuidelines: ['Strictly no climbing on the stone platforms']
+      threats: ['Structural sand weight', 'Humid ocean air'],
+      digitalScanStatus: 'Complete LiDAR Scan',
+      currentInitiatives: 'Removing interior sand fill under ASI & international conservation experts.',
+      visitorGuidelines: ['Stay within designated walking paths']
     },
-    audioGuide: { duration: '5 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Behold the chariot of the Sun...' },
-    has3DModel: false
-  },
-  'mukteshwar-temple': {
-    id: 'mukteshwar-temple',
-    name: 'Mukteshwar Temple',
-    nativeName: 'ମୁକ୍ତେଶ୍ଵର ମନ୍ଦିର',
-    tagline: 'The Gem of Odishan Temple Architecture',
-    stateId: 'odisha',
-    destinationId: 'bhubaneswar',
-    period: '950 CE',
-    dynasty: 'Somavamshi Dynasty',
-    ruler: 'Yayati I',
-    architectureStyle: 'Classic Kalinga Architecture style',
-    material: 'Red Sandstone',
-    unescoYear: undefined,
-    location: {
-      city: 'Bhubaneswar',
-      state: 'Odisha',
-      coordinates: '20.2520° N, 85.8436° E',
-      lat: 20.2520,
-      lng: 85.8436
-    },
-    heroImage: 'https://images.unsplash.com/photo-1604999333679-b86d54738315?auto=format&fit=crop&w=600&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1604999333679-b86d54738315?auto=format&fit=crop&w=600&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Muktesvara_Temple_Bhubaneswar.jpg',
-        photographer: 'Subhashish Panigrahi',
-        license: 'CC BY-SA 3.0'
-      }
-    ],
-    culturalSignificance: 'Famous for its exquisite stone archway (Torana) showing detailed Buddhist-influenced carvings.',
-    history: 'Marks the transition period of Kalinga architecture, preceding the grand structures of Lingaraj and Jagannath.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 94,
-      threats: ['Plinth erosion', 'Moisture buildup'],
-      digitalScanStatus: 'Complete Scan',
-      currentInitiatives: 'Drainage improvement and structural coating.',
-      visitorGuidelines: ['Do not touch the delicate torana archway']
-    },
-    audioGuide: { duration: '3 min 30 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'Observe the circular arch...' },
-    has3DModel: false
-  },
-  'lingaraj-temple': {
-    id: 'lingaraj-temple',
-    name: 'Lingaraj Temple',
-    nativeName: 'ଲିଙ୍ଗରାଜ ମନ୍ଦିର',
-    tagline: 'The Soaring Tower of Harihara Devotion in Ekamra Khetra',
-    stateId: 'odisha',
-    destinationId: 'bhubaneswar',
-    period: '11th Century CE',
-    dynasty: 'Somavamshi Dynasty / Ganga Dynasty',
-    ruler: 'King Jajati Keshari',
-    architectureStyle: 'Mature Kalinga Rekha Deula Style',
-    material: 'Laterite foundation, Sandstone tower blocks',
-    unescoYear: undefined,
-    location: {
-      city: 'Bhubaneswar',
-      state: 'Odisha',
-      coordinates: '20.2382° N, 85.8338° E',
-      lat: 20.2382,
-      lng: 85.8338
-    },
-    heroImage: 'https://images.unsplash.com/photo-1604999333679-b86d54738315?auto=format&fit=crop&w=800&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1604999333679-b86d54738315?auto=format&fit=crop&w=800&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Lingaraj_Temple_Bhubaneswar.jpg',
-        photographer: 'K. K. Satpathy',
-        license: 'CC BY-SA 4.0'
-      }
-    ],
-    culturalSignificance: 'The largest temple in Bhubaneswar, featuring a massive 180-foot deula tower housing the swayambhu Lingam.',
-    history: 'Built as the central axis of Shaivism in Ekamra Kshetra, supported later by the Gangas who introduced Vaishnavite elements.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 92,
-      threats: ['Vibration cracking', 'Plinth decay'],
-      digitalScanStatus: 'Restricted security scan',
-      currentInitiatives: 'Chemical stone sealing and gopuram maintenance.',
-      visitorGuidelines: ['Non-Hindus must observe from the elevated viewing platform']
-    },
-    audioGuide: { duration: '5 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Gaze up at the curvilinear spire...' },
-    has3DModel: false
-  },
-  'udayagiri-caves': {
-    id: 'udayagiri-caves',
-    name: 'Udayagiri Caves',
-    nativeName: 'ଉଦୟଗିରି ଗୁମ୍ଫା',
-    tagline: 'The Rock-Cut Monasteries and Kharavela Inscriptions',
-    stateId: 'odisha',
-    destinationId: 'bhubaneswar',
-    period: '2nd Century BCE',
-    dynasty: 'Mahameghavahana Dynasty',
-    ruler: 'Emperor Kharavela',
-    architectureStyle: 'Rock-Cut Jain Monastic Cells',
-    material: 'Sandstone hill range',
-    unescoYear: undefined,
-    location: {
-      city: 'Bhubaneswar',
-      state: 'Odisha',
-      coordinates: '20.2625° N, 85.7861° E',
-      lat: 20.2625,
-      lng: 85.7861
-    },
-    heroImage: 'https://images.unsplash.com/photo-1604999333679-b86d54738315?auto=format&fit=crop&w=700&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1604999333679-b86d54738315?auto=format&fit=crop&w=700&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Udayagiri_Caves_Bhubaneswar.jpg',
-        photographer: 'Subhashish Panigrahi',
-        license: 'CC BY-SA 3.0'
-      }
-    ],
-    culturalSignificance: 'Features the Hathigumpha inscription in Brahmi script, detailing Emperor Kharavela\'s military conquests.',
-    history: 'Carved out of sandstone hills as residence cells for Jain monks, showcasing some of the earliest monastic architecture in India.',
-    stories: [],
-    preservationStatus: {
-      healthScore: 89,
-      threats: ['Rain erosion in soft sandstone', 'Vegetation root cracks'],
-      digitalScanStatus: 'Complete 3D Mesh Scanned',
-      currentInitiatives: 'Anti-weed treatments and rock consolidation.',
-      visitorGuidelines: ['Do not scratch soft sandstone walls']
-    },
-    audioGuide: { duration: '4 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Observe the double-story Ranigumpha...' },
-    has3DModel: false
+    audioGuide: { duration: '4 min 0 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'Observe the 24 carved sundial wheels...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: '6cc905be2ae34e8091eb1eaa84a17738',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/sun-temple-konark-6cc905be2ae34e8091eb1eaa84a17738'
   },
 
-  // === UTTAR PRADESH (4 monuments) ===
-  'taj-mahal': {
-    id: 'taj-mahal',
-    name: 'Taj Mahal',
-    nativeName: 'ताज महल',
-    tagline: 'The Epitome of Eternal Love and Symmetrical Perfection',
-    stateId: 'uttar-pradesh',
-    destinationId: 'agra',
-    period: '1631–1648 CE',
+  'charminar': {
+    id: 'charminar',
+    name: 'Charminar',
+    nativeName: 'चारमीनार',
+    tagline: 'The Four Minarets Gateway of Hyderabad',
+    stateId: 'telangana',
+    destinationId: 'hyderabad',
+    period: '1591 CE',
+    dynasty: 'Qutb Shahi Dynasty',
+    ruler: 'Sultan Muhammad Quli Qutb Shah',
+    architectureStyle: 'Indo-Islamic Architecture',
+    material: 'Granite, Mortar & Pulverized Marble',
+    location: {
+      city: 'Hyderabad',
+      state: 'Telangana',
+      coordinates: '17.3616° N, 78.4747° E',
+      lat: 17.3616,
+      lng: 78.4747
+    },
+    heroImage: '/images/charminar-hero.jpg',
+    galleryImages: [
+      '/images/gallery/charminar-2.png',
+      '/images/gallery/charminar-3.png',
+      '/images/gallery/charminar-6.png',
+      '/images/gallery/charminar-7.png'
+    ],
+    imageGallery: [
+      { url: '/images/gallery/charminar-2.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/charminar-3.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/charminar-6.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/charminar-7.png', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'The signature emblem of Hyderabad, featuring 4 grand 48-meter minarets over a square arched center.',
+    history: 'Built in 1591 to commemorate the end of a deadly plague epidemic and mark the founding of Hyderabad city.',
+    stories: [],
+    preservationStatus: {
+      healthScore: 91,
+      threats: ['Traffic vibration', 'Plaster flaking'],
+      digitalScanStatus: 'Complete 3D Mesh Scanned',
+      currentInitiatives: 'Pedestrianized heritage zone around the monument base.',
+      visitorGuidelines: ['Ascend minaret staircases in batches']
+    },
+    audioGuide: { duration: '3 min 30 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'Welcome to the heart of Hyderabad...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: 'bb880d064036496ca14ebac08a243af0',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/charminar-bb880d064036496ca14ebac08a243af0'
+  },
+
+  'india-gate': {
+    id: 'india-gate',
+    name: 'India Gate',
+    nativeName: 'इंडिया गेट',
+    tagline: 'The Triumphal Arch Memorial of Valor',
+    stateId: 'delhi',
+    destinationId: 'new-delhi',
+    period: '1921–1931 CE',
+    dynasty: 'British Colonial Era',
+    ruler: 'Sir Edwin Lutyens (Architect)',
+    architectureStyle: 'Neoclassical Triumphal Arch Architecture',
+    material: 'Red & Pale Bharatpur Sandstone',
+    location: {
+      city: 'New Delhi',
+      state: 'Delhi',
+      coordinates: '28.6129° N, 77.2295° E',
+      lat: 28.6129,
+      lng: 77.2295
+    },
+    heroImage: '/images/india-gate-hero.jpg',
+    galleryImages: [
+      '/images/gallery/india-gate-1.png',
+      '/images/gallery/india-gate-2.jpg',
+      '/images/gallery/india-gate-3.png',
+      '/images/gallery/india-gate-4.png',
+      '/images/gallery/india-gate-5.png'
+    ],
+    imageGallery: [
+      { url: '/images/gallery/india-gate-1.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/india-gate-2.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/india-gate-3.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/india-gate-4.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/india-gate-5.png', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'Standing 42 meters high, it honors 84,000 soldiers of the British Indian Army who lost their lives in WWI.',
+    history: 'Foundation stone laid in 1921 by the Duke of Connaught; inaugurated in 1931 as the central node of Rajpath.',
+    stories: [],
+    preservationStatus: {
+      healthScore: 97,
+      threats: ['Urban smog discoloration'],
+      digitalScanStatus: 'Complete 3D Scan Registered',
+      currentInitiatives: 'Kartavya Path redevelopment & periodic waterjet conservation cleaning.',
+      visitorGuidelines: ['Respect the eternal flame zone']
+    },
+    audioGuide: { duration: '3 min 15 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'You are standing before the 42-meter memorial arch...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: 'fb44c4d59c954cd7a561dbbfed26dcfc',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/india-gate-3d-model-fb44c4d59c954cd7a561dbbfed26dcfc'
+  },
+
+  'red-fort': {
+    id: 'red-fort',
+    name: 'Red Fort',
+    nativeName: 'लाल किला',
+    tagline: 'The Red Sandstone Citadel of Imperial Mughals',
+    stateId: 'delhi',
+    destinationId: 'old-delhi',
+    period: '1638–1648 CE',
     dynasty: 'Mughal Empire',
     ruler: 'Emperor Shah Jahan',
-    architectureStyle: 'Classic Mughal Symmetrical Garden Mausoleum',
-    material: 'Makrana White Marble, Semi-precious stone inlay',
-    unescoYear: 1983,
+    architectureStyle: 'Mughal Imperial Palace Fort Architecture',
+    material: 'Red Sandstone & Marble Pavilions',
+    unescoYear: 2007,
     location: {
-      city: 'Agra',
-      state: 'Uttar Pradesh',
-      coordinates: '27.1751° N, 78.0421° E',
-      lat: 27.1751,
-      lng: 78.0421
+      city: 'Old Delhi',
+      state: 'Delhi',
+      coordinates: '28.6562° N, 77.2410° E',
+      lat: 28.6562,
+      lng: 77.2410
     },
-    heroImage: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Taj_Mahal_Agra_2019.jpg',
-        photographer: 'Yann Forget',
-        license: 'CC BY-SA 4.0'
-      }
+    heroImage: '/images/red-fort-hero.jpg',
+    galleryImages: [
+      '/images/gallery/red-fort-1.png',
+      '/images/gallery/red-fort-2.jpg',
+      '/images/gallery/red-fort-3.jpg',
+      '/images/gallery/red-fort-4.jpg',
+      '/images/gallery/red-fort-5.jpg'
     ],
-    culturalSignificance: 'A globally recognized masterpiece of symmetrical marble architecture built as a tomb for Mumtaz Mahal.',
-    history: ' Shah Jahan commissioned the monument in 1631, employing over 20,000 stone carvers, calligraphers, and masonry guilds.',
+    imageGallery: [
+      { url: '/images/gallery/red-fort-1.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/red-fort-2.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/red-fort-3.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/red-fort-4.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/red-fort-5.jpg', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'Iconic seat of Indian sovereignty where the Prime Minister unfurls the tricolor on Independence Day.',
+    history: 'Built when Shah Jahan shifted his capital from Agra to Shahjahanabad (Old Delhi) in 1638.',
     stories: [],
     preservationStatus: {
       healthScore: 93,
-      threats: ['Air pollution yellowing marble', 'Yamuna river moisture shifts'],
-      digitalScanStatus: 'Complete LiDAR Scan (2024)',
-      currentInitiatives: 'Application of paper pulp mud packs to absorb pollutants from marble surfaces.',
-      visitorGuidelines: ['Remove shoes or wear shoe covers', 'No tripod photography on platform']
+      threats: ['Pollution', 'High footfall'],
+      digitalScanStatus: 'Complete 3D Mesh Scanned',
+      currentInitiatives: 'Restoration of Diwan-i-Khas marble and Stream of Paradise water channels.',
+      visitorGuidelines: ['Follow security checkpoints at Lahori Gate']
     },
-    audioGuide: { duration: '5 min 20 sec', narrator: 'Kabir Khan', transcript: 'Welcome to the Taj Mahal...' },
-    has3DModel: false
+    audioGuide: { duration: '4 min 15 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'Pass through the formidable Lahori Gate...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: '2ad9ae0a1b524a37a2c3ab245b0e5423',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/red-fort-model-2ad9ae0a1b524a37a2c3ab245b0e5423'
   },
-  'agra-fort': {
-    id: 'agra-fort',
-    name: 'Agra Fort',
-    nativeName: 'आगरा का किला',
-    tagline: 'The Walled Palace City of the Great Mughals',
-    stateId: 'uttar-pradesh',
-    destinationId: 'agra',
-    period: '1565–1573 CE',
-    dynasty: 'Mughal Empire',
-    ruler: 'Emperor Akbar / Shah Jahan',
-    architectureStyle: 'Mughal Palace Fortification Style',
-    material: 'Red Sandstone, White Marble, Brick',
+
+  'qutb-minar': {
+    id: 'qutb-minar',
+    name: 'Qutub Minar',
+    nativeName: 'कुतुब मीनार',
+    tagline: 'The World’s Tallest Brick Minaret',
+    stateId: 'delhi',
+    destinationId: 'mehrauli',
+    period: '1192–1220 CE',
+    dynasty: 'Delhi Sultanate (Mamluk Dynasty)',
+    ruler: 'Qutb al-Din Aibak & Iltutmish',
+    architectureStyle: 'Indo-Islamic Fluted Tower Architecture',
+    material: 'Red Sandstone & White Marble',
+    unescoYear: 1993,
+    location: {
+      city: 'New Delhi',
+      state: 'Delhi',
+      coordinates: '28.5245° N, 77.1855° E',
+      lat: 28.5245,
+      lng: 77.1855
+    },
+    heroImage: 'https://images.unsplash.com/photo-1545232979-fbf30fe367c5?auto=format&fit=crop&w=1600&q=85',
+    galleryImages: ['https://images.unsplash.com/photo-1545232979-fbf30fe367c5?auto=format&fit=crop&w=1200&q=80'],
+    culturalSignificance: 'Rises 72.5 meters with 5 distinct storeys covered in intricate Quranic epigraphy and stalactite balconies.',
+    history: 'Started in 1192 by Qutb-ud-din Aibak after defeating Prithviraj Chauhan; expanded by Iltutmish and Firoz Shah Tughlaq.',
+    stories: [],
+    preservationStatus: {
+      healthScore: 95,
+      threats: ['Mild structural tilt', 'Lightning strikes'],
+      digitalScanStatus: 'Complete Sub-millimeter LiDAR Scan',
+      currentInitiatives: 'Seismic tilt sensors & lightning conductor retrofitting.',
+      visitorGuidelines: ['Keep clear of the Iron Pillar railing']
+    },
+    audioGuide: { duration: '4 min 0 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'Observe the five fluted storeys rising into the sky...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: '8777afc0c80549d1abb7c0f28832bb4b',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/qutubminar-8777afc0c80549d1abb7c0f28832bb4b'
+  },
+
+  'gateway-of-india': {
+    id: 'gateway-of-india',
+    name: 'Gateway of India',
+    nativeName: 'गेटवे ऑफ इंडिया',
+    tagline: 'The Waterfront Arch of Bombay',
+    stateId: 'maharashtra',
+    destinationId: 'mumbai',
+    period: '1911–1924 CE',
+    dynasty: 'British Colonial Era',
+    ruler: 'George Wittet (Architect)',
+    architectureStyle: 'Indo-Saracenic Architecture',
+    material: 'Yellow Basalt & Concrete',
+    location: {
+      city: 'Mumbai',
+      state: 'Maharashtra',
+      coordinates: '18.9220° N, 72.8347° E',
+      lat: 18.9220,
+      lng: 72.8347
+    },
+    heroImage: '/images/gateway-of-india-hero.jpg',
+    galleryImages: [
+      '/images/gallery/gateway-1.jpg',
+      '/images/gallery/gateway-2.png',
+      '/images/gallery/gateway-3.jpg',
+      '/images/gallery/gateway-4.jpg',
+      '/images/gallery/gateway-5.png'
+    ],
+    imageGallery: [
+      { url: '/images/gallery/gateway-1.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/gateway-2.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/gateway-3.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/gateway-4.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/gateway-5.png', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'Built to commemorate the visit of King George V and Queen Mary to Mumbai in 1911.',
+    history: 'Inaugurated in 1924; later served as the ceremonial exit point for the last British troops in 1948.',
+    stories: [],
+    preservationStatus: {
+      healthScore: 92,
+      threats: ['Sea air weathering'],
+      digitalScanStatus: 'Complete 3D Mesh Scanned',
+      currentInitiatives: 'Chemical basalt cleaning & sea wall fortification.',
+      visitorGuidelines: ['Security screening at Apollo Bunder plaza']
+    },
+    audioGuide: { duration: '3 min 10 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'Overlooking the Arabian Sea, this 26-meter archway...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: '38a652e9f3bf49039026ef65ef61ac92',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/gateway-of-india-mumbai-38a652e9f3bf49039026ef65ef61ac92'
+  },
+
+  'mysore-palace': {
+    id: 'mysore-palace',
+    name: 'Mysore Palace',
+    nativeName: 'ಮೈಸೂರು ಅರಮನೆ',
+    tagline: 'The Grand Royal Seat of the Wadiyar Dynasty',
+    stateId: 'karnataka',
+    destinationId: 'mysore',
+    period: '1897–1912 CE',
+    dynasty: 'Wadiyar Dynasty',
+    ruler: 'Maharani Vani Vilas Sannidhana & Henry Irwin',
+    architectureStyle: 'Indo-Saracenic Royal Palace Architecture',
+    material: 'Gray Granite with Pink Marble Domes',
+    location: {
+      city: 'Mysore',
+      state: 'Karnataka',
+      coordinates: '12.3052° N, 76.6552° E',
+      lat: 12.3052,
+      lng: 76.6552
+    },
+    heroImage: '/images/mysore-palace-hero.jpg',
+    galleryImages: [
+      '/images/gallery/mysore-1.jpg',
+      '/images/gallery/mysore-2.jpg',
+      '/images/gallery/mysore-3.jpg',
+      '/images/gallery/mysore-4.jpg',
+      '/images/gallery/mysore-5.jpg'
+    ],
+    imageGallery: [
+      { url: '/images/gallery/mysore-1.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/mysore-2.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/mysore-3.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/mysore-4.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/mysore-5.jpg', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'Famous for its 100,000 illumination bulbs lit during Dasara celebrations.',
+    history: 'Rebuilt after the old wooden palace burned down during a royal wedding in 1897.',
+    stories: [],
+    preservationStatus: {
+      healthScore: 96,
+      threats: ['Electrical wiring wear'],
+      digitalScanStatus: 'Complete 3D Scan Registered',
+      currentInitiatives: 'Upgrading illumination bulbs to low-heat solar LEDs.',
+      visitorGuidelines: ['No interior photography without permit']
+    },
+    audioGuide: { duration: '4 min 10 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'Step inside the Durbar Hall with stained glass ceilings...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: '0439ee6964c94a10bf9767088469bb94',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/mysore-palace-0439ee6964c94a10bf9767088469bb94'
+  },
+
+  'ellora-caves': {
+    id: 'ellora-caves',
+    name: 'Ellora Caves',
+    nativeName: 'एलोरा गुफाएँ',
+    tagline: 'The Rock-Cut Monolithic Miracle of Kailash',
+    stateId: 'maharashtra',
+    destinationId: 'chhatrapati-sambhajinagar',
+    period: '600–1000 CE',
+    dynasty: 'Rashtrakuta & Yadava Dynasties',
+    ruler: 'King Krishna I',
+    architectureStyle: 'Monolithic Rock-Cut Cave Architecture',
+    material: 'Basaltic Cliff Outcrop',
     unescoYear: 1983,
     location: {
-      city: 'Agra',
-      state: 'Uttar Pradesh',
-      coordinates: '27.1795° N, 78.0211° E',
-      lat: 27.1795,
-      lng: 78.0211
+      city: 'Sambhaji Nagar',
+      state: 'Maharashtra',
+      coordinates: '20.0268° N, 75.1771° E',
+      lat: 20.0268,
+      lng: 75.1771
     },
-    heroImage: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Agra_Fort_Facade.jpg',
-        photographer: 'A. K. Sharma',
-        license: 'CC BY-SA 3.0'
-      }
+    heroImage: '/images/ellora-caves-hero.jpg',
+    galleryImages: [
+      '/images/gallery/ellora-1.jpg',
+      '/images/gallery/ellora-2.png',
+      '/images/gallery/ellora-3.png',
+      '/images/gallery/ellora-4.jpg',
+      '/images/gallery/ellora-5.png'
     ],
-    culturalSignificance: 'Houses Jahangiri Mahal, Khas Mahal, and the Musamman Burj where Shah Jahan was imprisoned by Aurangzeb.',
-    history: 'Akbar rebuilt the old brick fort Badalgarh in red sandstone, creating a massive royal citadel housing hundreds of palaces.',
+    imageGallery: [
+      { url: '/images/gallery/ellora-1.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/ellora-2.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/ellora-3.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/ellora-4.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/ellora-5.png', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: "Cave 16 (Kailasa Temple) is the world's largest single monolithic rock excavation, carved top-down.",
+    history: 'Carved over 300 years by Hindu, Buddhist, and Jain monastic guilds.',
     stories: [],
     preservationStatus: {
       healthScore: 94,
-      threats: ['Saline moisture peeling sandstone', 'Heavy tourist traffic'],
-      digitalScanStatus: 'Complete Scan',
-      currentInitiatives: 'Sandstone relief restoration and water drainage sealing.',
-      visitorGuidelines: ['Follow guide signs in the military enclosure zones']
+      threats: ['Water seepage', 'Basalt flaking'],
+      digitalScanStatus: 'Complete 3D Mesh Scanned',
+      currentInitiatives: 'Micro-drainage channels to divert rainwater away from Cave 16.',
+      visitorGuidelines: ['Do not touch rock relief sculptures']
     },
-    audioGuide: { duration: '4 min 40 sec', narrator: 'Kabir Khan', transcript: 'Walk through Amar Singh Gate...' },
-    has3DModel: false
+    audioGuide: { duration: '4 min 45 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'You are standing inside the hollowed mountain of Kailasa...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: '1a5ec1e212f9451e80dc051e97164d17',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/ellora-caves-india-1a5ec1e212f9451e80dc051e97164d17'
   },
+
+  'rani-ki-vav': {
+    id: 'rani-ki-vav',
+    name: 'Rani Ki Vav',
+    nativeName: 'રાણીકી વાવ',
+    tagline: 'The Inverted Subterranean Stepwell Temple',
+    stateId: 'gujarat',
+    destinationId: 'patan',
+    period: '1063 CE',
+    dynasty: 'Chaulukya Dynasty',
+    ruler: 'Queen Udayamati',
+    architectureStyle: 'Maru-Gurjara Subterranean Architecture',
+    material: 'Sandstone Steps & Carved Sculptures',
+    unescoYear: 2014,
+    location: {
+      city: 'Patan',
+      state: 'Gujarat',
+      coordinates: '23.8589° N, 72.1018° E',
+      lat: 23.8589,
+      lng: 72.1018
+    },
+    heroImage: '/images/rani-ki-vav-hero.jpg',
+    galleryImages: [
+      '/images/gallery/rani-ki-vav-1.png',
+      '/images/gallery/rani-ki-vav-2.jpg',
+      '/images/gallery/rani-ki-vav-3.png',
+      '/images/gallery/rani-ki-vav-4.png',
+      '/images/gallery/rani-ki-vav-5.png'
+    ],
+    imageGallery: [
+      { url: '/images/gallery/rani-ki-vav-1.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/rani-ki-vav-2.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/rani-ki-vav-3.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/rani-ki-vav-4.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/rani-ki-vav-5.png', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'Designed as an inverted temple honoring sacred water, with over 500 principal sculptures.',
+    history: 'Built by Queen Udayamati in memory of King Bhimdev I; buried under Saraswati river silt for centuries.',
+    stories: [],
+    preservationStatus: {
+      healthScore: 97,
+      threats: ['Soil moisture shifts'],
+      digitalScanStatus: 'Complete Sub-millimeter Scan (CyArk)',
+      currentInitiatives: 'Sub-surface water table monitoring.',
+      visitorGuidelines: ['Follow stepwell balcony barriers']
+    },
+    audioGuide: { duration: '3 min 50 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'Descend seven terraces into the earth...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: '4c877ded197f4e0faff92c43ce8a1ced',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/rani-ki-vav-patan-gujarat-4c877ded197f4e0faff92c43ce8a1ced'
+  },
+
+  'lotus-temple': {
+    id: 'lotus-temple',
+    name: 'Lotus Temple',
+    nativeName: 'कमल मंदिर',
+    tagline: 'The Blooming Petals of Global Harmony',
+    stateId: 'delhi',
+    destinationId: 'new-delhi',
+    period: '1986 CE',
+    dynasty: 'Modern Era',
+    ruler: 'Fariborz Sahba (Architect)',
+    architectureStyle: 'Modern Expressionist Architecture',
+    material: 'Pentelic White Marble & Concrete',
+    location: {
+      city: 'New Delhi',
+      state: 'Delhi',
+      coordinates: '28.5535° N, 77.2588° E',
+      lat: 28.5535,
+      lng: 77.2588
+    },
+    heroImage: '/images/lotus-temple-hero.jpg',
+    galleryImages: [
+      '/images/gallery/lotus-temple-1.jpg',
+      '/images/gallery/lotus-temple-2.png',
+      '/images/gallery/lotus-temple-3.png',
+      '/images/gallery/lotus-temple-4.png',
+      '/images/gallery/lotus-temple-5.png'
+    ],
+    imageGallery: [
+      { url: '/images/gallery/lotus-temple-1.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/lotus-temple-2.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/lotus-temple-3.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/lotus-temple-4.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/lotus-temple-5.png', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'Composed of 27 free-standing marble-clad "petals" arranged in clusters of three to form nine doors.',
+    history: 'Opened in 1986 as a Baháʼí House of Worship open to all faiths.',
+    stories: [],
+    preservationStatus: {
+      healthScore: 98,
+      threats: ['Smog surface residue'],
+      digitalScanStatus: 'Complete 3D Mesh Scanned',
+      currentInitiatives: 'Periodic non-abrasive pure water washing of marble petals.',
+      visitorGuidelines: ['Maintain silence inside the central hall']
+    },
+    audioGuide: { duration: '3 min 0 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'Observe the 27 blooming marble petals...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: 'bf5edd0ef1a74bc3be8c2a52ac2f0362',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/lotus-temple-bf5edd0ef1a74bc3be8c2a52ac2f0362'
+  },
+
+  'victoria-memorial': {
+    id: 'victoria-memorial',
+    name: 'Victoria Memorial',
+    nativeName: 'ভিক্টোরিয়া মেমোরিয়াল',
+    tagline: 'The White Marble Monument of Kolkata',
+    stateId: 'west-bengal',
+    destinationId: 'kolkata',
+    period: '1906–1921 CE',
+    dynasty: 'British Colonial Era',
+    ruler: 'Sir William Emerson',
+    architectureStyle: 'Indo-Saracenic & Renaissance Revival',
+    material: 'Makrana White Marble',
+    location: {
+      city: 'Kolkata',
+      state: 'West Bengal',
+      coordinates: '22.5448° N, 88.3426° E',
+      lat: 22.5448,
+      lng: 88.3426
+    },
+    heroImage: '/images/victoria-memorial-hero.jpg',
+    galleryImages: [
+      '/images/gallery/victoria-1.png',
+      '/images/gallery/victoria-2.jpg',
+      '/images/gallery/victoria-3.jpg',
+      '/images/gallery/victoria-4.png',
+      '/images/gallery/victoria-5.jpg'
+    ],
+    imageGallery: [
+      { url: '/images/gallery/victoria-1.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/victoria-2.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/victoria-3.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/victoria-4.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/victoria-5.jpg', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'Set in 64 acres of gardens, housing a massive museum of art and history.',
+    history: "Conceived by Lord Curzon after Queen Victoria's death in 1901.",
+    stories: [],
+    preservationStatus: {
+      healthScore: 93,
+      threats: ['Atmospheric pollution'],
+      digitalScanStatus: 'Complete 3D Mesh Scanned',
+      currentInitiatives: 'Air quality monitoring & garden conservation.',
+      visitorGuidelines: ['Follow museum gallery route']
+    },
+    audioGuide: { duration: '3.5 min', narrator: 'Dr. Radhika Srinivasan', transcript: "Welcome to Kolkata's grandest marble palace..." },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: '1b3ec6a1a07949d08221f718fd1919d4',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/victoria-memorial-kolkata-1b3ec6a1a07949d08221f718fd1919d4'
+  },
+
+  'bara-imambara': {
+    id: 'bara-imambara',
+    name: 'Bara Imambara',
+    nativeName: 'बड़ा इमामबाड़ा',
+    tagline: 'The Gravity-Defying Vaulted Labyrinth',
+    stateId: 'uttar-pradesh',
+    destinationId: 'lucknow',
+    period: '1784 CE',
+    dynasty: 'Nawabs of Awadh',
+    ruler: 'Nawab Asaf-ud-Daula',
+    architectureStyle: 'Mughal & Awadhi Architecture',
+    material: 'Lakhauri Bricks & Lime Stucco',
+    location: {
+      city: 'Lucknow',
+      state: 'Uttar Pradesh',
+      coordinates: '26.8689° N, 80.9129° E',
+      lat: 26.8689,
+      lng: 80.9129
+    },
+    heroImage: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=1600&q=85',
+    galleryImages: ['https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=1200&q=80'],
+    culturalSignificance: "Contains the Bhulbhulaiya labyrinth and the world's largest arched hall unsupported by beams.",
+    history: 'Built as a famine relief project in 1784 to provide employment to over 20,000 citizens.',
+    stories: [],
+    preservationStatus: {
+      healthScore: 90,
+      threats: ['Plaster decay'],
+      digitalScanStatus: 'Complete 3D Mesh Scanned',
+      currentInitiatives: 'Traditional lime mortar re-plastering.',
+      visitorGuidelines: ['Hire an official guide for the Bhulbhulaiya maze']
+    },
+    audioGuide: { duration: '3 min 40 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'Explore the 1000 passageways of the labyrinth...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: '323a5337a59643aabc17849d7a68e8b5',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/bara-imambara-323a5337a59643aabc17849d7a68e8b5'
+  },
+
+  'ajanta-caves': {
+    id: 'ajanta-caves',
+    name: 'Ajanta Caves',
+    nativeName: 'अजिंता गुंफा',
+    tagline: 'The Ancient Fresco Shrines of the Deccan',
+    stateId: 'maharashtra',
+    destinationId: 'chhatrapati-sambhajinagar',
+    period: '2nd Century BCE – 5th Century CE',
+    dynasty: 'Satavahana & Vakataka Dynasties',
+    ruler: 'Emperor Harishena',
+    architectureStyle: 'Rock-Cut Buddhist Cave Architecture',
+    material: 'Basalt Rock Cliff',
+    unescoYear: 1983,
+    location: { city: 'Sambhaji Nagar', state: 'Maharashtra', coordinates: '20.5523° N, 75.7004° E', lat: 20.5523, lng: 75.7004 },
+    heroImage: '/images/ajanta-caves-hero.jpg',
+    galleryImages: [
+      '/images/gallery/ajanta-1.jpg',
+      '/images/gallery/ajanta-2.jpg',
+      '/images/gallery/ajanta-3.jpg',
+      '/images/gallery/ajanta-4.jpg',
+      '/images/gallery/ajanta-5.jpg'
+    ],
+    imageGallery: [
+      { url: '/images/gallery/ajanta-1.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/ajanta-2.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/ajanta-3.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/ajanta-4.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/ajanta-5.jpg', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'Renowned for world-famous Jataka tale wall mural paintings and masterfully carved chaitya halls.',
+    history: 'Carved into a horseshoe-shaped gorge along the Waghur River across two distinct Buddhist artistic waves.',
+    stories: [],
+    preservationStatus: { healthScore: 92, threats: ['Humidity', 'Fresco fading'], digitalScanStatus: 'Complete High-Res Scan', currentInitiatives: 'Fiber-optic cool lighting inside caves.', visitorGuidelines: ['No flash photography'] },
+    audioGuide: { duration: '4 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Gaze upon the Bodhisattva Padmapani fresco...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabUrl: 'https://sketchfab.com/search?type=models&q=Ajanta+Caves+India'
+  },
+
+  'sanchi-stupa': {
+    id: 'sanchi-stupa',
+    name: 'Sanchi Stupa',
+    nativeName: 'सांची का स्तूप',
+    tagline: 'The Great Cosmic Dome of Buddhist Heritage',
+    stateId: 'madhya-pradesh',
+    destinationId: 'sanchi',
+    period: '3rd Century BCE',
+    dynasty: 'Maurya & Satavahana Dynasties',
+    ruler: 'Emperor Ashoka the Great',
+    architectureStyle: 'Ancient Buddhist Stupa & Torana Architecture',
+    material: 'Sandstone Hemispherical Dome',
+    unescoYear: 1989,
+    location: { city: 'Sanchi', state: 'Madhya Pradesh', coordinates: '23.4793° N, 77.7397° E', lat: 23.4793, lng: 77.7397 },
+    heroImage: '/images/sanchi-stupa-hero.jpg',
+    galleryImages: [
+      '/images/gallery/sanchi-1.jpg',
+      '/images/gallery/sanchi-2.png',
+      '/images/gallery/sanchi-3.png',
+      '/images/gallery/sanchi-4.png',
+      '/images/gallery/sanchi-5.png'
+    ],
+    imageGallery: [
+      { url: '/images/gallery/sanchi-1.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/sanchi-2.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/sanchi-3.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/sanchi-4.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/sanchi-5.png', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'The oldest stone structure in India, featuring four intricately carved ceremonial Torana gateways.',
+    history: 'Commissioned by Emperor Ashoka in the 3rd century BCE to enshrine relics of the Buddha.',
+    stories: [],
+    preservationStatus: { healthScore: 96, threats: ['Weathering'], digitalScanStatus: 'Complete 3D Mesh Scanned', currentInitiatives: 'ASI structural stone consolidation.', visitorGuidelines: ['Circumambulate in clockwise direction'] },
+    audioGuide: { duration: '3.5 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Walk around the ancient pradakshina patha...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: 'a8347d4f5272439bb2396ea40551cfc9',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/the-great-stupa-at-sanchi-a8347d4f5272439bb2396ea40551cfc9'
+  },
+
+  'hawa-mahal': {
+    id: 'hawa-mahal',
+    name: 'Hawa Mahal',
+    nativeName: 'हवा महल',
+    tagline: 'The Palace of Winds with 953 Jharokhas',
+    stateId: 'rajasthan',
+    destinationId: 'jaipur',
+    period: '1799 CE',
+    dynasty: 'Kachwaha Rajput Dynasty',
+    ruler: 'Maharaja Sawai Pratap Singh',
+    architectureStyle: 'Rajput Thermodynamic Architecture',
+    material: 'Red and Pink Sandstone',
+    location: { city: 'Jaipur', state: 'Rajasthan', coordinates: '26.9239° N, 75.8267° E', lat: 26.9239, lng: 75.8267 },
+    heroImage: '/images/hawa-mahal-hero.jpg',
+    galleryImages: [
+      '/images/gallery/hawa-mahal-1.png',
+      '/images/gallery/hawa-mahal-2.jpg',
+      '/images/gallery/hawa-mahal-3.jpg',
+      '/images/gallery/hawa-mahal-4.jpg',
+      '/images/gallery/hawa-mahal-5.png'
+    ],
+    imageGallery: [
+      { url: '/images/gallery/hawa-mahal-1.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/hawa-mahal-2.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/hawa-mahal-3.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/hawa-mahal-4.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/hawa-mahal-5.png', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'Designed as a five-story honeycomb screen allowing royal women to observe street festivals via the Venturi cooling effect.',
+    history: 'Built in 1799 by Lal Chand Ustad under the patronage of Sawai Pratap Singh.',
+    stories: [],
+    preservationStatus: { healthScore: 94, threats: ['Urban dust'], digitalScanStatus: 'Complete 3D Mesh Scanned', currentInitiatives: 'Pink lime wash preservation.', visitorGuidelines: ['Explore upper terrace viewing balconies'] },
+    audioGuide: { duration: '3.5 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Feel the cool breeze passing through 953 jharokhas...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabUrl: 'https://sketchfab.com/search?type=models&q=Hawa+Mahal+India'
+  },
+
+  'amber-fort': {
+    id: 'amber-fort',
+    name: 'Amer Fort',
+    nativeName: 'आमेर किला',
+    tagline: 'The Hilltop Citadel of Sheesh Mahal',
+    stateId: 'rajasthan',
+    destinationId: 'jaipur',
+    period: '1592 CE',
+    dynasty: 'Kachwaha Rajput Dynasty',
+    ruler: 'Raja Man Singh I',
+    architectureStyle: 'Rajput Hilltop Citadel Architecture',
+    material: 'Red Sandstone & Marble',
+    unescoYear: 2013,
+    location: { city: 'Amer, Jaipur', state: 'Rajasthan', coordinates: '26.9855° N, 75.8513° E', lat: 26.9855, lng: 75.8513 },
+    heroImage: '/images/amber-fort-hero.jpg',
+    galleryImages: [
+      '/images/gallery/amber-fort-1.png',
+      '/images/gallery/amber-fort-2.png',
+      '/images/gallery/amber-fort-3.png',
+      '/images/gallery/amber-fort-4.png',
+      '/images/gallery/amber-fort-5.jpg'
+    ],
+    imageGallery: [
+      { url: '/images/gallery/amber-fort-1.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/amber-fort-2.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/amber-fort-3.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/amber-fort-4.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/amber-fort-5.jpg', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'Overlooks Maota Lake and houses the spectacular Sheesh Mahal (Hall of Mirrors).',
+    history: 'Established in 1592 on Maota Lake hill by Raja Man Singh I.',
+    stories: [],
+    preservationStatus: { healthScore: 95, threats: ['Tourist congestion'], digitalScanStatus: 'Complete 3D Mesh Scanned', currentInitiatives: 'Electric shuttle transport & rampart monitoring.', visitorGuidelines: ['Respect mirror hall artwork'] },
+    audioGuide: { duration: '4 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Enter the magnificent Ganesh Pol gateway...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabUrl: 'https://sketchfab.com/search?type=models&q=Amer+Fort+India'
+  },
+
+  'jaisalmer-fort': {
+    id: 'jaisalmer-fort',
+    name: 'Jaisalmer Fort',
+    nativeName: 'जैसलमेर किला',
+    tagline: 'The Golden Living Citadel of the Thar Desert',
+    stateId: 'rajasthan',
+    destinationId: 'jaisalmer',
+    period: '1156 CE',
+    dynasty: 'Bhati Rajput Dynasty',
+    ruler: 'Rawal Jaisal',
+    architectureStyle: 'Rajput Living Citadel Architecture',
+    material: 'Yellow Sandstone',
+    unescoYear: 2013,
+    location: { city: 'Jaisalmer', state: 'Rajasthan', coordinates: '26.9124° N, 70.9126° E', lat: 26.9124, lng: 70.9126 },
+    heroImage: '/images/jaisalmer-fort-hero.jpg',
+    galleryImages: [
+      '/images/gallery/jaisalmer-1.png',
+      '/images/gallery/jaisalmer-2.jpg',
+      '/images/gallery/jaisalmer-3.jpg',
+      '/images/gallery/jaisalmer-4.png',
+      '/images/gallery/jaisalmer-5.png'
+    ],
+    imageGallery: [
+      { url: '/images/gallery/jaisalmer-1.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/jaisalmer-2.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/jaisalmer-3.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/jaisalmer-4.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/jaisalmer-5.png', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: "One of the world's few living forts, housing over a quarter of the old city's population.",
+    history: 'Founded in 1156 CE on Trikuta Hill along Thar Desert caravan routes.',
+    stories: [],
+    preservationStatus: { healthScore: 89, threats: ['Water seepage', 'Structural weight'], digitalScanStatus: 'Complete 3D Mesh Scanned', currentInitiatives: 'Modernizing fort drainage & sewage systems.', visitorGuidelines: ['Use designated heritage walkways'] },
+    audioGuide: { duration: '4 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Walk through the golden sandstone bastions...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: '6561fb4f292741d29c972aa7f69be30f',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/jaisalmer-fort-replica-6561fb4f292741d29c972aa7f69be30f'
+  },
+
+  'gol-gumbaz': {
+    id: 'gol-gumbaz',
+    name: 'Gol Gumbaz',
+    nativeName: 'ಗೋಳ ಗುಮ್ಮಟ',
+    tagline: 'The Acoustic Whispering Gallery of Bijapur',
+    stateId: 'karnataka',
+    destinationId: 'vijayapura',
+    period: '1656 CE',
+    dynasty: 'Adil Shahi Dynasty',
+    ruler: 'Sultan Mohammed Adil Shah',
+    architectureStyle: 'Deccani Islamic Architecture',
+    material: 'Dark Gray Basalt',
+    location: { city: 'Vijayapura', state: 'Karnataka', coordinates: '16.8306° N, 75.7360° E', lat: 16.8306, lng: 75.7360 },
+    heroImage: '/images/gol-gumbaz-hero.jpg',
+    galleryImages: [
+      '/images/gallery/gol-gumbaz-1.png',
+      '/images/gallery/gol-gumbaz-2.png',
+      '/images/gallery/gol-gumbaz-3.png',
+      '/images/gallery/gol-gumbaz-4.jpg',
+      '/images/gallery/gol-gumbaz-5.png'
+    ],
+    imageGallery: [
+      { url: '/images/gallery/gol-gumbaz-1.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/gol-gumbaz-2.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/gol-gumbaz-3.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/gol-gumbaz-4.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/gol-gumbaz-5.png', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'Houses the second largest dome in pre-modern history, featuring a gallery where whispers echo 11 times.',
+    history: 'Completed in 1656 as the tomb of Mohammed Adil Shah by architect Yaqut of Dabul.',
+    stories: [],
+    preservationStatus: { healthScore: 93, threats: ['Acoustical vandalism'], digitalScanStatus: 'Complete 3D Mesh Scanned', currentInitiatives: 'Acoustic monitoring & dome masonry sealant.', visitorGuidelines: ['Refrain from loud shouting in whispering gallery'] },
+    audioGuide: { duration: '3.5 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Listen to the remarkable 11-fold acoustic echo...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabUrl: 'https://sketchfab.com/search?type=models&q=Gol+Gumbaz+India'
+  },
+
+  'meenakshi-temple': {
+    id: 'meenakshi-temple',
+    name: 'Meenakshi Amman Temple',
+    nativeName: 'மீனாட்சி அம்மன் கோவில்',
+    tagline: 'The Rainbow Gopuram Sanctuary of Madurai',
+    stateId: 'tamil-nadu',
+    destinationId: 'madurai',
+    period: '1190–1650 CE',
+    dynasty: 'Pandyan & Nayak Dynasties',
+    ruler: 'King Thirumalai Nayak',
+    architectureStyle: 'Late Dravidian Temple Architecture',
+    material: 'Granite & Sculpted Stucco Gopurams',
+    location: { city: 'Madurai', state: 'Tamil Nadu', coordinates: '9.9195° N, 78.1193° E', lat: 9.9195, lng: 78.1193 },
+    heroImage: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1600&q=85',
+    galleryImages: [],
+    culturalSignificance: 'Encloses 14 towering gopurams decorated with thousands of colorful mythological stucco figures.',
+    history: 'Historic epicenter of Madurai, rebuilt and expanded by Thirumalai Nayak in the 17th century.',
+    stories: [],
+    preservationStatus: { healthScore: 96, threats: ['High daily visitor density'], digitalScanStatus: 'Complete 3D Mesh Scanned', currentInitiatives: 'Stucco sculpture repainting & herbal conservation.', visitorGuidelines: ['Strict traditional dress code enforced'] },
+    audioGuide: { duration: '4.5 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Welcome to the Hall of 1000 Pillars...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabUrl: 'https://sketchfab.com/search?type=models&q=Meenakshi+Temple+India'
+  },
+
+  'virupaksha-temple': {
+    id: 'virupaksha-temple',
+    name: 'Hampi / Vijayanagara Ruins',
+    nativeName: 'ಹಂಪಿ ವಿರೂಪಾಕ್ಷ',
+    tagline: 'The Boulder Capital of Musical Pillars & Stone Chariots',
+    stateId: 'karnataka',
+    destinationId: 'hampi',
+    period: '1336–1565 CE',
+    dynasty: 'Vijayanagara Empire',
+    ruler: 'Emperor Krishnadevaraya',
+    architectureStyle: 'Vijayanagara Dravidian Architecture',
+    material: 'Granite Boulders',
+    unescoYear: 1986,
+    location: { city: 'Hampi', state: 'Karnataka', coordinates: '15.3350° N, 76.4600° E', lat: 15.3350, lng: 76.4600 },
+    heroImage: '/images/hampi-hero.jpg',
+    galleryImages: [
+      '/images/gallery/hampi-1.jpg',
+      '/images/gallery/hampi-2.jpg',
+      '/images/gallery/hampi-3.jpg',
+      '/images/gallery/hampi-4.jpg',
+      '/images/gallery/hampi-5.jpg'
+    ],
+    imageGallery: [
+      { url: '/images/gallery/hampi-1.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/hampi-2.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/hampi-3.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/hampi-4.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/hampi-5.jpg', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'Sprawling 4,100-hectare UNESCO sanctuary featuring musical pillars, stone chariots, and grand bazaars.',
+    history: 'Capital of the Vijayanagara Empire, described by Portuguese traveler Paes as larger and wealthier than Rome.',
+    stories: [],
+    preservationStatus: { healthScore: 92, threats: ['Structural weathering', 'Encroachment'], digitalScanStatus: 'Complete Sub-millimeter LiDAR Scan', currentInitiatives: 'Hampi World Heritage Area Management Authority oversight.', visitorGuidelines: ['Do not tap the musical pillars'] },
+    audioGuide: { duration: '4 min 30 sec', narrator: 'Dr. Radhika Srinivasan', transcript: 'Explore the vast boulder landscape of Vijayanagara...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: 'dfaf413f0ce845a3b798b0bb4079962a',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/stone-chariot-in-hampi-india-dfaf413f0ce845a3b798b0bb4079962a'
+  },
+
   'fatehpur-sikri': {
     id: 'fatehpur-sikri',
     name: 'Fatehpur Sikri',
     nativeName: 'फ़तेहपुर सीकरी',
-    tagline: 'The Abandoned Sandstone Capital of Victory',
+    tagline: 'The Imperial Victory Capital in Red Sandstone',
     stateId: 'uttar-pradesh',
     destinationId: 'agra',
     period: '1571–1585 CE',
     dynasty: 'Mughal Empire',
-    ruler: 'Emperor Akbar',
-    architectureStyle: 'Secular Akbar-period Mughal Style',
+    ruler: 'Emperor Akbar the Great',
+    architectureStyle: 'Syncretic Mughal & Hindu Architecture',
     material: 'Red Sandstone',
     unescoYear: 1986,
-    location: {
-      city: 'Agra',
-      state: 'Uttar Pradesh',
-      coordinates: '27.0945° N, 77.6678° E',
-      lat: 27.0945,
-      lng: 77.6678
-    },
-    heroImage: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=700&q=80',
+    location: { city: 'Fatehpur Sikri', state: 'Uttar Pradesh', coordinates: '27.0945° N, 77.6679° E', lat: 27.0945, lng: 77.6679 },
+    heroImage: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=1600&q=85',
     galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=700&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Fatehpur_Sikri_Gate.jpg',
-        photographer: 'Subhashish Panigrahi',
-        license: 'CC BY-SA 3.0'
-      }
-    ],
-    culturalSignificance: 'Houses Buland Darwaza, Salim Chishti Tomb, and the multi-tiered Panch Mahal pavilion.',
-    history: 'Founded by Akbar to honor Sufi saint Salim Chishti, it served as capital before being abandoned due to water shortages.',
+    culturalSignificance: 'Home to Buland Darwaza (54m high gateway of victory), Panch Mahal, and Salim Chishti Dargah.',
+    history: 'Built by Akbar as his short-lived royal capital to honor Sufi saint Salim Chishti.',
     stories: [],
-    preservationStatus: {
-      healthScore: 91,
-      threats: ['Wind friction sandstone weathering'],
-      digitalScanStatus: 'Complete 3D Mesh',
-      currentInitiatives: 'Plinth stabilization and structural reinforcement.',
-      visitorGuidelines: ['Do not scratch sandstone panels']
-    },
-    audioGuide: { duration: '5 min', narrator: 'Kabir Khan', transcript: 'Observe the giant Buland Darwaza...' },
-    has3DModel: false
+    preservationStatus: { healthScore: 93, threats: ['Sandstone erosion'], digitalScanStatus: 'Complete 3D Mesh Scanned', currentInitiatives: 'Chemical stone washing & Buland Darwaza masonry check.', visitorGuidelines: ['Remove shoes near tomb of Salim Chishti'] },
+    audioGuide: { duration: '4 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Stand before the colossal Buland Darwaza...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabUrl: 'https://sketchfab.com/search?type=models&q=Fatehpur+Sikri+India'
   },
-  'itmad-ud-daulah': {
-    id: 'itmad-ud-daulah',
-    name: "Itmad-ud-Daulah's Tomb",
-    nativeName: 'इतमाद-उद-दौला का मक़बरा',
-    tagline: 'The Baby Taj and the Dawn of Pietra Dura',
-    stateId: 'uttar-pradesh',
-    destinationId: 'agra',
-    period: '1622–1628 CE',
-    dynasty: 'Mughal Empire',
-    ruler: 'Empress Nur Jahan (Consort of Jahangir)',
-    architectureStyle: 'Transition Mughal Style',
-    material: 'White Marble, Pietra dura inlay work',
-    unescoYear: undefined,
-    location: {
-      city: 'Agra',
-      state: 'Uttar Pradesh',
-      coordinates: '27.1929° N, 78.0310° E',
-      lat: 27.1929,
-      lng: 78.0310
-    },
-    heroImage: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=600&q=80',
-    galleryImages: [],
-    imageGallery: [
-      {
-        url: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=600&q=80',
-        source: 'Wikimedia Commons',
-        sourcePage: 'https://commons.wikimedia.org/wiki/File:Itmad-ud-Daulah_Agra.jpg',
-        photographer: 'Subhashish Panigrahi',
-        license: 'CC BY-SA 3.0'
-      }
+
+  'nalanda-mahavihara': {
+    id: 'nalanda-mahavihara',
+    name: 'Nalanda Mahavihara',
+    nativeName: 'नालंदा महाविहार',
+    tagline: 'The Ancient Seat of Global Learning & Monastic Wisdom',
+    stateId: 'bihar',
+    destinationId: 'nalanda',
+    period: '5th Century BCE – 1200 CE',
+    dynasty: 'Gupta & Pala Dynasties',
+    ruler: 'Emperor Kumaragupta I',
+    architectureStyle: 'Ancient Monastic Brick Architecture',
+    material: 'Red Clay Bricks & Stucco',
+    unescoYear: 2016,
+    location: { city: 'Nalanda', state: 'Bihar', coordinates: '25.1357° N, 85.4439° E', lat: 25.1357, lng: 85.4439 },
+    heroImage: '/images/nalanda-mahavihara-hero.jpg',
+    galleryImages: [
+      '/images/gallery/nalanda-1.png',
+      '/images/gallery/nalanda-2.jpg',
+      '/images/gallery/nalanda-3.png',
+      '/images/gallery/nalanda-4.png',
+      '/images/gallery/nalanda-5.png'
     ],
-    culturalSignificance: 'The first Mughal monument constructed entirely of white marble, pioneering the Pietra dura inlay technique.',
-    history: 'Commissioned by Nur Jahan for her father Mirza Ghiyas Beg (Itmad-ud-Daulah), who served as the Prime Minister of the Empire.',
+    imageGallery: [
+      { url: '/images/gallery/nalanda-1.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/nalanda-2.jpg', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/nalanda-3.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/nalanda-4.png', source: 'DHAROHAR Cultural Archive' },
+      { url: '/images/gallery/nalanda-5.png', source: 'DHAROHAR Cultural Archive' }
+    ],
+    culturalSignificance: 'First international residential university in world history, housing 10,000 students and 2,000 teachers.',
+    history: 'Flourished for over 700 years until its destruction in 1193; visited by Xuanzang and Faxian.',
     stories: [],
-    preservationStatus: {
-      healthScore: 95,
-      threats: ['Acid staining', 'Pollution gritting'],
-      digitalScanStatus: 'Complete Photogrammetry',
-      currentInitiatives: 'Delicate marble cleaning and protective sealants.',
-      visitorGuidelines: ['Walk with care on the inlaid pathways']
-    },
-    audioGuide: { duration: '3 min 50 sec', narrator: 'Kabir Khan', transcript: 'Observe the delicate floral inlay work...' },
-    has3DModel: false
+    preservationStatus: { healthScore: 91, threats: ['Brick salt crystallization'], digitalScanStatus: 'Complete 3D Mesh Scanned', currentInitiatives: 'ASI brick conservation & moisture barriers.', visitorGuidelines: ['Walk along designated brick monastery paths'] },
+    audioGuide: { duration: '4 min', narrator: 'Dr. Radhika Srinivasan', transcript: 'Walk through the ancient brick stupas and monastic cells...' },
+    has3DModel: true,
+    threeDStatus: 'available',
+    sketchfabId: '351d2dd76fa84bf5b63d9d9a68d1e476',
+    sketchfabUrl: 'https://sketchfab.com/3d-models/nalanda-gedige-351d2dd76fa84bf5b63d9d9a68d1e476'
   }
 };
 
+
 export const STATES_DATA: StateData[] = [
+  {
+    id: 'uttar-pradesh',
+    name: 'Uttar Pradesh',
+    nativeName: 'उत्तर प्रदेश',
+    capital: 'Lucknow',
+    tagline: 'The Epitome of Mughal Imperial Symmetry and Awadhi Elegance',
+    heroImage: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1600&q=80',
+    accentColor: '#D9A441',
+    overview: 'Uttar Pradesh represents the peak of symmetrical Mughal palace architecture and marble inlay art. From the white marble Taj Mahal in Agra to the labyrinthine Bara Imambara in Lucknow and Akbar’s victory capital of Fatehpur Sikri.',
+    dynasties: ['Mughal Empire (16th–18th Century)', 'Suryavanshi Dynasties', 'Nawabs of Awadh'],
+    architecturalHeritage: 'Mughal Symmetrical Architecture characterized by white marble double domes, intricate floral Pietra dura stone inlays, grand red sandstone gateways, and vaulted Awadhi labyrinths.',
+    destinations: [
+      {
+        id: 'agra',
+        name: 'Agra',
+        nativeName: 'आगरा',
+        stateId: 'uttar-pradesh',
+        tagline: 'The Heart of Mughal Imperial Grandeur',
+        heroImage: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=80',
+        description: "Positioned on the banks of Yamuna River, Agra is home to the world's most famous white marble mausoleum and red sandstone imperial citadels.",
+        historicalContext: 'Served as the main capital of the Mughal Empire under Akbar, Jahangir, and Shah Jahan.',
+        bestTimeToVisit: 'October to March',
+        monumentIds: ['taj-mahal', 'fatehpur-sikri'],
+        geographicHighlight: 'Yamuna River floodplains and Gangetic alluvial plains'
+      },
+      {
+        id: 'lucknow',
+        name: 'Lucknow',
+        nativeName: 'लखनऊ',
+        stateId: 'uttar-pradesh',
+        tagline: 'The City of Nawabs & Vaulted Labyrinths',
+        heroImage: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=1200&q=80',
+        description: 'Famous for Awadhi culture, refined poetry, and the gravity-defying vaulted arches of Bara Imambara.',
+        historicalContext: 'Capital of the Nawabs of Awadh during the 18th and 19th centuries.',
+        bestTimeToVisit: 'October to March',
+        monumentIds: ['bara-imambara'],
+        geographicHighlight: 'Gomti River basin'
+      }
+    ]
+  },
   {
     id: 'tamil-nadu',
     name: 'Tamil Nadu',
     nativeName: 'தமிழ்நாடு',
     capital: 'Chennai',
     tagline: 'The Cradle of Dravidian Temple Splendor & Living Stone Poetry',
-    heroImage: '/images/heritage/destinations/mahabalipuram.jpg',
+    heroImage: '/images/mahabalipuram-hero.jpg',
     accentColor: '#D4A85A',
-    overview: 'Tamil Nadu boasts over two millennia of continuous architectural evolution. From the monolithic rock-cut cave rathas of the Pallavas in Mahabalipuram to the sky-piercing granite vimanas of the Cholas, stone here became a living language of sacred cosmology and maritime prowess.',
+    overview: 'Tamil Nadu boasts over two millennia of continuous architectural evolution. From the monolithic rock-cut cave rathas of Mahabalipuram to the sky-piercing granite vimanas of Thanjavur and rainbow gopurams of Madurai.',
     dynasties: ['Pallava Dynasty (4th–9th Century)', 'Chola Empire (9th–13th Century)', 'Pandya Dynasty', 'Nayakas of Madurai'],
     architecturalHeritage: 'Dravidian Architecture characterized by pyramidal Vimanas, soaring Gopuram gateways, monolithic rock rathas, and pillared thousand-column Mandapas.',
     destinations: [
@@ -1468,179 +1234,111 @@ export const STATES_DATA: StateData[] = [
         nativeName: 'மாமல்லபுரம்',
         stateId: 'tamil-nadu',
         tagline: 'Where Stone Became Story',
-        heroImage: '/images/heritage/destinations/mahabalipuram.jpg',
-        description: 'Perched on the Coromandel coast, Mahabalipuram is an open-air museum of 7th- and 8th-century Pallava art. Here, ocean winds whisper against ancient structural granite towers, cave shrines, and colossal rock bas-reliefs.',
-        historicalContext: 'Founded as a thriving maritime seaport by the Pallava kings, goods and cultural philosophies set sail from here across the Bay of Bengal to the Srivijaya, Khmer, and Champa empires.',
-        bestTimeToVisit: 'November to February (Pleasant coastal breezes and clear dawn light)',
-        monumentIds: ['shore-temple', 'pancha-rathas', 'arjunas-penance', 'krishnas-butter-ball', 'descent-of-the-ganges'],
+        heroImage: '/images/mahabalipuram-hero.jpg',
+        description: 'Perched on the Coromandel coast, Mahabalipuram is an open-air museum of 7th- and 8th-century Pallava art.',
+        historicalContext: 'Founded as a thriving maritime seaport by the Pallava kings.',
+        bestTimeToVisit: 'November to February',
+        monumentIds: ['shore-temple'],
         geographicHighlight: 'Coromandel Coastal Shorelines & Granite Rock Outcrops',
         imageGallery: [
-          {
-            url: '/images/heritage/destinations/mahabalipuram.jpg',
-            source: 'Unsplash',
-            sourcePage: 'https://unsplash.com/photos/OFSaSqZTC4g',
-            photographer: 'Unsplash',
-            license: 'Unsplash License'
-          },
-          {
-            url: 'https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80',
-            source: 'Wikimedia Commons',
-            sourcePage: 'https://commons.wikimedia.org/wiki/File:Five_Rathas,_Mamallapuram.jpg',
-            photographer: 'Bernard Gagnon',
-            license: 'CC BY-SA 3.0'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 'kerala',
-    name: 'Kerala',
-    nativeName: 'കേരളം',
-    capital: 'Thiruvananthapuram',
-    tagline: 'The Gateway to Spice Routes and Nalukettu Timber Craft',
-    heroImage: '/images/heritage/destinations/kochi.jpg',
-    accentColor: '#8B5A2B',
-    overview: 'Kerala’s architecture reflects its unique coastal rainforest geomorphology. Characterized by gabled timber roofs, laterite masonry, and brilliant mural frescoes, it represents a climate-conscious design built to buffer heavy monsoons.',
-    dynasties: ['Chera Dynasty (9th-12th Century)', 'Kingdom of Cochin', 'Venad / Travancore Royal House'],
-    architecturalHeritage: 'Kerala Nalukettu courtyard design, steep multi-tiered wooden roofs, laterite fortification, and vibrant temple mural frescoes.',
-    destinations: [
-      {
-        id: 'kochi',
-        name: 'Kochi (Cochin)',
-        nativeName: 'കൊച്ചി',
-        stateId: 'kerala',
-        tagline: 'The Spice Capital of Malabar Coast',
-        heroImage: '/images/heritage/destinations/kochi.jpg',
-        description: 'Renowned for spices since antiquity, Kochi showcases a unique tapestry of colonial Portuguese churches, Dutch houses, Chinese fishing nets, and the historic Jewish Paradesi community.',
-        historicalContext: 'Functioned as the primary hub of global spice trade routes connecting Indian ports with Venetian, Arab, Portuguese, and Chinese shipping galleons.',
-        bestTimeToVisit: 'October to February',
-        monumentIds: ['mattancherry-palace', 'paradesi-synagogue', 'st-francis-church'],
-        geographicHighlight: 'Vembanad Lake Estuaries & Cochin Spice Backwaters',
-        imageGallery: [
-          {
-            url: '/images/heritage/destinations/kochi.jpg',
-            source: 'Unsplash',
-            sourcePage: 'https://unsplash.com/photos/Q0oLHnQpoMw',
-            photographer: 'Sarath Mohan K',
-            license: 'Unsplash License'
-          }
+          { url: '/images/mahabalipuram-hero.jpg', source: 'DHAROHAR Archives' },
+          { url: '/images/gallery/shore-temple-1.png', source: 'DHAROHAR Archives' },
+          { url: '/images/gallery/shore-temple-2.png', source: 'DHAROHAR Archives' },
+          { url: '/images/gallery/shore-temple-3.jpg', source: 'DHAROHAR Archives' },
+          { url: '/images/gallery/shore-temple-4.png', source: 'DHAROHAR Archives' }
         ]
       },
       {
-        id: 'kasaragod',
-        name: 'Kasaragod',
-        nativeName: 'കാസർഗോഡ്',
-        stateId: 'kerala',
-        tagline: 'The Land of Keyhole Ocean Fortresses',
-        heroImage: '/images/heritage/destinations/kasaragod.jpg',
-        description: 'Positioned at the northern edge of Malabar Coast, Kasaragod is famous for keyhole laterite forts and palm-fringed coastlines.',
-        historicalContext: 'Ruled by Keladi Nayakas, Kolathiris, Haider Ali, Tipu Sultan, and eventually annexed by British Malabar administrators.',
-        bestTimeToVisit: 'November to February',
-        monumentIds: ['bekal-fort'],
-        geographicHighlight: 'Arabian Sea Shorelines & Laterite Bluffs',
-        imageGallery: [
-          {
-            url: '/images/heritage/destinations/kasaragod.jpg',
-            source: 'Unsplash',
-            sourcePage: 'https://unsplash.com/photos/WH-KavV-pn8',
-            photographer: 'Praswin Prakashan',
-            license: 'Unsplash License'
-          }
-        ]
-      },
-      {
-        id: 'thiruvananthapuram',
-        name: 'Thiruvananthapuram',
-        nativeName: 'തിരുവനന്തപുരം',
-        stateId: 'kerala',
-        tagline: 'The Sanctuary of Lord Padmanabha',
-        heroImage: '/images/heritage/destinations/thiruvananthapuram.jpg',
-        description: 'Built across seven coastal hills, Thiruvananthapuram is the historic capital of the Travancore Kingdom, centered around the Padmanabhaswamy temple complex.',
-        historicalContext: 'A flourishing spice market and political seat of Maharaja Marthanda Varma who institutionalized royal stewardship under the deity Padmanabha.',
+        id: 'thanjavur',
+        name: 'Thanjavur',
+        nativeName: 'தஞ்சாவூர்',
+        stateId: 'tamil-nadu',
+        tagline: 'The Great Chola Rice Bowl & Granite Citadel',
+        heroImage: 'https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80',
+        description: 'The royal capital of the Imperial Cholas, home to the 216-foot Brihadeeswarar Temple.',
+        historicalContext: 'Capital of Raja Raja Chola I and Rajendra Chola I.',
         bestTimeToVisit: 'October to March',
-        monumentIds: ['padmanabhaswamy-temple'],
-        geographicHighlight: 'Western Ghats foothills and low-lying coastal lagoons',
+        monumentIds: ['brihadeeswarar-temple'],
+        geographicHighlight: 'Kaveri River Delta'
+      },
+      {
+        id: 'madurai',
+        name: 'Madurai',
+        nativeName: 'மதுரை',
+        stateId: 'tamil-nadu',
+        tagline: 'The Lotus City of Rainbow Gopurams',
+        heroImage: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=80',
+        description: 'One of the oldest continuously inhabited cities in the world, centered around Meenakshi Amman Temple.',
+        historicalContext: 'Ancient capital of the Pandyan Kings.',
+        bestTimeToVisit: 'October to March',
+        monumentIds: ['meenakshi-temple'],
+        geographicHighlight: 'Vaigai River Plain'
+      }
+    ]
+  },
+  {
+    id: 'odisha',
+    name: 'Odisha',
+    nativeName: 'ଓଡ଼ିଶା',
+    capital: 'Bhubaneswar',
+    tagline: 'The Cosmic Sun Chariots and Sacred Kalinga Temple Deulas',
+    heroImage: '/images/konark-hero.jpg',
+    accentColor: '#C4943C',
+    overview: 'Odisha represents the pristine evolution of Kalinga temple architecture, featuring the colossal 24-wheeled stone sun chariot at Konark.',
+    dynasties: ['Eastern Ganga Dynasty (11th-15th Century)', 'Somavamshi Dynasty'],
+    architecturalHeritage: 'Kalinga Architecture characterized by curvilinear Rekha Deula towers and pidha deulas.',
+    destinations: [
+      {
+        id: 'konark',
+        name: 'Konark',
+        nativeName: 'କୋଣାର୍କ',
+        stateId: 'odisha',
+        tagline: 'The Golden Sands of the Celestial Sun Chariot',
+        heroImage: '/images/konark-hero.jpg',
+        description: "Coastal sanctuary of the 13th-century Sun Temple designed as Surya's celestial chariot.",
+        historicalContext: 'Maritime port for Eastern Ganga merchants.',
+        bestTimeToVisit: 'November to February',
+        monumentIds: ['konark-sun-temple'],
+        geographicHighlight: 'Bay of Bengal Shoreline',
         imageGallery: [
-          {
-            url: '/images/heritage/destinations/thiruvananthapuram.jpg',
-            source: 'Unsplash',
-            sourcePage: 'https://unsplash.com/photos/pwPcYzyJTtY',
-            photographer: 'Unsplash',
-            license: 'Unsplash License'
-          }
+          { url: '/images/konark-hero.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/konark-1.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/konark-2.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/konark-4.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/konark-5.png', source: 'DHAROHAR Cultural Archive' }
         ]
       }
     ]
   },
   {
-    id: 'karnataka',
-    name: 'Karnataka',
-    nativeName: 'ಕರ್ನಾಟಕ',
-    capital: 'Bengaluru',
-    tagline: 'The Golden City of Vijayanagara and Boulder-Strewn Empires',
-    heroImage: '/images/heritage/destinations/hampi.jpg',
-    accentColor: '#B58A52',
-    overview: 'From the dramatic boulder hills of Hampi along the Tungabhadra River to the delicate soapstone filigree of the Hoysalas, Karnataka represents the grand crossroads where Northern and Southern Indian architectural idioms converged.',
-    dynasties: ['Vijayanagara Empire (1336–1646 CE)', 'Badami Chalukyas', 'Rashtrakutas', 'Hoysala Dynasty'],
-    architecturalHeritage: 'Vijayanagara Style with stepped granite towers, massive monolithic sculptures, musical pillars, and expansive bazaars.',
+    id: 'telangana',
+    name: 'Telangana',
+    nativeName: 'తెలంగాణ',
+    capital: 'Hyderabad',
+    tagline: 'The Minarets of Qutb Shahi Heritage & Deccan Culture',
+    heroImage: '/images/charminar-hero.jpg',
+    accentColor: '#B85D3B',
+    overview: 'Telangana stands as the cultural heart of Deccan architecture, famed for the 48-meter four-minaret arch of Charminar in Hyderabad.',
+    dynasties: ['Qutb Shahi Dynasty', 'Asaf Jahi Nizam Empire', 'Kakatiya Dynasty'],
+    architecturalHeritage: 'Indo-Islamic Deccani Architecture combining granite strength with stucco filigree.',
     destinations: [
       {
-        id: 'hampi',
-        name: 'Hampi (Vijayanagara)',
-        nativeName: 'ಹಂಪಿ',
-        stateId: 'karnataka',
-        tagline: 'The Forgotten Golden Empire of Stone Chariots',
-        heroImage: '/images/heritage/destinations/hampi.jpg',
-        description: 'Spanning over 4,100 hectares, Hampi was the second-largest city in the medieval world in 1500 CE, featuring palaces, stone aqueducts, and magnificent temples amidst surreal granite boulder landscapes.',
-        historicalContext: 'The epicenter of a medieval empire that defended peninsular traditions, famous for ruby and diamond bazaars recorded by Portuguese and Persian chroniclers.',
-        bestTimeToVisit: 'October to March (Mild winter weather and Hampi Utsav festival)',
-        monumentIds: ['virupaksha-temple', 'vittala-temple', 'lotus-mahal', 'hazara-rama-temple'],
-        geographicHighlight: 'Tungabhadra River Gorge & Pre-Cambrian Granite Hills',
+        id: 'hyderabad',
+        name: 'Hyderabad',
+        nativeName: 'హైదరాబాద్',
+        stateId: 'telangana',
+        tagline: 'The City of Pearls & Charminar',
+        heroImage: '/images/charminar-hero.jpg',
+        description: 'Founded in 1591 by Muhammad Quli Qutb Shah, famous for pearls, biryani, and Charminar.',
+        historicalContext: 'Capital of the Qutb Shahi and Nizam rulers.',
+        bestTimeToVisit: 'October to March',
+        monumentIds: ['charminar'],
+        geographicHighlight: 'Musi River & Deccan Plateau',
         imageGallery: [
-          {
-            url: '/images/heritage/destinations/hampi.jpg',
-            source: 'Unsplash',
-            sourcePage: 'https://unsplash.com/photos/jDMCUnvD5lY',
-            photographer: 'Unsplash',
-            license: 'Unsplash License'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 'rajasthan',
-    name: 'Rajasthan',
-    nativeName: 'राजस्थान',
-    capital: 'Jaipur',
-    tagline: 'The Land of Desert Fortresses, Mirror Palaces and Astronomical Geometry',
-    heroImage: '/images/heritage/destinations/jaipur.jpg',
-    accentColor: '#E07C30',
-    overview: 'Rajasthan represents the apex of thermodynamic architecture and high Rajput fort military planning. Its pink sandstone palaces, Belgian mirror-lined corridors, and massive solar astronomical instruments reflect a deep alignment between cosmic science, royalty, and harsh environments.',
-    dynasties: ['Kachwaha Rajput Dynasty (Amber/Jaipur)', 'Mewar Dynasty (Udaipur)', 'Rathores of Marwar (Jodhpur)'],
-    architecturalHeritage: 'Rajput Fortifications featuring massive multi-layered ramparts, Belgian mirror halls (Sheesh Mahal), honeycombed breezy screen balconies (Jharokhas), and solar astronomical Samrat sundials.',
-    destinations: [
-      {
-        id: 'jaipur',
-        name: 'Jaipur (Pink City)',
-        nativeName: 'जयपुर',
-        stateId: 'rajasthan',
-        tagline: 'The Astronomical Wonder and Royal Citadel',
-        heroImage: '/images/heritage/destinations/jaipur.jpg',
-        description: 'A fortified grid city designed by traditional Hindu Vastu Shastra geometry in 1727. Renowned for its honeycomb sandstone screens, Mirror Palaces, and cosmic calculators.',
-        historicalContext: 'Founded by Maharaja Sawai Jai Singh II, serving as a center of scientific, mathematical, and astronomical excellence in Mughal-aligned Rajputana.',
-        bestTimeToVisit: 'November to February (Cool winter climate)',
-        monumentIds: ['hawa-mahal', 'amber-fort', 'city-palace-jaipur', 'jantar-mantar-jaipur'],
-        geographicHighlight: 'Aravalli Hill Ranges & Semi-Arid Salt Marshes',
-        imageGallery: [
-          {
-            url: '/images/heritage/destinations/jaipur.jpg',
-            source: 'Unsplash',
-            sourcePage: 'https://unsplash.com/photos/Y38df3W9sk0',
-            photographer: 'Unsplash',
-            license: 'Unsplash License'
-          }
+          { url: '/images/gallery/charminar-2.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/charminar-3.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/charminar-6.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/charminar-7.png', source: 'DHAROHAR Cultural Archive' }
         ]
       }
     ]
@@ -1651,131 +1349,380 @@ export const STATES_DATA: StateData[] = [
     nativeName: 'दिल्ली',
     capital: 'New Delhi',
     tagline: 'The Palimpsest of Seven Empires and Soaring Minarets',
-    heroImage: '/images/heritage/destinations/delhi.jpg',
+    heroImage: '/images/india-gate-hero.jpg',
     accentColor: '#D15A5A',
-    overview: 'Delhi has served as the capital of seven continuous historical empires. Its soaring sandstone minarets, massive octagonal garden tombs, and triumphal arches reflect the grand meeting point of Persian geometry, Sultanate victories, and post-colonial national memorials.',
-    dynasties: ['Tomar & Chauhan Dynasties', 'Delhi Sultanate (Mamluk, Khalji, Tughlaq, Lodi)', 'Mughal Empire', 'British Raj era'],
-    architecturalHeritage: 'Indo-Islamic architectural synthesis featuring soaring victory minarets, Charbagh garden tombs, double domes, and Lutyens Neo-Classical government arches.',
+    overview: 'Delhi has served as the capital of seven continuous historical empires, containing 73-meter brick minarets, red sandstone palaces, and modern memorials.',
+    dynasties: ['Delhi Sultanate', 'Mughal Empire', 'British Colonial Era'],
+    architecturalHeritage: 'Indo-Islamic, Mughal Fortified, and Neoclassical Triumphal Arch Architecture.',
     destinations: [
       {
-        id: 'delhi',
-        name: 'Delhi (NCR)',
-        nativeName: 'दिल्ली',
+        id: 'new-delhi',
+        name: 'New Delhi',
+        nativeName: 'नई दिल्ली',
         stateId: 'delhi',
-        tagline: 'Where Millennia of Imperial Dynasties Intersect',
-        heroImage: '/images/heritage/destinations/delhi.jpg',
-        description: 'A sprawling megalopolis built over the ruins of historic capitals, housing 73-metervictory minars, Mughal garden-tombs, imperial palace citadels, and modern triumphal memorials.',
-        historicalContext: 'Positioned at the strategic Yamuna River crossing along the ancient Grand Trunk Road, serving as the crown prize of Indian dynasties for two millennia.',
-        bestTimeToVisit: 'October to March (Crisp Delhi winter months)',
-        monumentIds: ['qutub-minar', 'humayuns-tomb', 'red-fort', 'india-gate'],
-        geographicHighlight: 'Yamuna River Basins & Delhi Aravalli Ridge',
+        tagline: 'The Capital City of Triumphal Arches',
+        heroImage: '/images/india-gate-hero.jpg',
+        description: 'Designed by Lutyens and Baker, housing India Gate and the Lotus Temple.',
+        historicalContext: 'Inaugurated as national capital in 1931.',
+        bestTimeToVisit: 'October to March',
+        monumentIds: ['india-gate', 'lotus-temple'],
+        geographicHighlight: 'Yamuna Basin & Rajpath',
         imageGallery: [
-          {
-            url: '/images/heritage/destinations/delhi.jpg',
-            source: 'Unsplash',
-            sourcePage: 'https://unsplash.com/photos/LMj_BZKeGfE',
-            photographer: 'Unsplash',
-            license: 'Unsplash License'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 'odisha',
-    name: 'Odisha',
-    nativeName: 'ଓଡ଼ିଶା',
-    capital: 'Bhubaneswar',
-    tagline: 'The Cosmic Sun Chariots and Sacred Kalinga Temple Deulas',
-    heroImage: '/images/heritage/destinations/konark.jpg',
-    accentColor: '#C4943C',
-    overview: 'Odisha represents the pristine evolution of Kalinga temple architecture. From the early rock-cut Jain cells of Udayagiri to the curvilinear spires of Lingaraj and the colossal cosmic solar chariot at Konark, stone became a sacred canvas of celestial orbits and classical Odissi movements.',
-    dynasties: ['Mahameghavahana Dynasty (2nd Century BCE)', 'Somavamshi Dynasty (9th-12th Century)', 'Eastern Ganga Dynasty (11th-15th Century)'],
-    architecturalHeritage: 'Kalinga Architecture characterized by curvilinear Rekha Deula towers, flat-roofed Jagamohana assembly halls, Pidha deulas, and red khondalite stone carvings.',
-    destinations: [
-      {
-        id: 'konark',
-        name: 'Konark',
-        nativeName: 'କୋଣାର୍କ',
-        stateId: 'odisha',
-        tagline: 'The Golden Sands of the Celestial Sun Chariot',
-        heroImage: '/images/heritage/destinations/konark.jpg',
-        description: 'A coastal sanctuary housing the ruins of the colossal 13th-century Sun Temple, designed as Surya\'s celestial chariot with astronomical sundial wheels pulling down toward the Bay of Bengal.',
-        historicalContext: 'Historically an active maritime trading port for Eastern Ganga merchants sailing to South East Asian empires, famously recorded as the "Black Pagoda" by early European seafarers.',
-        bestTimeToVisit: 'November to February (Pleasant winter months & Konark Dance Festival)',
-        monumentIds: ['konark-sun-temple'],
-        geographicHighlight: 'Chandrabhaga Estuaries & Bay of Bengal Sandy Plains',
-        imageGallery: [
-          {
-            url: '/images/heritage/destinations/konark.jpg',
-            source: 'Unsplash',
-            sourcePage: 'https://unsplash.com/photos/MjvYgIGDu84',
-            photographer: 'Shuvam Mitra',
-            license: 'Unsplash License'
-          }
+          { url: '/images/gallery/india-gate-1.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/india-gate-2.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/india-gate-3.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/india-gate-4.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/india-gate-5.png', source: 'DHAROHAR Cultural Archive' }
         ]
       },
       {
-        id: 'bhubaneswar',
-        name: 'Bhubaneswar',
-        nativeName: 'ଭୁବନେଶ୍ୱର',
-        stateId: 'odisha',
-        tagline: 'The Temple City of Ekamra Kshetra',
-        heroImage: '/images/heritage/destinations/bhubaneswar.jpg',
-        description: 'The capital of Odisha, Ekamra Kshetra is an ancient heritage center containing hundreds of structural stone temples and early rock-cut monastic caves.',
-        historicalContext: 'Serves as the historic seat of Somavamshi and Eastern Ganga dynasties, famous for early Buddhist-influenced Jain rock carvings.',
+        id: 'old-delhi',
+        name: 'Old Delhi (Shahjahanabad)',
+        nativeName: 'पुरानी दिल्ली',
+        stateId: 'delhi',
+        tagline: 'The Red Sandstone Citadel of Shah Jahan',
+        heroImage: '/images/red-fort-hero.jpg',
+        description: 'Historic walled city of Shahjahanabad, housing the Red Fort.',
+        historicalContext: 'Mughal imperial capital from 1638 to 1857.',
         bestTimeToVisit: 'October to March',
-        monumentIds: ['mukteshwar-temple', 'lingaraj-temple', 'udayagiri-caves'],
-        geographicHighlight: 'Ekamra Kshetra Alluvial Basin',
+        monumentIds: ['red-fort'],
+        geographicHighlight: 'Chandni Chowk & Yamuna',
         imageGallery: [
-          {
-            url: '/images/heritage/destinations/bhubaneswar.jpg',
-            source: 'Unsplash',
-            sourcePage: 'https://unsplash.com/photos/O4VrJsPzt4M',
-            photographer: 'Unsplash',
-            license: 'Unsplash License'
-          }
+          { url: '/images/gallery/red-fort-1.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/red-fort-2.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/red-fort-3.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/red-fort-4.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/red-fort-5.jpg', source: 'DHAROHAR Cultural Archive' }
+        ]
+      },
+      {
+        id: 'mehrauli',
+        name: 'Mehrauli',
+        nativeName: 'महरौली',
+        stateId: 'delhi',
+        tagline: 'The First City of the Sultanate',
+        heroImage: 'https://images.unsplash.com/photo-1545232979-fbf30fe367c5?auto=format&fit=crop&w=1200&q=80',
+        description: 'Oldest fortified zone of Delhi, home to the Qutub Minar complex.',
+        historicalContext: 'Seat of Mamluk Sultan Qutb-ud-din Aibak.',
+        bestTimeToVisit: 'October to March',
+        monumentIds: ['qutb-minar'],
+        geographicHighlight: 'Aravalli Ridge'
+      }
+    ]
+  },
+  {
+    id: 'maharashtra',
+    name: 'Maharashtra',
+    nativeName: 'महाराष्ट्र',
+    capital: 'Mumbai',
+    tagline: 'The Deccan Basalt Caves & Waterfront Gateways',
+    heroImage: '/images/gateway-of-india-hero.jpg',
+    accentColor: '#D47B3A',
+    overview: 'Maharashtra spans from the basaltic cliff excavations of Ajanta and Ellora to the coastal Saracenic arch of Gateway of India in Mumbai.',
+    dynasties: ['Rashtrakuta Dynasty', 'Satavahana Empire', 'Vakataka Dynasty', 'Maratha Empire'],
+    architecturalHeritage: 'Monolithic Rock-Cut Cave Excavations and Indo-Saracenic Basalt Architecture.',
+    destinations: [
+      {
+        id: 'mumbai',
+        name: 'Mumbai',
+        nativeName: 'मुंबई',
+        stateId: 'maharashtra',
+        tagline: 'The Financial Gateway of India',
+        heroImage: '/images/gateway-of-india-hero.jpg',
+        description: 'Port metropolis on the Arabian Sea, home to Gateway of India.',
+        historicalContext: 'Key colonial trading harbor of the Western coast.',
+        bestTimeToVisit: 'November to February',
+        monumentIds: ['gateway-of-india'],
+        geographicHighlight: 'Arabian Sea Shoreline',
+        imageGallery: [
+          { url: '/images/gallery/gateway-1.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/gateway-2.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/gateway-3.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/gateway-4.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/gateway-5.png', source: 'DHAROHAR Cultural Archive' }
+        ]
+      },
+      {
+        id: 'chhatrapati-sambhajinagar',
+        name: 'Chhatrapati Sambhajinagar',
+        nativeName: 'छत्रपती संभाजीनगर',
+        stateId: 'maharashtra',
+        tagline: 'The Cave Capital of Ajanta & Ellora',
+        heroImage: '/images/ellora-caves-hero.jpg',
+        description: 'Gateway to UNESCO world heritage cave sanctuaries of Ellora and Ajanta.',
+        historicalContext: 'Medieval seat of Rashtrakuta and Yadava rulers.',
+        bestTimeToVisit: 'October to March',
+        monumentIds: ['ellora-caves', 'ajanta-caves'],
+        geographicHighlight: 'Deccan Basalt Plateau',
+        imageGallery: [
+          { url: '/images/gallery/ellora-1.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/ellora-2.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/ellora-3.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/ellora-4.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/ellora-5.png', source: 'DHAROHAR Cultural Archive' }
         ]
       }
     ]
   },
   {
-    id: 'uttar-pradesh',
-    name: 'Uttar Pradesh',
-    nativeName: 'उत्तर प्रदेश',
-    capital: 'Agra',
-    tagline: 'The Epitome of Mughal Symmetry and White Marble Splendor',
-    heroImage: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1600&q=80',
-    accentColor: '#D9A441',
-    overview: 'Uttar Pradesh represents the peak of symmetrical Mughal palace architecture and marble inlay art. From the grand red sandstone ramparts of Agra Fort to the abandoned victory capital of Fatehpur Sikri and the white marble jewel of the Taj Mahal, the state stands as a canvas of imperial geometry.',
-    dynasties: ['Mughal Empire (16th–18th Century)', 'Suryavanshi Dynasties', 'Nawabs of Oudh'],
-    architecturalHeritage: 'Mughal Symmetrical Architecture characterized by white marble double domes, intricate floral Pietra dura stone inlays, grand red sandstone gateways, and sprawling charbagh gardens.',
+    id: 'karnataka',
+    name: 'Karnataka',
+    nativeName: 'ಕರ್ನಾಟಕ',
+    capital: 'Bengaluru',
+    tagline: 'The Golden City of Vijayanagara & Whispering Domes',
+    heroImage: '/images/mysore-palace-hero.jpg',
+    accentColor: '#B58A52',
+    overview: 'From the dramatic boulder hills of Hampi to the pink-domed Mysore Palace and the acoustic whispering dome of Gol Gumbaz in Bijapur.',
+    dynasties: ['Vijayanagara Empire (1336–1646 CE)', 'Wadiyar Dynasty', 'Adil Shahi Sultanate'],
+    architecturalHeritage: 'Vijayanagara Dravidian Granite Style, Indo-Saracenic Royal Palace Architecture, and Deccani Islamic Domes.',
     destinations: [
       {
-        id: 'agra',
-        name: 'Agra',
-        nativeName: 'आगरा',
-        stateId: 'uttar-pradesh',
-        tagline: 'The Heart of Mughal Imperial Grandeur',
-        heroImage: '/images/heritage/destinations/agra.jpg',
-        description: 'Positioned on the banks of Yamuna River, Agra is home to the world\'s most famous white marble mausoleum, massive sandstone royal forts, and historical abandoned capitals.',
-        historicalContext: 'Served as the main capital of the Mughal Empire under Akbar, Jahangir, and Shah Jahan before shifting to Delhi.',
-        bestTimeToVisit: 'October to March (Cool winters and clear visibility)',
-        monumentIds: ['taj-mahal', 'agra-fort', 'fatehpur-sikri', 'itmad-ud-daulah'],
-        geographicHighlight: 'Yamuna River floodplains and Gangetic alluvial plains',
+        id: 'mysore',
+        name: 'Mysore (Mysuru)',
+        nativeName: 'ಮೈಸೂರು',
+        stateId: 'karnataka',
+        tagline: 'The Royal Cultural Capital of Karnataka',
+        heroImage: '/images/mysore-palace-hero.jpg',
+        description: 'Famous for Mysore Palace, silk sarees, and Dasara celebrations.',
+        historicalContext: 'Capital of the Wadiyar dynasty.',
+        bestTimeToVisit: 'October to March',
+        monumentIds: ['mysore-palace'],
+        geographicHighlight: 'Chamundi Hills Foothills',
         imageGallery: [
-          {
-            url: '/images/heritage/destinations/agra.jpg',
-            source: 'Unsplash',
-            sourcePage: 'https://unsplash.com/photos/0flBeURVkSc',
-            photographer: 'Uttara B',
-            license: 'Unsplash License'
-          }
+          { url: '/images/gallery/mysore-1.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/mysore-2.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/mysore-3.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/mysore-4.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/mysore-5.jpg', source: 'DHAROHAR Cultural Archive' }
+        ]
+      },
+      {
+        id: 'vijayapura',
+        name: 'Vijayapura (Bijapur)',
+        nativeName: 'ವಿಜಯಪುರ',
+        stateId: 'karnataka',
+        tagline: 'The Citadel of Gol Gumbaz',
+        heroImage: '/images/gol-gumbaz-hero.jpg',
+        description: 'Deccan city famous for the 11-fold acoustic echoing dome of Gol Gumbaz.',
+        historicalContext: 'Capital of the Adil Shahi Sultanate.',
+        bestTimeToVisit: 'October to March',
+        monumentIds: ['gol-gumbaz'],
+        geographicHighlight: 'Deccan Plains',
+        imageGallery: [
+          { url: '/images/gallery/gol-gumbaz-1.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/gol-gumbaz-2.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/gol-gumbaz-3.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/gol-gumbaz-4.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/gol-gumbaz-5.png', source: 'DHAROHAR Cultural Archive' }
+        ]
+      },
+      {
+        id: 'hampi',
+        name: 'Hampi (Vijayanagara)',
+        nativeName: 'ಹಂಪಿ',
+        stateId: 'karnataka',
+        tagline: 'The Empire of Stone Chariots & Musical Pillars',
+        heroImage: '/images/hampi-hero.jpg',
+        description: '4,100-hectare UNESCO sanctuary of Vijayanagara temples.',
+        historicalContext: 'Capital of the Vijayanagara Empire.',
+        bestTimeToVisit: 'October to March',
+        monumentIds: ['virupaksha-temple'],
+        geographicHighlight: 'Tungabhadra River Basin',
+        imageGallery: [
+          { url: '/images/gallery/hampi-1.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/hampi-2.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/hampi-3.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/hampi-4.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/hampi-5.jpg', source: 'DHAROHAR Cultural Archive' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'gujarat',
+    name: 'Gujarat',
+    nativeName: 'ગુજરાત',
+    capital: 'Gandhinagar',
+    tagline: 'The Subterranean Stepwells & Maru-Gurjara Craft',
+    heroImage: '/images/rani-ki-vav-hero.jpg',
+    accentColor: '#E09F3E',
+    overview: 'Gujarat features the UNESCO subterranean stepwell Rani Ki Vav in Patan, built by Queen Udayamati with over 500 sculpted stone panels.',
+    dynasties: ['Chaulukya (Solanki) Dynasty', 'Maitrakas of Vallabhi'],
+    architecturalHeritage: 'Maru-Gurjara Subterranean Stepwell Architecture.',
+    destinations: [
+      {
+        id: 'patan',
+        name: 'Patan',
+        nativeName: 'પાટણ',
+        stateId: 'gujarat',
+        tagline: 'The Subterranean Capital of Stepwells',
+        heroImage: '/images/rani-ki-vav-hero.jpg',
+        description: 'Ancient Solanki capital housing Rani Ki Vav stepwell.',
+        historicalContext: 'Capital of the Solanki rulers of Gujarat.',
+        bestTimeToVisit: 'October to March',
+        monumentIds: ['rani-ki-vav'],
+        geographicHighlight: 'Saraswati River Plain',
+        imageGallery: [
+          { url: '/images/gallery/rani-ki-vav-1.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/rani-ki-vav-2.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/rani-ki-vav-3.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/rani-ki-vav-4.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/rani-ki-vav-5.png', source: 'DHAROHAR Cultural Archive' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'west-bengal',
+    name: 'West Bengal',
+    nativeName: 'পশ্চিমবঙ্গ',
+    capital: 'Kolkata',
+    tagline: 'The Cultural & Architectural Marvels of the East',
+    heroImage: '/images/victoria-memorial-hero.jpg',
+    accentColor: '#3A86C8',
+    overview: 'West Bengal showcases the white marble Renaissance splendor of Victoria Memorial in Kolkata amidst lush gardens and cultural history.',
+    dynasties: ['Pala Dynasty', 'Sena Dynasty', 'Nawabs of Bengal', 'British Colonial Era'],
+    architecturalHeritage: 'Indo-Saracenic & Classical Renaissance Revival Architecture.',
+    destinations: [
+      {
+        id: 'kolkata',
+        name: 'Kolkata',
+        nativeName: 'কলকাতা',
+        stateId: 'west-bengal',
+        tagline: 'The City of Joy & Marble Palaces',
+        heroImage: '/images/victoria-memorial-hero.jpg',
+        description: 'Cultural capital of India, home to Victoria Memorial.',
+        historicalContext: 'Capital of British India until 1911.',
+        bestTimeToVisit: 'October to March',
+        monumentIds: ['victoria-memorial'],
+        geographicHighlight: 'Hooghly River Bank',
+        imageGallery: [
+          { url: '/images/gallery/victoria-1.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/victoria-2.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/victoria-3.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/victoria-4.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/victoria-5.jpg', source: 'DHAROHAR Cultural Archive' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'madhya-pradesh',
+    name: 'Madhya Pradesh',
+    nativeName: 'मध्य प्रदेश',
+    capital: 'Bhopal',
+    tagline: 'The Heartland of Ancient Buddhist Domes & Stupas',
+    heroImage: '/images/sanchi-stupa-hero.jpg',
+    accentColor: '#9B51E0',
+    overview: 'Madhya Pradesh houses India’s oldest stone structure: the Great Stupa at Sanchi, commissioned by Emperor Ashoka in the 3rd century BCE.',
+    dynasties: ['Maurya Empire', 'Shunga & Satavahana Dynasties', 'Chandela Dynasty'],
+    architecturalHeritage: 'Ancient Buddhist Stupa and Torana Gateway Architecture.',
+    destinations: [
+      {
+        id: 'sanchi',
+        name: 'Sanchi',
+        nativeName: 'सांची',
+        stateId: 'madhya-pradesh',
+        tagline: 'The Cosmic Stupa Sanctuary of Ashoka',
+        heroImage: '/images/sanchi-stupa-hero.jpg',
+        description: 'Hillside Buddhist sanctuary containing the Great Stupa.',
+        historicalContext: 'Commissioned by Emperor Ashoka the Great.',
+        bestTimeToVisit: 'October to March',
+        monumentIds: ['sanchi-stupa'],
+        geographicHighlight: 'Betwa River Valley',
+        imageGallery: [
+          { url: '/images/gallery/sanchi-1.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/sanchi-2.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/sanchi-3.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/sanchi-4.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/sanchi-5.png', source: 'DHAROHAR Cultural Archive' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'rajasthan',
+    name: 'Rajasthan',
+    nativeName: 'राजस्थान',
+    capital: 'Jaipur',
+    tagline: 'The Land of Desert Fortresses, Mirror Palaces and Jharokhas',
+    heroImage: '/images/hawa-mahal-hero.jpg',
+    accentColor: '#E07C30',
+    overview: 'Rajasthan represents the apex of thermodynamic architecture and hilltop fort military planning, from Jaipur’s Hawa Mahal and Amer Fort to Jaisalmer’s Golden Living Citadel.',
+    dynasties: ['Kachwaha Rajput Dynasty', 'Bhati Rajput Dynasty', 'Mewar & Rathore Dynasties'],
+    architecturalHeritage: 'Rajput Fortification, Belgian Mirror Halls (Sheesh Mahal), and Jharokha screens.',
+    destinations: [
+      {
+        id: 'jaipur',
+        name: 'Jaipur (Pink City)',
+        nativeName: 'जयपुर',
+        stateId: 'rajasthan',
+        tagline: 'The Astronomical Wonder and Pink Citadel',
+        heroImage: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1200&q=80',
+        description: 'Vastu-planned city containing Hawa Mahal and Amer Fort.',
+        historicalContext: 'Founded by Sawai Jai Singh II in 1727.',
+        bestTimeToVisit: 'November to February',
+        monumentIds: ['hawa-mahal', 'amber-fort'],
+        geographicHighlight: 'Aravalli Hills'
+      },
+      {
+        id: 'jaisalmer',
+        name: 'Jaisalmer',
+        nativeName: 'जैसलमेर',
+        stateId: 'rajasthan',
+        tagline: 'The Golden Citadel of the Thar Desert',
+        heroImage: '/images/jaisalmer-fort-hero.jpg',
+        description: 'Living sandstone fort rising out of the Thar desert sands.',
+        historicalContext: 'Founded by Rawal Jaisal in 1156 CE.',
+        bestTimeToVisit: 'November to February',
+        monumentIds: ['jaisalmer-fort'],
+        geographicHighlight: 'Thar Desert Sand Dunes',
+        imageGallery: [
+          { url: '/images/gallery/jaisalmer-1.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/jaisalmer-2.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/jaisalmer-3.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/jaisalmer-4.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/jaisalmer-5.png', source: 'DHAROHAR Cultural Archive' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'bihar',
+    name: 'Bihar',
+    nativeName: 'बिहार',
+    capital: 'Patna',
+    tagline: 'The Ancient Cradle of Global Learning & Monastic Mahaviharas',
+    heroImage: '/images/nalanda-mahavihara-hero.jpg',
+    accentColor: '#27AE60',
+    overview: 'Bihar houses the ancient Nalanda Mahavihara, the world’s first residential international university flourishing from the 5th century CE.',
+    dynasties: ['Gupta Empire', 'Pala Dynasty', 'Maurya Empire'],
+    architecturalHeritage: 'Ancient Monastic Red Brick Stupa Architecture.',
+    destinations: [
+      {
+        id: 'nalanda',
+        name: 'Nalanda',
+        nativeName: 'नालंदा',
+        stateId: 'bihar',
+        tagline: 'The Ancient Mahavihara Seat of Knowledge',
+        heroImage: '/images/nalanda-mahavihara-hero.jpg',
+        description: 'Ancient university complex featuring red brick stupas and monastic cells.',
+        historicalContext: 'Established under Gupta Emperor Kumaragupta I.',
+        bestTimeToVisit: 'October to March',
+        monumentIds: ['nalanda-mahavihara'],
+        geographicHighlight: 'Gangetic Plains',
+        imageGallery: [
+          { url: '/images/gallery/nalanda-1.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/nalanda-2.jpg', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/nalanda-3.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/nalanda-4.png', source: 'DHAROHAR Cultural Archive' },
+          { url: '/images/gallery/nalanda-5.png', source: 'DHAROHAR Cultural Archive' }
         ]
       }
     ]
   }
 ];
+
 
 export const HERITAGE_TRAILS: HeritageTrail[] = [
   {

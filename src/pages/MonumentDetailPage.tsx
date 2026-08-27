@@ -297,29 +297,18 @@ export const MonumentDetailPage: React.FC<MonumentDetailPageProps> = ({
               <div className="p-8 rounded-3xl bg-[#2B2118]/70 border border-[#D4A85A]/30 space-y-6">
                 <h2 className="font-display text-2xl font-bold text-[#F3EBDD] flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-[#D4A85A]" />
-                  Resilient Image Gallery & Attributions
+                  Photo Gallery
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {monument.imageGallery.map((img, i) => (
-                    <div key={i} className="group relative rounded-2xl overflow-hidden border border-[#D4A85A]/20 bg-[#17130F] flex flex-col justify-between">
-                      <div className="relative h-44 overflow-hidden">
-                        <HeritageImage
-                          src={img.url}
-                          alt={monument.name}
-                          fallbackName={`${monument.name} Gallery ${i + 1}`}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                      </div>
-                      <div className="p-3 bg-[#17130F] space-y-1 text-[10px] text-[#F3EBDD]/65">
-                        <div className="font-semibold text-[#D4A85A] truncate">Source: {img.source}</div>
-                        {img.photographer && <div className="truncate text-[#F3EBDD]/50">By: {img.photographer}</div>}
-                        {img.license && <div className="truncate text-[#F3EBDD]/50">License: {img.license}</div>}
-                        {img.sourcePage && (
-                          <a href={img.sourcePage} target="_blank" rel="noopener noreferrer" className="text-[#D4A85A] hover:underline block pt-1">
-                            View Original Page →
-                          </a>
-                        )}
-                      </div>
+                    <div key={i} className="group relative rounded-2xl overflow-hidden border border-[#D4A85A]/30 bg-[#17130F] h-60 shadow-lg">
+                      <HeritageImage
+                        src={img.url}
+                        alt={`${monument.name} Gallery ${i + 1}`}
+                        fallbackName={`${monument.name} Gallery ${i + 1}`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#17130F]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                     </div>
                   ))}
                 </div>

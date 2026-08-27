@@ -1,18 +1,21 @@
 import React from 'react';
 import { Compass, ShieldCheck, Sparkles, Navigation, Heart, ArrowUp } from 'lucide-react';
 import { heritageService } from '../services/heritageService';
+import { Language } from '../types';
+import { TRANSLATIONS } from '../data/translations';
 
 interface FooterProps {
   onNavigate: (route: string) => void;
+  language: Language;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate, language }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const statesData = heritageService.getStates();
-
+  const t = TRANSLATIONS[language].footer;
 
   return (
     <footer className="bg-[#17130F] border-t border-[#D4A85A]/30 text-[#F3EBDD] relative overflow-hidden">
@@ -33,11 +36,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </div>
             
             <p className="font-subheading italic text-lg text-[#D4A85A]">
-              “Explore the past. Experience it in 3D. Preserve it for the future.”
+              {t.tagline}
             </p>
 
             <p className="text-xs text-[#F3EBDD]/70 leading-relaxed max-w-sm">
-              A high-fidelity digital heritage sanctuary dedicated to the epigraphy, astronomy, and architectural marvels of Indian temple civilizations and dynastic monuments.
+              {t.desc}
             </p>
 
             <div className="pt-2 flex items-center gap-3">
@@ -46,14 +49,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 className="px-3.5 py-1.5 rounded-full bg-[#2B2118] border border-[#D4A85A]/40 text-xs text-[#D4A85A] hover:bg-[#D4A85A] hover:text-[#17130F] transition-colors flex items-center gap-1.5"
               >
                 <ShieldCheck className="w-3.5 h-3.5" />
-                Digital Preservation Charter
+                {t.charterBtn}
               </button>
               <button
                 onClick={() => onNavigate('3d-explorer')}
                 className="px-3.5 py-1.5 rounded-full bg-[#D4A85A]/10 border border-[#D4A85A]/40 text-xs text-[#F3EBDD] hover:border-[#D4A85A] transition-colors flex items-center gap-1.5"
               >
                 <Sparkles className="w-3.5 h-3.5 text-[#D4A85A]" />
-                Spatial 3D Archive
+                {t.spatialBtn}
               </button>
             </div>
           </div>
@@ -61,7 +64,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Regional Heritage Destinations */}
           <div>
             <h4 className="font-display text-sm font-semibold uppercase tracking-wider text-[#D4A85A] mb-4">
-              Regional Heritage
+              {t.regionalTitle}
             </h4>
             <ul className="space-y-2 text-xs">
               {statesData.map((state) => (
@@ -81,7 +84,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Core Experiences */}
           <div>
             <h4 className="font-display text-sm font-semibold uppercase tracking-wider text-[#D4A85A] mb-4">
-              Experiences
+              {t.experiencesTitle}
             </h4>
             <ul className="space-y-2 text-xs text-[#F3EBDD]/70">
               <li>
@@ -115,7 +118,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Platform & Stewardship */}
           <div>
             <h4 className="font-display text-sm font-semibold uppercase tracking-wider text-[#D4A85A] mb-4">
-              Stewardship
+              {t.stewardshipTitle}
             </h4>
             <ul className="space-y-2 text-xs text-[#F3EBDD]/70">
               <li>
@@ -145,11 +148,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Bottom Bar */}
         <div className="mt-14 pt-6 border-t border-[#D4A85A]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F3EBDD]/50">
           <p>
-            © 2026 DHAROHAR • Dedicated to the living memory of India's master stonemasons and architects.
+            {t.copyright}
           </p>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1">
-              Crafted with reverence for Indian Heritage
+              {t.reverence}
             </span>
             <button
               onClick={scrollToTop}
@@ -164,3 +167,4 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     </footer>
   );
 };
+

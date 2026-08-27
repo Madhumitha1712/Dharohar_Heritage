@@ -147,6 +147,8 @@ export const ThreeDHeritageExperiencePage: React.FC<ThreeDHeritageExperiencePage
           <div className="lg:col-span-8 space-y-6">
             <ThreeDViewer
               modelUrl={monument.threeDModelUrl}
+              sketchfabId={monument.sketchfabId}
+              sketchfabUrl={monument.sketchfabUrl}
               monumentId={monument.id}
               hotspots={hotspots}
               selectedHotspotId={selectedHotspot?.id || null}
